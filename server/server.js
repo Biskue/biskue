@@ -1,11 +1,24 @@
 const express = require('express')
-const bodyParser = require('body-parser')
+
+require('dotenv').config({
+    path: __dirname + '/../.env',
+});
+
+const globalDecorator = require('./middleware/global-decorator.middleware');
+const routerHub = require('./routers/hub.router');
 
 const app = express()
-app.use(bodyParser.JSON())
+
+globalDecorator(app);
+
+routerHub(app);
+
+app.use((err, req, res, next) => {
+    res.status(500).send(err);
+})
 
 
-const port = 3005
+const port = process.env.SERVER_PORT || 4000;
 
 app.listen(port, () => {
     console.log(`Server listening at localhost:${port}`);
