@@ -17,9 +17,14 @@ import {connect} from 'react-redux'
 		this.setState({ [name]: value });
   }
   
-  getLocation = (e) => {window.navigator.geolocation.getCurrentPosition(function(position) {
+  getLocation= () => { console.log('checking location')
+   window.navigator.geolocation.getCurrentPosition((position) => {
+     console.log(position)
+
   this.setState({latitude: position.coords.latitude, longitude: position.coords.longitude});
 });}
+
+
 handlePriceChange(e){
   const priceRange = this.state.priceRange
 if(priceRange.includes(e.target.value)){
