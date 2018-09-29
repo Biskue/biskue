@@ -11,13 +11,13 @@ import StepSeven from './StepSeven'
 export default () => {
   return (
     <div>
-    <Route path= '/step-1' component ={StepOne}/>>
-    <Route path= '/step-2' component ={StepTwo} />
-    <Route path= '/step-3' component ={StepThree} />
-    <Route path= '/step-4' component ={StepFour} />
-    <Route path= '/step-5' component ={StepFive} />
-    <Route path= '/step-6' component ={StepSix} />
-    <Route path= '/step-7' component ={StepSeven} />
+    <Route path= '/wizard/step-1' component ={StepOne}/>
+    <Route path= '/wizard/step-2' component ={StepTwo} />
+    <Route path= '/wizard/step-3' component ={StepThree} />
+    <Route path= '/wizard/step-4' component ={StepFour} />
+    <Route path= '/wizard/step-5' component ={StepFive} />
+    <Route path= '/wizard/step-6' component ={StepSix} />
+    <Route path= '/wizard/step-7' component ={StepSeven} />
     </div>
   )
 }

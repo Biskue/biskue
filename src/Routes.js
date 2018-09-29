@@ -11,7 +11,7 @@ export default () => {
 			<Route path="poll/:pollCode" component={LivePoll} />
 			<Route path="/user-info" component={UserInfo} />
 			<Route path="/wizard" component={Wizard} />
-			<Route path exact="/" component={Landing} />
+			<Route exact path ="/" component={Landing} />
 		</div>
 	);
 };
