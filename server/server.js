@@ -17,7 +17,6 @@ app.use((err, req, res, next) => {
     res.status(500).send(err);
 })
 
-
 const port = process.env.SERVER_PORT || 4000;
 
 app.listen(port, () => {
