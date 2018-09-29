@@ -2,9 +2,9 @@ const express = require('express')
 const bodyParser = require('body-parser')
 
 const app = express()
-app.use(bodyParser.JSON())
+app.use(bodyParser.json())
 
-
+// pull request
 const port = 3005
 
 app.listen(port, () => {
