@@ -1,24 +1,15 @@
 const express = require('express');
+const authController = require('../controllers/auth.controller');
 
 const AuthRouter = express.Router();
 
-AuthRouter.post('/register', (req, res) => {
-    res.status(200).send('register route')
-});
+AuthRouter.post('/register', authController.register);
 
-AuthRouter.post('/login', (req, res) => {
-    res.status(200).send('login route')
-});
+AuthRouter.post('/login', authController.login);
 
-AuthRouter.get('/info/:userID', (req, res) => {
-    const { userID } = req.params;
-    res.status(200).send(`get user info route; userID: ${userID}`)
-});
+AuthRouter.get('/info/:userID', authController.getUser);
 
-AuthRouter.put('/edit/:userID', (req, res) => {
-    const { userID } = req.params;
-    res.status(200).send(`edit user info route; userID: ${userID}`)
-});
+AuthRouter.put('/edit/:userID', authController.editUser);
 
 
 module.exports = AuthRouter;
