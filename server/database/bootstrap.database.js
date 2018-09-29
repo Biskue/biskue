@@ -2,7 +2,7 @@ const massive = require('massive');
 
 let db;
 
-massive(process.env.DB_CONNECTION_STRING)
+massive(process.env.DB_CONNECTION_STRING, { scripts: __dirname + '/queries' })
     .then(dbInstance => {
         console.log('DB Connected');
         db = dbInstance;
