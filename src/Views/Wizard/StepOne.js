@@ -12,7 +12,9 @@ class StepOne extends Component {
 			distance: 10,
 			priceRange: [],
 			latitude: null,
-			longitude: null
+			longitude: null,
+			date: new Date(),
+			showDateSelector: false
 		};
 	}
 	handleChange(event, name) {
@@ -41,6 +43,10 @@ class StepOne extends Component {
 		getLatitudeLongitude(address).then((response) => console.log(response));
 	}
 	render() {
+		const dateSelector =
+			this.state.showDateSelector === 'true' ? (
+				<input type="datetime-local" onChange={(e) => this.handleChange(e, 'date')} />
+			) : null;
 		return (
 			<div>
 				<input
@@ -99,6 +105,22 @@ class StepOne extends Component {
 						}}
 					/>
 				</div>
+				<label>Show Restaurants open now</label>
+				<input
+					type="radio"
+					value={false}
+					selected
+					name="nowOrLater"
+					onChange={(e) => this.handleChange(e, 'showDateSelector')}
+				/>
+				<label>Show Restaurants open at a later time</label>
+				<input
+					type="radio"
+					value={true}
+					name="nowOrLater"
+					onChange={(e) => this.handleChange(e, 'showDateSelector')}
+				/>
+				{dateSelector}
 				<div>
 					<Link to="/wizard/step-2">
 						<button onClick={() => this.saveWhereToState()}>Next</button>
@@ -108,11 +130,15 @@ class StepOne extends Component {
 		);
 	}
 	saveWhereToState() {
+		const date = new Date(this.state.date);
+		const timestamp = date.getTime() / 1000;
+		const prices = this.state.priceRange.join(',');
 		const results = {
 			latitude: this.state.latitude,
 			longitude: this.state.longitude,
 			radius: this.state.distance,
-			priceRange: this.state.priceRange
+			priceRange: prices,
+			date: timestamp
 		};
 		this.props.saveStepOne(results);
 	}

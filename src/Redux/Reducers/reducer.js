@@ -9,7 +9,8 @@ function wizardSteps(state = initialState, action) {
 				longitude: action.payload.longitude,
 				latitude: action.payload.latitude,
 				radius: action.payload.radius,
-				priceRange: action.payload.priceRange
+				priceRange: action.payload.priceRange,
+				date: action.payload.date
 			});
 		default:
 			return state;
