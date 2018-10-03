@@ -9,4 +9,6 @@ PollRouter.get('/retrieve/:pollID' , pollController.getPoll);
 
 PollRouter.put('/update/:pollID' , pollController.editPoll);
 
+PollRouter.get('/search', pollController.search)
+
 module.exports = PollRouter;
