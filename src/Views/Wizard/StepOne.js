@@ -131,7 +131,7 @@ class StepOne extends Component {
 	}
 	saveWhereToState() {
 		const date = new Date(this.state.date);
-		const timestamp = date.getTime() / 1000;
+		const timestamp = Math.ceil(date.getTime() / 1000);
 		const prices = this.state.priceRange.join(',');
 		const results = {
 			latitude: this.state.latitude,
