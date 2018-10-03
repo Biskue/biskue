@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import NavBar from '../NavBar/NavBar';
 import './Landing.css';
 import logo from '../../logo.svg';
 
@@ -7,7 +6,6 @@ export default class Landing extends Component {
   render() {
     return (
       <div className="Landing">
-        <NavBar />
         <div className="About-us">
           <h1>Biskue</h1>
               <p>
