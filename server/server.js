@@ -21,4 +21,4 @@ const port = process.env.SERVER_PORT || 4000;
 
 app.listen(port, () => {
     console.log(`Server listening at localhost:${port}`);
-});
+}); 
