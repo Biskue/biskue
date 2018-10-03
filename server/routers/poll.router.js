@@ -1,12 +1,14 @@
 const express = require('express');
-const pollController = require('../controllers/poll.controller')
+const pollController = require('../controllers/poll.controller');
 
 const PollRouter = express.Router();
 
-PollRouter.post('/createPoll' , pollController.createPoll); 
+PollRouter.post('/createPoll', pollController.createPoll);
 
-PollRouter.get('/retrieve/:pollID' , pollController.getPoll);
+PollRouter.get('/retrieve/:pollID', pollController.getPoll);
 
-PollRouter.put('/update/:pollID' , pollController.editPoll);
+PollRouter.put('/update/:pollID', pollController.editPoll);
+
+PollRouter.get('/search', pollController.search);
 
 module.exports = PollRouter;

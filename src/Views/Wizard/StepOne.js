@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getLatitudeLongitude } from './GeoCodeHelper';
+
 import * as Actions from '../../Redux/Actions/actions';
+import Geocode from 'react-geocode';
 
 class StepOne extends Component {
 	constructor(props) {
@@ -21,7 +22,18 @@ class StepOne extends Component {
 		const value = event.target.value;
 		this.setState({ [name]: value });
 	}
-
+	saveLatLong(string) {
+		Geocode.fromAddress(string).then(
+			(response) => {
+				const { lat, lng } = response.results[0].geometry.location;
+				console.log(lat, lng);
+				this.setState({ latitude: lat, longitude: lng });
+			},
+			(error) => {
+				console.error(error);
+			}
+		);
+	}
 	getLocation = () => {
 		console.log('checking location');
 		window.navigator.geolocation.getCurrentPosition((position) => {
@@ -39,9 +51,7 @@ class StepOne extends Component {
 		}
 		this.setState({ priceRange: priceRange });
 	}
-	getLocationByAddress(address) {
-		getLatitudeLongitude(address).then((response) => console.log(response));
-	}
+
 	render() {
 		const dateSelector =
 			this.state.showDateSelector === 'true' ? (
@@ -54,7 +64,7 @@ class StepOne extends Component {
 					placeholder="Enter City and State or Zip"
 					onChange={(e) => this.handleChange(e, 'address')}
 				/>
-				<button onClick={() => this.getLocationByAddress(this.state.address)}>Search</button>
+				<button onClick={() => this.saveLatLong(this.state.address)}>Search</button>
 				<div>
 					<button onClick={this.getLocation}>Use Current Location</button>
 				</div>
