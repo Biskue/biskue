@@ -1,16 +1,14 @@
 .Landing {
-    background: #4e54c8;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #8f94fb, #4e54c8);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #8f94fb, #4e54c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #FFFEFA;  
     height: -webkit-fill-available;
 }
 
 .About-us {
-    color: white;
+    color: black;
 }
 
 .About-us p {
-    border: 2px solid black;
+    border: 2px solid #84a599;
     border-radius: 7px;
     display: flex;
     margin: 50px;
@@ -23,7 +21,7 @@
 
 .card {
     /* Add shadows to create the "card" effect */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 #84a599;
     transition: 0.3s;
     border: 2px solid white;
     border-radius: 3px;
