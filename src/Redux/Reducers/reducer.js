@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-const initialState = [];
+const initialState = {};
 
 function wizardSteps(state = initialState, action) {
 	switch (action.type) {
@@ -12,6 +12,8 @@ function wizardSteps(state = initialState, action) {
 				priceRange: action.payload.priceRange,
 				date: action.payload.date
 			});
+		case 'WIZARD_STEP_TWO':
+			return Object.assign({}, state, { categories: action.payload });
 		default:
 			return state;
 	}
