@@ -14,11 +14,11 @@ module.exports = {
   },
   search: (req, res) => {
     const yelpBaseUrl = `https://api.yelp.com/v3/businesses`
-    const { latitude, longitude, radius, categories, price, open_at,  } = req.query;
+    const { latitude, longitude, radius, categories, price, open_at } = req.query;
     console.log(req.query);
     axios.get(`${yelpBaseUrl}/search`, {
       headers: { Authorization: `Bearer ${process.env.YELP_API_KEY}`},
-      params: { latitude, longitude, radius, categories, price, open_now: true, limit: 50 }
+      params: { latitude, longitude, radius, categories, price, open_at, limit: 50 }
     })
     .then(response => {
       res.status(200).send(response.data);
