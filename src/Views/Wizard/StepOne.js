@@ -57,6 +57,12 @@ class StepOne extends Component {
 			this.state.showDateSelector === 'true' ? (
 				<input type="datetime-local" onChange={(e) => this.handleChange(e, 'date')} />
 			) : null;
+		const nextButton =
+			this.state.latitude != null && this.state.longitude != null ? (
+				<Link to="/wizard/step-2">
+					<button onClick={() => this.saveWhereToState()}>Next</button>
+				</Link>
+			) : null;
 		return (
 			<div>
 				<input
@@ -131,11 +137,8 @@ class StepOne extends Component {
 					onChange={(e) => this.handleChange(e, 'showDateSelector')}
 				/>
 				{dateSelector}
-				<div>
-					<Link to="/wizard/step-2">
-						<button onClick={() => this.saveWhereToState()}>Next</button>
-					</Link>
-				</div>
+				<div />
+				{nextButton}
 			</div>
 		);
 	}
