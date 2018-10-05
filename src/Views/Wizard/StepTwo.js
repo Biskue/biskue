@@ -17,6 +17,11 @@ class StepTwo extends Component {
 		selectCategories.push(category);
 		this.setState({ selected: selectCategories });
 	}
+	removeCategory(index) {
+		const selected = this.state.selected;
+		selected.splice(index, 1);
+		this.setState({ selected });
+	}
 	filerCategories(string) {
 		const categoriesCopied = this.state.categories;
 		const categoriesFiltered = categoriesCopied.filter((category) =>
@@ -41,7 +46,11 @@ class StepTwo extends Component {
 			);
 		});
 		const selected = this.state.selected.map((category, index) => {
-			return <div key={index}>{category.title}</div>;
+			return (
+				<div key={index}>
+					{category.title} <button onClick={() => this.removeCategory(index)}>remove</button>
+				</div>
+			);
 		});
 		return (
 			<div>
