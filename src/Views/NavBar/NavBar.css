@@ -1,0 +1,24 @@
+.NavBar {
+    background: transparent;
+    overflow: hidden;
+    height: 7vh;
+
+}
+
+.NavBar span {
+    float: right;
+    color: black;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+}
+
+.Navbar-logo {
+    height: inherit;
+    float: left;
+    
+}
+
