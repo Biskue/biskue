@@ -11,6 +11,10 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Geocode from 'react-geocode';
 
 Geocode.setApiKey('AIzaSyDXJzTx4S0lt8tRdjsUDGGVqG3MURj6x9o');
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(reducer, composeEnhancers(applyMiddleware(promiseMiddleware())));
