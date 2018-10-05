@@ -3,6 +3,7 @@ import { categories } from '../../categoriesService';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as Actions from '../../Redux/Actions/actions';
+import axios from 'axios'
 
 class StepTwo extends Component {
 	constructor(props) {
