@@ -9,12 +9,7 @@ import Register from './Views/RegisterPage/Register';
 export default () => {
 	return (
 		<div>
-<<<<<<< HEAD
 			<Route path="/poll/:pollCode" component={LivePoll} />
-=======
-			<Route path="poll/:pollCode" component={LivePoll} />
-			<Route path="/register" component={Register} />
->>>>>>> master
 			<Route path="/user-info" component={UserInfo} />
 			<Route path="/wizard" component={Wizard} />
 			<Route exact path ="/" component={Landing} />
