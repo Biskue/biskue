@@ -8,7 +8,7 @@ import Wizard from './Views/Wizard/Wizard';
 export default () => {
 	return (
 		<div>
-			<Route path="poll/:pollCode" component={LivePoll} />
+			<Route path="/poll/:pollCode" component={LivePoll} />
 			<Route path="/user-info" component={UserInfo} />
 			<Route path="/wizard" component={Wizard} />
 			<Route exact path ="/" component={Landing} />
