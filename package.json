@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "biskue",
   "version": "0.1.0",
   "private": true,
@@ -23,4 +24,34 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
+=======
+	"name": "biskue",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"ajv-keywords": "^3.2.0",
+		"axios": "^0.18.0",
+		"bcryptjs": "^2.4.3",
+		"browser-router": "^0.2.0",
+		"cors": "^2.8.4",
+		"massive": "^5.4.0",
+		"react": "^16.5.2",
+		"react-dom": "^16.5.2",
+		"react-geocode": "^0.1.2",
+		"react-redux": "^5.0.7",
+		"react-router-dom": "^4.3.1",
+		"react-scripts": "1.1.5",
+		"redux": "^4.0.0",
+		"redux-promise-middleware": "^5.1.1",
+		"save": "^2.3.2"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test --env=jsdom",
+		"eject": "react-scripts eject"
+	},
+	"main": "server/server.js",
+  	"proxy": "http://localhost:4005"
+>>>>>>> master
 }

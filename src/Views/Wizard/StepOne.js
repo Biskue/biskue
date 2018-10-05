@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import * as Actions from '../../Redux/Actions/actions';
-import Geocode from "react-geocode";
-
+import Geocode from 'react-geocode';
 
 class StepOne extends Component {
 	constructor(props) {
@@ -22,19 +21,19 @@ class StepOne extends Component {
 	handleChange(event, name) {
 		const value = event.target.value;
 		this.setState({ [name]: value });
-  }
-  saveLatLong(string){
-  Geocode.fromAddress(string).then(
-    response => {
-      const { lat, lng } = response.results[0].geometry.location;
-      console.log(lat, lng);
-      this.setState({latitude: lat, longitude: lng})
-    },
-    error => {
-      console.error(error);
-    }
-  );
-  }
+	}
+	saveLatLong(string) {
+		Geocode.fromAddress(string).then(
+			(response) => {
+				const { lat, lng } = response.results[0].geometry.location;
+				console.log(lat, lng);
+				this.setState({ latitude: lat, longitude: lng });
+			},
+			(error) => {
+				console.error(error);
+			}
+		);
+	}
 	getLocation = () => {
 		console.log('checking location');
 		window.navigator.geolocation.getCurrentPosition((position) => {
@@ -52,11 +51,17 @@ class StepOne extends Component {
 		}
 		this.setState({ priceRange: priceRange });
 	}
-	
+
 	render() {
 		const dateSelector =
 			this.state.showDateSelector === 'true' ? (
 				<input type="datetime-local" onChange={(e) => this.handleChange(e, 'date')} />
+			) : null;
+		const nextButton =
+			this.state.latitude != null && this.state.longitude != null ? (
+				<Link to="/wizard/step-2">
+					<button onClick={() => this.saveWhereToState()}>Next</button>
+				</Link>
 			) : null;
 		return (
 			<div>
@@ -132,11 +137,8 @@ class StepOne extends Component {
 					onChange={(e) => this.handleChange(e, 'showDateSelector')}
 				/>
 				{dateSelector}
-				<div>
-					<Link to="/wizard/step-2">
-						<button onClick={() => this.saveWhereToState()}>Next</button>
-					</Link>
-				</div>
+				<div />
+				{nextButton}
 			</div>
 		);
 	}

@@ -1,6 +1,10 @@
+const bcrypt = require('bcryptjs');
+
 module.exports = {
   register: (req, res) => {
     const { user } = req.body;
+    var pwd = bcrypt.hashSync(user.password, 10);
+    user.password = pwd;
     req.db.users
       .insert(user)
       .then(u => {
@@ -14,13 +18,14 @@ module.exports = {
   login: (req, res) => {
     const { username, password } = req.body;
     req.db
-      .login_user(username, password)
+      .login_user(username)
       .then(u => {
-        if (u.length == 0) {
-          res.status(401).send({ error: 'Invalid Username or password' });
+        let user = u[0];
+        if (bcrypt.compareSync(password, user.password)) {
+          delete user.password;
+          res.status(200).send(user);
         } else {
-          delete u.password;
-          res.status(200).send(u);
+          res.status(401).send({ error: 'Invalid Username or password' });
         }
       })
       .catch(err => {
@@ -32,11 +37,12 @@ module.exports = {
     req.db
       .get_user(userID)
       .then(u => {
+        let user = u[0];
         if (u.length == 0) {
           res.status(404).send({ error: 'Invalid User ID' });
         } else {
-          delete u.password;
-          res.status(200).send(u);
+          delete user.password;
+          res.status(200).send(user);
         }
       })
       .catch(err => {
@@ -46,10 +52,12 @@ module.exports = {
   editUser: (req, res) => {
     const { userID } = req.params;
     const { password, firstName, lastName, avatar, email } = req.body
-    req.db.edit_user(userID, password, firstName, lastName, avatar, email)
+    var pwd = bcrypt.hashSync(password, 10);
+    req.db.edit_user(userID, pwd, firstName, lastName, avatar, email)
     .then(u => {
-      delete u.password;
-      res.status(200).send(u);
+      let user = u[0];
+      delete user.password;
+      res.status(200).send(user);
     })
     .catch(err => {
       res.status(500).send(err);
