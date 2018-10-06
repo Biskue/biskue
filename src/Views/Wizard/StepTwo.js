@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as Actions from '../../Redux/Actions/actions';
 
+
 class StepTwo extends Component {
 	constructor(props) {
 		super(props);
