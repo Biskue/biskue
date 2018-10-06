@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Mukta|Roboto');
+
 .NavBar {
-    background: transparent;
+    background-color: #822317;
     overflow: hidden;
     height: 7vh;
 
@@ -7,13 +9,17 @@
 
 .NavBar span {
     float: right;
-    color: black;
+    color: white;
     text-align: center;
     padding: 12px;
     text-decoration: none;
     font-size: 18px;
     line-height: 25px;
     border-radius: 4px;
+}
+
+.NavBar span:hover {
+    background-color: #57180f;
 }
 
 .Navbar-logo {
