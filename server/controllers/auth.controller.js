@@ -8,6 +8,7 @@ module.exports = {
     req.db.users
       .insert(user)
       .then(u => {
+        req.session.user = u;
         delete u.password;
         res.status(201).send(u);
       })
@@ -21,6 +22,7 @@ module.exports = {
       .login_user(username)
       .then(u => {
         let user = u[0];
+        req.session.user = user;
         if (bcrypt.compareSync(password, user.password)) {
           delete user.password;
           res.status(200).send(user);
@@ -62,5 +64,18 @@ module.exports = {
     .catch(err => {
       res.status(500).send(err);
     });
-  }
+  },
+  logout: (req, res) => {
+    if (req.session.user && req.cookies.user_sid) {
+      res.clearCookie('user_sid');
+      res.redirect('/');
+    }
+  },
+  verifyAuth: (req, res) => {
+    if (req.session.user && req.cookies.user_sid) {
+      res.status(200).send(req.session.user)
+    } else {
+      res.status().send({message: 'user is not logged in'})
+    }    
+  },
 };
