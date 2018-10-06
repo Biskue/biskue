@@ -4,6 +4,7 @@ import RestaurantCard from './RestaurantCard';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import * as Actions from '../../Redux/Actions/actions';
+import RestaurantFinder from './RestaurantFinder'
 
 class StepFour extends Component {
 	constructor(props) {
@@ -11,7 +12,8 @@ class StepFour extends Component {
 		this.state = {
 			restaurants: this.props.PollItems,
 			favorites: false,
-			listName: ''
+      listName: '',
+      displaySearch: false,
 		};
 	}
 	deleteRestaurant = (index) => {
@@ -42,6 +44,19 @@ class StepFour extends Component {
 		axios.post('/lists/create', favoritesSettings).then(() => this.props.history.push('/wizard/step-5'));
     }else {this.props.history.push('/wizard/step-5')}
   }
+  showHideSearch(){
+    if(this.state.displaySearch=== true){
+      this.setState({displaySearch: false})
+    }else{
+      this.setState({displaySearch: true})
+    }
+  }
+  addRestaurant = (restaurant) => {
+		const selected = this.state.restaurants;
+    selected.push(restaurant);
+    this.props.saveStepThree(selected)
+		this.setState({ restaurants: selected });
+	};
 	render() {
 		const { longitude, latitude, radius, priceRange, date, titles, PollItems } = this.props;
 		const categoryList = titles.join(', ');
@@ -63,11 +78,16 @@ class StepFour extends Component {
 					placeholder="Enter a name for this list"
 					onChange={(e) => this.handleChange(e, 'listName')}
 				/>
-			) : null;
+      ) : null;
+      const restaurantSearch = this.state.displaySearch === true ? <RestaurantFinder addRestaurant={this.addRestaurant}/> : null
 		return (
 			<div>
 				<div>
 					<h1>Review Selections</h1>
+          <div>
+            <button onClick={()=> this.showHideSearch()}>Add Restaurant</button>
+            <div>{restaurantSearch}</div>
+          </div>
 					{restaurantList}
 				</div>
 				<input type="checkbox" value={true} onChange={() => this.saveList()} />
