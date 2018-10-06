@@ -1,5 +1,7 @@
+
+
 .Landing {
-    background: #FFFEFA;  
+    background: #fcfbf7;  
     height: -webkit-fill-available;
 }
 
@@ -8,7 +10,7 @@
 }
 
 .About-us p {
-    border: 2px solid #84a599;
+    border: 2px solid #822317;
     border-radius: 7px;
     display: flex;
     margin: 50px;
@@ -21,7 +23,7 @@
 
 .card {
     /* Add shadows to create the "card" effect */
-    box-shadow: 0 4px 8px 0 #84a599;
+    box-shadow: 0 4px 8px 0 lightgray;
     transition: 0.3s;
     border: 2px solid white;
     border-radius: 3px;
@@ -30,7 +32,7 @@
 
 /* On mouse-over, add a deeper shadow */
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 #5b8173;
 }
 
 /* Add some padding inside the card container */
@@ -49,6 +51,12 @@
     background-color: white;
     justify-content: space-between;
     margin-right: 2%;
+    font-family: 'Mukta', sans-serif;
 
+}
+
+.Create-join-buttons button:hover {
+    box-shadow: 0 4px 8px #5b8173;
+    
 }
 
