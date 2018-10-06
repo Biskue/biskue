@@ -1,6 +1,7 @@
 module.exports = {
   createList: (req, res) => {
-    res.status(200).send('create list route')
+    
+    
   },
   getSavedLists: (req, res) => {
     const { userID } = req.params;
