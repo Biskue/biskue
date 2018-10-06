@@ -22,9 +22,9 @@ function globalDecorator(app) {
         secret: process.env.SECRET,
         resave: false,
         saveUninitialized: false,
-        cookie: {
-            expires: { maxAge: 30 * 24 * 60 * 60 * 1000 }
-        }
+        cookie: 
+             { maxAge: 30 * 24 * 60 * 60 * 1000 }
+    
     }))
 }
 
