@@ -1,28 +1,57 @@
 import React, { Component } from 'react';
 import './Register.css';
 
-import { Link } from 'react-router-dom';
+import Register2 from './Register-2';
 
 
 class Register extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            view: false,
+            username: '',
+            email: '',
+            password: ''
+        }
+    }
+
+
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name] : e.target.value
+        })
+    }
+    
+
+    
+    changeView = () => { 
+        this.setState({
+            view: !this.state.view
+        })
+    }
+
+
+
+
     render() {
         return (
-
-            <div className="Register">
-                <div className="title">BISKUE</div>
-                <div className="register-box">
-                    <div className="input-container">
-                        <label>Username:</label>
-                        <input type="text" />
-                        <label>Email:</label>
-                        <input type="text" />
-                        <label>Password:</label>
-                        <input type="password" />
-                    </div>
-               <Link to="/register-2" >
-                    <button>Next</button>
-               </Link>
-                </div>
+            <div>
+                {this.state.view ? <Register2 state={this.state}/> :
+                    <div className="Register" >
+                        <div className="title">BISKUE</div>
+                        <div className="register-box">
+                            <div className="input-container">
+                                <label>Username:</label>
+                                <input onChange={this.handleChange} name="username" type="text" value={this.state.username} />
+                                <label>Email:</label>
+                                <input onChange={this.handleChange} name="email" type="text" value={this.state.email} />
+                                <label>Password:</label>
+                                <input onChange={this.handleChange} name="password" type="text" value={this.state.password} />
+                            </div>
+                                <button onClick={this.changeView}> Next</button>
+                        </div>
+                    </div >
+                }
             </div>
         );
     }
