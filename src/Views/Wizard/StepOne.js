@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import './Wizard.css'
 import * as Actions from '../../Redux/Actions/actions';
 import Geocode from 'react-geocode';
 
@@ -124,8 +124,8 @@ class StepOne extends Component {
 				<label>Show Restaurants open now</label>
 				<input
 					type="radio"
-					value={false}
 					selected
+					value={false}
 					name="nowOrLater"
 					onChange={(e) => this.handleChange(e, 'showDateSelector')}
 				/>
@@ -146,10 +146,11 @@ class StepOne extends Component {
 		const date = new Date(this.state.date);
 		const timestamp = Math.ceil(date.getTime() / 1000);
 		const prices = this.state.priceRange.join(',');
+		const distance = this.state.distance*1609
 		const results = {
 			latitude: this.state.latitude,
 			longitude: this.state.longitude,
-			radius: this.state.distance,
+			radius: distance,
 			priceRange: prices,
 			date: timestamp
 		};

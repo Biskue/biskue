@@ -12,3 +12,9 @@ export const saveStepTwo = (categories) => {
 		payload: categories
 	};
 };
+export const saveStepThree = (restaurants) => {
+	return {
+		type: 'WIZARD_STEP_THREE',
+		payload: restaurants
+	}
+}

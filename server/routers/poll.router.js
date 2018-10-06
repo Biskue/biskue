@@ -11,4 +11,11 @@ PollRouter.put('/update/:pollID', pollController.editPoll);
 
 PollRouter.get('/search', pollController.search);
 
+<<<<<<< HEAD
 module.exports = PollRouter;
+=======
+module.exports = PollRouter;
+PollRouter.get('/search', pollController.search)
+
+module.exports = PollRouter;
+>>>>>>> master
