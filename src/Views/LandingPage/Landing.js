@@ -8,13 +8,13 @@ export default class Landing extends Component {
     return (
       <div>
         <Link to='/wizard/step-1'>
-        <button>Start Poll</button>
+          <button>Start Poll</button>
         </Link>
-        <button>+</button>
+        <Link to='/user-info'>
+          <button>Select poll from favorites</button>
+        </Link>
         <button>Join Poll</button>
       </div>
     );
   }
 }
-
-
