@@ -18,7 +18,7 @@ module.exports = {
     console.log(req.query);
     axios.get(`${yelpBaseUrl}/search`, {
       headers: { Authorization: `Bearer ${process.env.YELP_API_KEY}`},
-      params: { latitude, longitude, radius, categories, price, open_at, limit: 50 }
+      params: { latitude, longitude, radius, price, open_at, categories: 'restaurants,' + categories, limit: 50, sort_by: distance }
     })
     .then(response => {
       res.status(200).send(response.data);
