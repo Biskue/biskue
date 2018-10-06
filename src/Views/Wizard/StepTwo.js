@@ -34,9 +34,10 @@ class StepTwo extends Component {
 		this.setState({ categories: categoriesFiltered });
 	}
 	saveCategoriesToState() {
+		const titles = this.state.selected.map(category=> category.title)
 		const categories = this.state.selected.map((category) => category.alias);
 		const joinedCategories = categories.join(',');
-		this.props.saveStepTwo(joinedCategories);
+		this.props.saveStepTwo(joinedCategories, titles);
 	}
 	render() {
 		const categoriesList = this.state.categories.map((category, index) => {
