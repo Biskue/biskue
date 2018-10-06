@@ -2,7 +2,7 @@ const bcrypt = require('bcryptjs');
 
 module.exports = {
   register: (req, res) => {
-    const { user } = req.body;
+    const user = req.body;
     var pwd = bcrypt.hashSync(user.password, 10);
     user.password = pwd;
     req.db.users
