@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import './Register.css';
 
-import { Link } from 'react-router-dom';
 
-
-class Register extends Component {
+class Register2 extends Component {
     render() {
         return (
 
@@ -12,20 +10,18 @@ class Register extends Component {
                 <div className="title">BISKUE</div>
                 <div className="register-box">
                     <div className="input-container">
-                        <label>Username:</label>
+                        <label>First Name:</label>
                         <input type="text" />
-                        <label>Email:</label>
+                        <label>Last Name:</label>
                         <input type="text" />
-                        <label>Password:</label>
-                        <input type="password" />
                     </div>
-               <Link to="/register-2" >
-                    <button>Next</button>
-               </Link>
+               
+                    <button>Register</button>
+              
                 </div>
             </div>
         );
     }
 }
 
-export default Register;
+export default Register2;
