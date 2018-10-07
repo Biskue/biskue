@@ -14,7 +14,7 @@ function wizardSteps(state = initialState, action) {
 				date: action.payload.date
 			});
 		case 'WIZARD_STEP_TWO':
-			return Object.assign({}, state, { categories: action.payload.categories, titles: action.payload.titles });
+			return Object.assign({}, state, { categories: action.payload.categories, titles: action.payload.titles, catArray: action.payload.catArray});
 		case 'WIZARD_STEP_THREE':
 			return Object.assign({}, state, {PollItems: action.payload})	
 		case "WIZARD_STEP_FIVE":
