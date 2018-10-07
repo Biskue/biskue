@@ -11,7 +11,9 @@ function wizardSteps(state = initialState, action) {
 				latitude: action.payload.latitude,
 				radius: action.payload.radius,
 				priceRange: action.payload.priceRange,
-				date: action.payload.date
+				date: action.payload.date,
+				formattedDate: action.payload.formattedDate,
+				showDate: action.payload.showDate
 			});
 		case 'WIZARD_STEP_TWO':
 			return Object.assign({}, state, { categories: action.payload.categories, titles: action.payload.titles, catArray: action.payload.catArray});

@@ -32,7 +32,8 @@ class StepOne extends Component {
 			priceRange: this.props.priceRange.split(','),
 			latitude: this.props.latitude,
 			longitude: this.props.longitude,
-			date: this.props.date,
+			date: this.props.formattedDate,
+			showDateSelector: this.props.showDate,
 			price1: this.props.priceRange.includes(1),
 			price2: this.props.priceRange.includes(2),
 			price3: this.props.priceRange.includes(3),
@@ -43,6 +44,9 @@ class StepOne extends Component {
 	}
 	handleChange(event, name) {
 		const value = event.target.value;
+		if(name === 'distance'){
+			return this.setState({[name]: Number(value)})
+		}
 		this.setState({ [name]: value });
 	}
 	saveLatLong(string) {
@@ -174,6 +178,7 @@ class StepOne extends Component {
 				<label>Show Restaurants open at a later time</label>
 				<input
 					type="radio"
+					checked = {this.state.showDateSelector === true || this.state.showDateSelector === 'true'}
 					value={true}
 					name="nowOrLater"
 					onChange={(e) => this.handleChange(e, 'showDateSelector')}
@@ -195,7 +200,9 @@ class StepOne extends Component {
 			longitude: this.state.longitude,
 			radius: distance,
 			priceRange: prices,
-			date: timestamp
+			date: timestamp,
+			formattedDate: this.state.date,
+			showDate: this.state.showDateSelector
 		};
 		this.props.saveStepOne(results);
 	}
