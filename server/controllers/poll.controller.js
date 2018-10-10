@@ -1,30 +1,6 @@
 const axios = require('axios');
 
 module.exports = {
-<<<<<<< HEAD
-	createPoll: (req, res) => {
-    console.log(req.body);
-    const { pollOptions } = req.body;
-    const poll = { pollCode, pollURL, votesPerUser, allowDownVotes, isActive, allowChat } = req.body;
-    req.db.polls.insert(poll)
-    .then(poll => {
-      const pollId = poll.id;
-      pollOptions.map(o => {
-        let newOption = {
-          pollId,
-          pollOption: o,
-        }
-        req.db.pollOptions.insert(newOption);
-      })
-      res.status(200).send(poll.pollURL)
-    })
-    .catch(err => {
-      console.error(err);
-      res.status(500).send({ error: `Oopsies, you stepped in it, brother.`});
-    });
-    // res.status(200).send('create poll')
-  },
-=======
   createPoll: (req, res) => {
 		const { pollCode, pollURL, votesPerUser, allowDownVotes, isActive, allowChat, pollOptions } = req.body;
 		const poll = { pollCode, pollURL, votesPerUser, allowDownVotes, isActive, allowChat, adminUserId: 1 }; // need to replace adminUserId when sessions are fully set up
@@ -45,7 +21,6 @@ module.exports = {
 			res.status(500).send({ error: `Oopsies, you stepped in it, brother.`});
 		});
 	},
->>>>>>> master
   getPoll: (req, res) => {
     const { pollID } = req.params;
 		req.db.get_poll(pollID)
