@@ -23,7 +23,7 @@ class Register2 extends Component {
             password: this.state.password,
             firstName: this.state.firstName,
             lastName: this.state.lastName,
-            avatar: `https://robohash.org/${this.state.username}`
+            avatar: `https://robohash.org/${this.state.username}.png`
         }
 
         axios.post('/auth/register', user).then((response) => {
