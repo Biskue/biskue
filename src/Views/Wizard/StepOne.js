@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './Wizard.css'
 import * as Actions from '../../Redux/Actions/actions';
 import Geocode from 'react-geocode';
+import date from 'date-and-time';
 import './StepOne.css';
 
 class StepOne extends Component {
