@@ -2,3 +2,20 @@
     height: 100px;
     width: 150px;
 }
+
+Wizard {
+    justify-content: center;
+    background-color: #fcfbf7;
+}
+
+h1 {
+    font-size: 25px;
+    margin: 30px;
+}
+
+
+.wizard-container {
+    border: 2px solid #822317;
+    margin: 30px;
+    padding: 40px;
+}

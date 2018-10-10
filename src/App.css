@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Mukta|Roboto');
 
+App {
+  background-color: #fcfbf7;
+}
+
 .App {
   text-align: center;
   background-color: #fcfbf7;
@@ -15,7 +19,7 @@
   background-color: #222;
   height: 150px;
   padding: 20px;
-  color: white;
+  color: #fcfbf7;
 }
 
 .App-title {

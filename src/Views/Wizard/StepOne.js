@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './Wizard.css'
 import * as Actions from '../../Redux/Actions/actions';
 import Geocode from 'react-geocode';
+import './StepOne.css';
 
 class StepOne extends Component {
 	constructor(props) {
@@ -64,7 +65,7 @@ class StepOne extends Component {
 				</Link>
 			) : null;
 		return (
-			<div>
+			<div className='step-one'>
 				<input
 					type="text"
 					placeholder="Enter City and State or Zip"
