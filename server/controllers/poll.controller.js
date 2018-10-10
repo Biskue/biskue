@@ -1,12 +1,36 @@
 const axios = require('axios');
 
 module.exports = {
-  createPoll: (req, res) => {
-    res.status(200).send('create poll route')
+	createPoll: (req, res) => {
+    console.log(req.body);
+    const { pollOptions } = req.body;
+    const poll = { pollCode, pollURL, votesPerUser, allowDownVotes, isActive, allowChat } = req.body;
+    req.db.polls.insert(poll)
+    .then(poll => {
+      const pollId = poll.id;
+      pollOptions.map(o => {
+        let newOption = {
+          pollId,
+          pollOption: o,
+        }
+        req.db.pollOptions.insert(newOption);
+      })
+      res.status(200).send(poll.pollURL)
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).send({ error: `Oopsies, you stepped in it, brother.`});
+    });
+    // res.status(200).send('create poll')
   },
   getPoll: (req, res) => {
     const { pollID } = req.params;
-    res.status(200).send(`get poll route pollID: ${pollID}`)
+		req.db.get_poll(pollID)
+			.then(result => res.status(200).send(result))
+			.catch(err => {
+				console.error(err);
+				res.status(500).send({ error: `Oopsies, you stepped in it, brother.`});
+			})
   },
   editPoll: (req, res) => {
     const { pollID } = req.params;
