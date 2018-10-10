@@ -1,8 +1,40 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './Login.css';
 
 
+
+
 class Login extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: '',
+            password: ''
+        }
+
+    }
+
+    confirmUserInfo = (e) => {
+        const user = {
+            username: this.state.username,
+            password: this.state.password,
+        }
+        axios.post('/auth/login', user)
+          .then((response) => {
+            this.props.history.push('./')
+          })
+          .catch(err => {
+            console.log(err);
+          })
+    };
+
+    handleChange = (e) => {
+        this.setState({
+            [e.target.name] : e.target.value
+        })
+    }
+
     render() {
         return (
 
@@ -10,13 +42,13 @@ class Login extends Component {
                 <div className="title">BISKUE</div>
                 <div className="login-box">
                     <div className="input-container">
-                        <label>Email or Username:</label>
-                        <input type="text" />
+                        <label>Username:</label>
+                        <input onChange={this.handleChange} name="username" value={this.state.username} type="text" />
                         <label>Password:</label>
-                        <input type="password" />
+                        <input onChange={this.handleChange} name="password" value={this.state.password} type="password" />
                     </div>
 
-                    <button>Login</button>
+                    <button onClick={this.confirmUserInfo}>Login</button>
 
                 </div>
             </div>

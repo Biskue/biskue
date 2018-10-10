@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './Register.css';
 import axios from 'axios';
 
+import {Link} from 'react-router-dom';
+
 
 class Register2 extends Component {
     constructor(props) {
@@ -23,11 +25,14 @@ class Register2 extends Component {
             password: this.state.password,
             firstName: this.state.firstName,
             lastName: this.state.lastName,
-            avatar: `https://robohash.org/${this.state.username}`
+            avatar: `https://robohash.org/${this.state.username}.png`
         }
 
         axios.post('/auth/register', user).then((response) => {
-         })        
+        })
+            .catch(err => {
+            console.log(err)
+        })
     };
 
     handleChange = (e) => {
@@ -49,9 +54,9 @@ class Register2 extends Component {
                         <label>Last Name:</label>
                         <input onChange={this.handleChange} name="lastName" value={this.state.lastName} type="text" />
                     </div>
-               
+                
                     <button onClick={this.sendUserInfo}>Register</button>
-              
+                
                 </div>
             </div>
         );
