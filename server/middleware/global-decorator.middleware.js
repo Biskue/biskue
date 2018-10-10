@@ -9,7 +9,7 @@ const PostgresStore = require('connect-pg-simple')(session);
 const addDb = require('./add-db.middleware');
 
 const corsOptions = {
-    origin: 'http://localhost:3000/', // can we disable / remove this?
+    origin: 'http://localhost:3000/',
     optionsSuccessStatus: 200
   }
 
