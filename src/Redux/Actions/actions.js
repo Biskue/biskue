@@ -6,15 +6,27 @@ export const saveStepOne = (object) => {
 		payload: object
 	};
 };
-export const saveStepTwo = (categories) => {
+export const saveStepTwo = (categories, titles, array) => {
 	return {
 		type: 'WIZARD_STEP_TWO',
-		payload: categories
+		payload: {categories: categories,
+			titles: titles,
+			catArray: array,
+		}
 	};
 };
 export const saveStepThree = (restaurants) => {
 	return {
 		type: 'WIZARD_STEP_THREE',
 		payload: restaurants
+	}
+}
+export const saveStepFive = (url, code) =>{
+	return {
+		type: "WIZARD_STEP_FIVE",
+		payload: {
+			url,
+			code
+		}
 	}
 }

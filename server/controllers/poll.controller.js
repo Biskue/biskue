@@ -1,6 +1,7 @@
 const axios = require('axios');
 
 module.exports = {
+<<<<<<< HEAD
 	createPoll: (req, res) => {
     console.log(req.body);
     const { pollOptions } = req.body;
@@ -23,6 +24,28 @@ module.exports = {
     });
     // res.status(200).send('create poll')
   },
+=======
+  createPoll: (req, res) => {
+		const { pollCode, pollURL, votesPerUser, allowDownVotes, isActive, allowChat, pollOptions } = req.body;
+		const poll = { pollCode, pollURL, votesPerUser, allowDownVotes, isActive, allowChat, adminUserId: 1 }; // need to replace adminUserId when sessions are fully set up
+		req.db.polls.insert(poll)
+		.then(poll => {
+			const pollId = poll.pollId;
+			pollOptions.map(o => {
+				let newOption = {
+					pollId,
+					pollOption: o,
+				}
+				req.db.pollOptions.insert(newOption);
+			})
+			res.status(200).send(`Success! Here's your Poll URL: ${poll.pollURL}`)
+		})
+		.catch(err => {
+			console.error(err);
+			res.status(500).send({ error: `Oopsies, you stepped in it, brother.`});
+		});
+	},
+>>>>>>> master
   getPoll: (req, res) => {
     const { pollID } = req.params;
 		req.db.get_poll(pollID)
@@ -42,7 +65,7 @@ module.exports = {
 			const { latitude, longitude, radius, categories, price, open_at } = req.query;
 			axios.get(`${yelpBaseUrl}/search`, {
 				headers: { Authorization: `Bearer ${process.env.YELP_API_KEY}`},
-				params: { latitude, longitude, radius, price, open_at, categories: 'restaurants,' + categories, limit: 50, sort_by: 'distance' }
+				params: { latitude, longitude, radius, price, open_at, categories, limit: 50, sort_by: 'distance' }
 			})
 			.then(response => {
 				res.status(200).send(response.data);
