@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Mukta|Roboto');
+
 .App {
   text-align: center;
+  background-color: #fcfbf7;
+  font-family: 'Mukta', sans-serif;
 }
 
 .App-logo {
