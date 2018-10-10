@@ -7,4 +7,4 @@ INNER JOIN
 ON
   p."pollId" = po."pollId"
 WHERE
-  p."pollId" = $1;
+  p."pollCode" = $1;
