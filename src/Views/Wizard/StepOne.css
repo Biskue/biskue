@@ -3,3 +3,31 @@
     width: 600px;
     height: 800px;
 } */
+
+div {
+    margin: 30px;
+}
+
+h2 {
+    margin: 20px;
+}
+
+input {
+    margin-bottom: 20px;
+}
+
+input[type=text] {
+    width: 200px;
+    font-size: 13px;
+    line-height: 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    font-size: 13px;
+}
+
+.location {
+    margin-bottom: 40px;
+}

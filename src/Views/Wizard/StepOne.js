@@ -103,6 +103,7 @@ class StepOne extends Component {
 			) : null;
 		return (
 			<div className='step-one'>
+				<div className='location'>
 				<input
 					type="text"
 					placeholder="Enter City and State or Zip"
@@ -110,11 +111,11 @@ class StepOne extends Component {
 					value={this.state.address}
 				/>
 				<button onClick={() => this.saveLatLong(this.state.address)}>Search</button>
-				<div>
-					<button onClick={this.getLocation}>Use Current Location</button>
+				<br /><button onClick={this.getLocation}>Use Current Location</button>
 				</div>
+				
 				<div>
-					<b>Distance:</b>
+					<h2>Distance</h2>
 					<input
 						type="range"
 						min={5}
@@ -126,7 +127,7 @@ class StepOne extends Component {
 					{this.state.distance + ' Miles'}
 				</div>
 				<div>
-					<b>Price Range</b>
+					<h2>Price Range</h2>
 					$10 Or less{' '}
 					<input
 						type="checkbox"
