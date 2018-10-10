@@ -35,9 +35,10 @@ class StepFive extends Component {
       allowDownVotes: this.state.allowDownVotes,
       isActive: true,
       allowChat: true,
-      pollOptions: this.props.PollOptions
+      pollOptions: this.props.PollItems
 
     }
+    console.log(pollSettings)
     this.props.saveStepFive(url+randomString, randomString)
     axios.post('/poll/createPoll', pollSettings).then(()=> {
       this.props.history.push('/wizard/step-6')

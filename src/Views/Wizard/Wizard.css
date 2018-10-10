@@ -2,6 +2,7 @@
     height: 100px;
     width: 150px;
 }
+<<<<<<< HEAD
 
 Wizard {
     justify-content: center;
@@ -18,4 +19,19 @@ h1 {
     border: 2px solid #822317;
     margin: 30px;
     padding: 40px;
+=======
+.categories-list{
+    display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+.category-container{
+    margin: 5px;
+    padding: 2px;
+    border: #822317 1px solid
+}
+.category-container:hover{
+    background-color: #822317;
+    color: white;
+    cursor: pointer;
+>>>>>>> master
 }
