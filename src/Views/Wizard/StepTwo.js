@@ -47,7 +47,7 @@ class StepTwo extends Component {
 	render() {
 		const categoriesList = this.state.categories.map((category, index) => {
 			return (
-				<div onClick={() => this.selectCategory(category)} key={index}>
+				<div className= 'category-container' onClick={() => this.selectCategory(category)} key={index}>
 					{category.title}
 				</div>
 			);
@@ -71,7 +71,7 @@ class StepTwo extends Component {
 				<div>{selected}</div>
 				<hr />
 				<input type="text" onChange={(e) => this.filerCategories(e.target.value)} />
-				<div>{categoriesList}</div>;
+				<div className='categories-list'>{categoriesList}</div>
 			</div>
 		);
 	}
