@@ -20,10 +20,13 @@ class Login extends Component {
             username: this.state.username,
             password: this.state.password,
         }
-
-        axios.post('/auth/login', user).then((response) => {
-            console.log(response);
-        })        
+        axios.post('/auth/login', user)
+          .then((response) => {
+            this.props.history.push('./')
+          })
+          .catch(err => {
+            console.log(err);
+          })
     };
 
     handleChange = (e) => {
