@@ -23,7 +23,12 @@ module.exports = {
 	},
   getPoll: (req, res) => {
     const { pollID } = req.params;
-    res.status(200).send(`get poll route pollID: ${pollID}`)
+		req.db.get_poll(pollID)
+			.then(result => res.status(200).send(result))
+			.catch(err => {
+				console.error(err);
+				res.status(500).send({ error: `Oopsies, you stepped in it, brother.`});
+			})
   },
   editPoll: (req, res) => {
     const { pollID } = req.params;
