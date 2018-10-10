@@ -13,6 +13,11 @@ class StepTwo extends Component {
 			categories: categories
 		};
 	}
+	componentWillMount(){
+		if(this.props.catArray){
+			this.setState({selected: this.props.catArray})
+		}
+	}
 	selectCategory(category) {
 		const selectCategories = this.state.selected;
 		selectCategories.push(category);
@@ -37,12 +42,12 @@ class StepTwo extends Component {
 		const titles = this.state.selected.map(category=> category.title)
 		const categories = this.state.selected.map((category) => category.alias);
 		const joinedCategories = categories.join(',');
-		this.props.saveStepTwo(joinedCategories, titles);
+		this.props.saveStepTwo(joinedCategories, titles, this.state.selected);
 	}
 	render() {
 		const categoriesList = this.state.categories.map((category, index) => {
 			return (
-				<div onClick={() => this.selectCategory(category)} key={index}>
+				<div className= 'category-container' onClick={() => this.selectCategory(category)} key={index}>
 					{category.title}
 				</div>
 			);
@@ -66,7 +71,7 @@ class StepTwo extends Component {
 				<div>{selected}</div>
 				<hr />
 				<input type="text" onChange={(e) => this.filerCategories(e.target.value)} />
-				<div>{categoriesList}</div>;
+				<div className='categories-list'>{categoriesList}</div>
 			</div>
 		);
 	}

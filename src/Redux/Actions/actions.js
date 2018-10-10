@@ -6,11 +6,12 @@ export const saveStepOne = (object) => {
 		payload: object
 	};
 };
-export const saveStepTwo = (categories, titles) => {
+export const saveStepTwo = (categories, titles, array) => {
 	return {
 		type: 'WIZARD_STEP_TWO',
 		payload: {categories: categories,
-			titles: titles
+			titles: titles,
+			catArray: array,
 		}
 	};
 };
