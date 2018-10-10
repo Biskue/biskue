@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
+import axios from 'axios'
 import socketIOClient from 'socket.io-client';
 const socket = socketIOClient('http://localhost:4005/', {
 	extraHeaders: { 'Access-Control-Allow-Credentials': 'omit' }
@@ -24,11 +25,12 @@ export default class LivePoll extends Component {
 			number: 0,
       pollCode: this.props.match.params.pollCode,
       modalIsOpen: false,
-      username: ''
+      username: '',
+      restaurants: []
 		};
 	}
 componentWillMount(){
-
+axios.get(`/retrieve/${this.props.match.params.pollCode}`).then(response => console.log(response))
 }
 	componentDidMount() {
 		var room = this.state.pollCode;
