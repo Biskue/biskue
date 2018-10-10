@@ -24,7 +24,7 @@ class StepFour extends Component {
 	};
 	saveList() {
 		if (this.state.favorites === true) {
-			return this.state({ favorites: false });
+			return this.setState({ favorites: false });
     }
 		this.setState({ favorites: true });
 	}

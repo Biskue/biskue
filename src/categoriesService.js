@@ -1,17 +1,7 @@
 export const categories = [
 	{
-		alias: 'afghani',
-		title: 'Afghan',
-		parentsList: 'restaurants'
-	},
-	{
 		alias: 'african',
 		title: 'African',
-		parentsList: 'restaurants'
-	},
-	{
-		alias: 'andalusian',
-		title: 'Andalusian',
 		parentsList: 'restaurants'
 	},
 	{
@@ -22,11 +12,6 @@ export const categories = [
 	{
 		alias: 'argentine',
 		title: 'Argentine',
-		parentsList: 'restaurants'
-	},
-	{
-		alias: 'armenian',
-		title: 'Armenian',
 		parentsList: 'restaurants'
 	},
 	{
@@ -55,21 +40,6 @@ export const categories = [
 		parentsList: 'restaurants'
 	},
 	{
-		alias: 'bangladeshi',
-		title: 'Bangladeshi',
-		parentsList: 'restaurants'
-	},
-	{
-		alias: 'basque',
-		title: 'Basque',
-		parentsList: 'restaurants'
-	},
-	{
-		alias: 'bavarian',
-		title: 'Bavarian',
-		parentsList: 'restaurants'
-	},
-	{
 		alias: 'bbq',
 		title: 'Barbeque',
 		parentsList: 'restaurants'
@@ -85,11 +55,6 @@ export const categories = [
 		parentsList: 'restaurants'
 	},
 	{
-		alias: 'beisl',
-		title: 'Beisl',
-		parentsList: 'restaurants'
-	},
-	{
 		alias: 'belgian',
 		title: 'Belgian',
 		parentsList: 'restaurants'
@@ -97,11 +62,6 @@ export const categories = [
 	{
 		alias: 'bistros',
 		title: 'Bistros',
-		parentsList: 'restaurants'
-	},
-	{
-		alias: 'blacksea',
-		title: 'Black Sea',
 		parentsList: 'restaurants'
 	},
 	{
@@ -140,11 +100,6 @@ export const categories = [
 		parentsList: 'restaurants'
 	},
 	{
-		alias: 'burmese',
-		title: 'Burmese',
-		parentsList: 'restaurants'
-	},
-	{
 		alias: 'cafes',
 		title: 'Cafes',
 		parentsList: 'restaurants'
@@ -162,11 +117,6 @@ export const categories = [
 	{
 		alias: 'cambodian',
 		title: 'Cambodian',
-		parentsList: 'restaurants'
-	},
-	{
-		alias: 'canteen',
-		title: 'Canteen',
 		parentsList: 'restaurants'
 	},
 	{
@@ -210,11 +160,6 @@ export const categories = [
 		parentsList: 'restaurants'
 	},
 	{
-		alias: 'corsican',
-		title: 'Corsican',
-		parentsList: 'restaurants'
-	},
-	{
 		alias: 'creperies',
 		title: 'Creperies',
 		parentsList: 'restaurants'
@@ -222,16 +167,6 @@ export const categories = [
 	{
 		alias: 'cuban',
 		title: 'Cuban',
-		parentsList: 'restaurants'
-	},
-	{
-		alias: 'currysausage',
-		title: 'Curry Sausage',
-		parentsList: 'restaurants'
-	},
-	{
-		alias: 'cypriot',
-		title: 'Cypriot',
 		parentsList: 'restaurants'
 	},
 	{
@@ -285,11 +220,6 @@ export const categories = [
 		parentsList: 'restaurants'
 	},
 	{
-		alias: 'fischbroetchen',
-		title: 'Fischbroetchen',
-		parentsList: 'restaurants'
-	},
-	{
 		alias: 'fishnchips',
 		title: 'Fish & Chips',
 		parentsList: 'restaurants'
@@ -335,11 +265,6 @@ export const categories = [
 		parentsList: 'restaurants'
 	},
 	{
-		alias: 'gastropubs',
-		title: 'Gastropubs',
-		parentsList: 'restaurants'
-	},
-	{
 		alias: 'georgian',
 		title: 'Georgian',
 		parentsList: 'restaurants'
@@ -370,18 +295,8 @@ export const categories = [
 		parentsList: 'restaurants'
 	},
 	{
-		alias: 'halal',
-		title: 'Halal',
-		parentsList: 'restaurants'
-	},
-	{
 		alias: 'hawaiian',
 		title: 'Hawaiian',
-		parentsList: 'restaurants'
-	},
-	{
-		alias: 'heuriger',
-		title: 'Heuriger',
 		parentsList: 'restaurants'
 	},
 	{
@@ -475,11 +390,6 @@ export const categories = [
 		parentsList: 'restaurants'
 	},
 	{
-		alias: 'kopitiam',
-		title: 'Kopitiam',
-		parentsList: 'restaurants'
-	},
-	{
 		alias: 'korean',
 		title: 'Korean',
 		parentsList: 'restaurants'
@@ -492,16 +402,6 @@ export const categories = [
 	{
 		alias: 'kurdish',
 		title: 'Kurdish',
-		parentsList: 'restaurants'
-	},
-	{
-		alias: 'laos',
-		title: 'Laos',
-		parentsList: 'restaurants'
-	},
-	{
-		alias: 'laotian',
-		title: 'Laotian',
 		parentsList: 'restaurants'
 	},
 	{
@@ -595,11 +495,6 @@ export const categories = [
 		parentsList: 'restaurants'
 	},
 	{
-		alias: 'nikkei',
-		title: 'Nikkei',
-		parentsList: 'restaurants'
-	},
-	{
 		alias: 'noodles',
 		title: 'Noodles',
 		parentsList: 'restaurants'
@@ -690,11 +585,6 @@ export const categories = [
 		parentsList: 'restaurants'
 	},
 	{
-		alias: 'poutineries',
-		title: 'Poutineries',
-		parentsList: 'restaurants'
-	},
-	{
 		alias: 'pubfood',
 		title: 'Pub Food',
 		parentsList: 'restaurants'
@@ -755,11 +645,6 @@ export const categories = [
 		parentsList: 'restaurants'
 	},
 	{
-		alias: 'serbocroatian',
-		title: 'Serbo Croatian',
-		parentsList: 'restaurants'
-	},
-	{
 		alias: 'signature_cuisine',
 		title: 'Signature Cuisine',
 		parentsList: 'restaurants'
@@ -792,11 +677,6 @@ export const categories = [
 	{
 		alias: 'spanish',
 		title: 'Spanish',
-		parentsList: 'restaurants'
-	},
-	{
-		alias: 'srilankan',
-		title: 'Sri Lankan',
 		parentsList: 'restaurants'
 	},
 	{
