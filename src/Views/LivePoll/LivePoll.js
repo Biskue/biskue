@@ -51,15 +51,16 @@ axios.get(`/poll/retrieve/${this.props.match.params.pollCode}`).then(response =>
 			socket.send('hi');
 
 			socket.on('incremented', (number, index) => {
+				console.log(number, index)
 				const restaurants = this.state.restaurants
-				restaurants[index].upVote = number
+				restaurants[index].upVotes = number
 				this.setState({
 					restaurants
 				});
 			});
 			socket.on('decremented', (number, index) => {
 				const restaurants = this.state.restaurants
-				restaurants[index].downVote = number
+				restaurants[index].downVotes = number
 				this.setState({
 					restaurants
 				});
@@ -75,7 +76,7 @@ axios.get(`/poll/retrieve/${this.props.match.params.pollCode}`).then(response =>
 	}
 	vote = (upOrDown, optionId, index) => {
 		console.log(upOrDown, optionId, index)
-		socket.emit('vote', (upOrDown, optionId, this.state.pollCode, index))
+		socket.emit('vote', upOrDown, optionId, this.state.pollCode, index)
 	}
 	render() {
     const modalButton = this.state.username != '' ? <button onClick={()=> this.saveUsername()}>Go</button> : null
