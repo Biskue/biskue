@@ -63,6 +63,19 @@ module.exports = {
 				res.status(500).send({ error: `Oopsies, you stepped in it, brother.`});
 			});
 		}
-  }
-  
+	},
+  joinPoll: (req, res) => {
+    const { pollID } = req.params;
+    const { username } = req.body;
+    req.session.user.username = username;
+    req.db.join_poll(pollID, username)
+      .then(poll => {
+        console.log(poll);
+        res.status(200).send(poll)
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).send(err);
+      })
+  },
 }
