@@ -6,7 +6,7 @@ CREATE TABLE "polls" (
 	"votesPerUser" INTEGER,
 	"allowDownVotes" BOOLEAN,
 	"isActive" BOOLEAN,
-	"participants" JSONB,
+	"participants" text[],
 	"pollWinner" JSONB,
 	"createdAt" TIMESTAMP NOT NULL DEFAULT now(),
 	"updatedAt" TIMESTAMP NOT NULL DEFAULT now()
