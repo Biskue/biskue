@@ -67,8 +67,9 @@ module.exports = {
   joinPoll: (req, res) => {
     const { pollID } = req.params;
     const { username } = req.body;
+    const participant = '{' + username + '}';
     req.session.user.username = username;
-    req.db.join_poll(pollID, username)
+    req.db.join_poll(pollID, participant)
       .then(poll => {
         console.log(poll);
         res.status(200).send(poll)
