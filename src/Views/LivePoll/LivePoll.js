@@ -33,7 +33,9 @@ export default class LivePoll extends Component {
 componentWillMount(){
 axios.get(`/poll/retrieve/${this.props.match.params.pollCode}`).then(response => {
 	console.log(response)
-	 const restaurants= response.data.map(rest => rest.pollOption)
+	 const restaurants= response.data.map(rest => { return {pollItem: rest.pollOption, upVotes: rest.upVotes, downVotes: rest.downVotes, optionId: rest.optionId}})
+	 
+	 console.log(restaurants)
 	this.setState({restaurants: restaurants})
 })
 }
@@ -48,9 +50,18 @@ axios.get(`/poll/retrieve/${this.props.match.params.pollCode}`).then(response =>
 			console.log(data);
 			socket.send('hi');
 
-			socket.on('incremented', (number) => {
+			socket.on('incremented', (number, index) => {
+				const restaurants = this.state.restaurants
+				restaurants[index].upVote = number
 				this.setState({
-					number
+					restaurants
+				});
+			});
+			socket.on('decremented', (number, index) => {
+				const restaurants = this.state.restaurants
+				restaurants[index].downVote = number
+				this.setState({
+					restaurants
 				});
 			});
 		});
@@ -62,14 +73,18 @@ axios.get(`/poll/retrieve/${this.props.match.params.pollCode}`).then(response =>
 	increment() {
 		socket.emit('increment', this.state.number, this.state.pollCode);
 	}
-
+	vote = (upOrDown, optionId, index) => {
+		console.log(upOrDown, optionId, index)
+		socket.emit('vote', (upOrDown, optionId, this.state.pollCode, index))
+	}
 	render() {
     const modalButton = this.state.username != '' ? <button onClick={()=> this.saveUsername()}>Go</button> : null
 	const restaurantsList = this.state.restaurants.map((rest, index)=> {
 		return(
-			<RestaurantCard key= {index} currentRes= {rest} />
+			<RestaurantCard key= {index} currentIndex= {index} optionId ={rest.optionId} currentRes= {rest.pollItem} vote={this.vote} currentVotes= {{upVotes: rest.upVotes, downVotes: rest.downVotes}}/>
 		)
 	})
+	
 	return (
 			<div>
 				Hello
