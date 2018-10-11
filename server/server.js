@@ -3,7 +3,7 @@ const express = require('express');
 require('dotenv').config({
     path: __dirname + '/../.env',
 });
-
+const {getDb} = require('./database/bootstrap.database')
 const globalDecorator = require('./middleware/global-decorator.middleware');
 const routerHub = require('./routers/hub.router');
 
@@ -29,14 +29,14 @@ app.get('/', function (req, res) {
     res.send({ response: 'I am alive'}).status(200);
   });
   
-  io.on('connection', socket => {
+  io.on('connection', (socket, req) => {
 
     socket.emit('news', { hello: 'world' });
 
     socket.on('room', room => {
         console.log(`Joining Socket Room ${room}`)
         socket.join(room);
-        io.sockets.in(pollCode).emit('joined', req.session.user.firstName);
+        // io.sockets.in(room).emit('joined', req.session.user.firstName);
     })
 
     socket.on('connect', data => console.log(data));
@@ -51,13 +51,14 @@ app.get('/', function (req, res) {
     });
 
     socket.on('vote', (upOrDown, optionId, pollCode, index) => { 
+        const db = getDb()
         if(upOrDown) {
-            req.db.increment_vote(optionId)
-                .then(result => io.sockets.in(pollCode).emit('incremented', (result.upVote, index)))
+            db.increment_vote([optionId])
+                .then(result => io.sockets.in(pollCode).emit('incremented', result[0].upVotes, index))
                 .catch(err => console.warn(err))
         } else {
-            req.db.decrement_vote(optionId)
-                .then(result => io.sockets.in(pollCode).emit('decremented', (result.downVote, index)))
+            db.decrement_vote([optionId])
+                .then(result => io.sockets.in(pollCode).emit('decremented', result[0].downVotes, index))
                 .catch(err => console.warn(err))
         }
     });
