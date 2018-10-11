@@ -7,15 +7,8 @@ export class NavBar extends Component {
   render() {
     return (
       <div className="navbar">
-<<<<<<< HEAD
-        
-
-        <Link to='/user-info'>
-        <span>Login</span>
-=======
         <Link to='/'>
         <img className="navbar-logo" src={logo} alt="logo" />
->>>>>>> master
         </Link>
         <Link to='/Login'>
         <span>Login</span>
