@@ -7,23 +7,22 @@ export default class Landing extends Component {
   render() {
     return (
       
-      <div>
+      <div className='landing'>
         <div className='biskue-logo'>
           <h1>BIIIIIIIIIIISKUE</h1>
         </div>
         <div className='poll-buttons'>
-          <div className='create-poll'>
+          <div>
             <Link to='/wizard/step-1'>
-              <button>Start Poll</button>
+              <button className='create-poll'>Start Poll</button>
             </Link>
-  
             <Link to='/user-info'>
-              <button>Select poll from favorites</button>
+              <button className='create-poll'>Select poll from favorites</button>
             </Link>
+            <button className='create-poll'>Join Poll</button>
           </div>
           
-          <div className='join-poll'>
-            <button>Join Poll</button>
+          <div>
           </div>
         </div>
       </div>

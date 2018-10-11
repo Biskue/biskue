@@ -4,7 +4,7 @@
     display: flexbox;
     justify-content: space-between;
     /* background: transparent; */
-    background-color: #822317;
+    background-color: #cc8237;
     /* overflow: hidden; */
     height: 50px;
     color: black;
@@ -24,7 +24,7 @@
 }
 
 .navbar span:hover {
-    background-color: #57180f;
+    background-color: #a86929;
     text-shadow: 2px 2px 2px black;
 
 }

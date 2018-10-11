@@ -7,7 +7,7 @@ export class NavBar extends Component {
   render() {
     return (
       <div className="navbar">
-        <img className="navbar-logo" src={logo} alt="logo" />
+        
 
         <Link to='/user-info'>
         <span>Login</span>
