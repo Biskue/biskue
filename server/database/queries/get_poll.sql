@@ -1,5 +1,5 @@
 SELECT
-  p.*, po."pollOption", po."downVotes", po."upVotes" 
+  p.*, po."pollOption", po."downVotes", po."upVotes", po."optionId"
 FROM
   "polls" p
 INNER JOIN 
