@@ -1,6 +1,15 @@
 .landing {
     display: flex;
-    background-color: #b6c9b5
+    justify-content: center;
+    height: 100vh;
+    /* background-color:#eeefead3;
+    background-image: 
+    radial-gradient(circle at 100% 150%, #eeefead3 24%, #f8f5f5dc 25%, #f8f5f5dc 28%, #eeefead3 29%, #eeefead3 36%, #f8f5f5dc 36%, #f8f5f5dc 40%, transparent 40%, transparent),
+    radial-gradient(circle at 0    150%, #eeefead3 24%, #f8f5f5dc 25%, #f8f5f5dc 28%, #eeefead3 29%, #eeefead3 36%, #f8f5f5dc 36%, #f8f5f5dc 40%, transparent 40%, transparent),
+    radial-gradient(circle at 50%  100%, #f8f5f5dc 10%, #eeefead3 11%, #eeefead3 23%, #f8f5f5dc 24%, #f8f5f5dc 30%, #eeefead3 31%, #eeefead3 43%, #f8f5f5dc 44%, #f8f5f5dc 50%, #eeefead3 51%, #eeefead3 63%, #f8f5f5dc 64%, #f8f5f5dc 71%, transparent 71%, transparent),
+    radial-gradient(circle at 100% 50%, #f8f5f5dc 5%, #eeefead3 6%, #eeefead3 15%, #f8f5f5dc 16%, #f8f5f5dc 20%, #eeefead3 21%, #eeefead3 30%, #f8f5f5dc 31%, #f8f5f5dc 35%, #eeefead3 36%, #eeefead3 45%, #f8f5f5dc 46%, #f8f5f5dc 49%, transparent 50%, transparent),
+    radial-gradient(circle at 0    50%, #f8f5f5dc 5%, #eeefead3 6%, #eeefead3 15%, #f8f5f5dc 16%, #f8f5f5dc 20%, #eeefead3 21%, #eeefead3 30%, #f8f5f5dc 31%, #f8f5f5dc 35%, #eeefead3 36%, #eeefead3 45%, #f8f5f5dc 46%, #f8f5f5dc 49%, transparent 50%, transparent);
+    background-size:100px 50px; */
 }
 
 .biskue-logo {
@@ -8,7 +17,8 @@
 }
 
 .poll-buttons {
-    background-color: #314d74;
+    background-color: #eeefea8e;
+    border: 3px solid #438a59;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     width: 400px;
@@ -16,10 +26,12 @@
     display: flex;
     margin: 100px;
     flex-direction: column;
+    justify-content: center;
 
 }
 
 .poll-buttons:hover {
+    background-color: #eeefea;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
@@ -37,14 +49,14 @@
     border-radius: 2px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
     
-    background-color: #4a7646;
+    background-color: #f18137;
     color: #ffffff;
     
     transition: background-color .3s;
 }
 
 .create-poll:hover, .create-poll:focus {
-    background-color: #43146e;
+    background-color: #db6129;
     box-shadow: 0 6px 10px rgba(0,0,0,0.25), 0 3px 3px rgba(0,0,0,0.22);
     color: #ffffffa6;
   }
