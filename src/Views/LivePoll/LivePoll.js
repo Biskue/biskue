@@ -111,6 +111,7 @@ axios.get('/auth/login').then((res)=>{console.log(res)})
 		);
   }
   saveUsername(){
+	  socket.emit('newUser')
     this.setState({modalIsOpen: false})
   }
 }
