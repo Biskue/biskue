@@ -9,7 +9,7 @@ export default class Landing extends Component {
   render() {
     return (
       
-      <div className="Landing">
+      <div className="landing">
         <div className='biskue-logo'>
           <h1>BIIIIIIIIIIISKUE</h1>
         </div>
