@@ -2,8 +2,16 @@
 
 .App {
   text-align: center;
-  background-color: #ffffff;
   font-family: 'Mukta', sans-serif;
+  height: 100vh;
+  background-color:#eeefead3;
+  background-image: 
+  radial-gradient(circle at 100% 150%, #eeefead3 24%, #f8f5f5dc 25%, #f8f5f5dc 28%, #eeefead3 29%, #eeefead3 36%, #f8f5f5dc 36%, #f8f5f5dc 40%, transparent 40%, transparent),
+  radial-gradient(circle at 0    150%, #eeefead3 24%, #f8f5f5dc 25%, #f8f5f5dc 28%, #eeefead3 29%, #eeefead3 36%, #f8f5f5dc 36%, #f8f5f5dc 40%, transparent 40%, transparent),
+  radial-gradient(circle at 50%  100%, #f8f5f5dc 10%, #eeefead3 11%, #eeefead3 23%, #f8f5f5dc 24%, #f8f5f5dc 30%, #eeefead3 31%, #eeefead3 43%, #f8f5f5dc 44%, #f8f5f5dc 50%, #eeefead3 51%, #eeefead3 63%, #f8f5f5dc 64%, #f8f5f5dc 71%, transparent 71%, transparent),
+  radial-gradient(circle at 100% 50%, #f8f5f5dc 5%, #eeefead3 6%, #eeefead3 15%, #f8f5f5dc 16%, #f8f5f5dc 20%, #eeefead3 21%, #eeefead3 30%, #f8f5f5dc 31%, #f8f5f5dc 35%, #eeefead3 36%, #eeefead3 45%, #f8f5f5dc 46%, #f8f5f5dc 49%, transparent 50%, transparent),
+  radial-gradient(circle at 0    50%, #f8f5f5dc 5%, #eeefead3 6%, #eeefead3 15%, #f8f5f5dc 16%, #f8f5f5dc 20%, #eeefead3 21%, #eeefead3 30%, #f8f5f5dc 31%, #f8f5f5dc 35%, #eeefead3 36%, #eeefead3 45%, #f8f5f5dc 46%, #f8f5f5dc 49%, transparent 50%, transparent);
+  background-size:100px 50px;
 }
 
 .App-logo {
