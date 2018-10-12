@@ -20,5 +20,6 @@ button {
 }
 
 .location {
-    margin-bottom: 40px;
+    display: inline-flex;
+    flex-direction: unset;
 }

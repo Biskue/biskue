@@ -117,7 +117,7 @@ class StepOne extends Component {
 				<br /><button onClick={this.getLocation}>Use Current Location</button>
 				</div>
 				
-				<div>
+				<div className='distance'>
 					<h2>Distance</h2>
 					<input
 						type="range"
@@ -129,7 +129,7 @@ class StepOne extends Component {
 					/>{' '}
 					{this.state.distance + ' Miles'}
 				</div>
-				<div>
+				<div className='price-range'>
 					<h2>Price Range</h2>
 					$10 Or less{' '}
 					<input
@@ -172,6 +172,7 @@ class StepOne extends Component {
 						}}
 					/>
 				</div>
+				
 				<label>Show Restaurants open now</label>
 				<input
 					type="radio"
