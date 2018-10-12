@@ -4,16 +4,16 @@
     display: flexbox;
     justify-content: space-between;
     /* background: transparent; */
-    background-color: #cc8237;
+    background-color: #215732;
     /* overflow: hidden; */
     height: 50px;
     color: black;
-    padding-right: 10px;
+   
 
 }
 
 .navbar span {
-    justify-content: space-evenly;
+    justify-content: flex-end;
     float: right;
     color: white;
     text-align: center;
@@ -24,7 +24,7 @@
 }
 
 .navbar span:hover {
-    background-color: #a86929;
+    background-color: #46885b;
     text-shadow: 2px 2px 2px black;
 
 }
