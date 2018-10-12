@@ -3,9 +3,10 @@
 .navbar {
     display: flexbox;
     justify-content: space-between;
-    background-color: #822317;
-    width: 100%;
-    height: 6vh;
+    /* background: transparent; */
+    background-color: #cc8237;
+    /* overflow: hidden; */
+    height: 50px;
     color: black;
     padding-right: 10px;
 
@@ -23,8 +24,8 @@
 }
 
 .navbar span:hover {
-    background-color: #57180f;
-    text-shadow: 4px 6px 4px black;
+    background-color: #a86929;
+    text-shadow: 2px 2px 2px black;
 
 }
 
