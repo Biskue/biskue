@@ -8,12 +8,18 @@ const globalDecorator = require('./middleware/global-decorator.middleware');
 const routerHub = require('./routers/hub.router');
 
 const app = express();
-const server = require('http').createServer(app);  
+const server = require('http').createServer(app);
+const sharedSession = require('express-socket.io-session');  
 const io = require('socket.io')(server);
+io.use(sharedSession(globalDecorator.sessionMiddleWare, {
+    autoSave:true
+})); 
 
-globalDecorator(app);
+
+globalDecorator.globalDecorator(app);
 
 routerHub(app);
+
 
 app.use((err, req, res, next) => {
     res.status(500).send(err);
@@ -29,7 +35,9 @@ app.get('/', function (req, res) {
     res.send({ response: 'I am alive'}).status(200);
   });
   
-  io.on('connection', (socket, req) => {
+  io.on('connection', (socket) => {
+
+    console.log(socket.handshake.session.user);
 
     socket.emit('news', { hello: 'world' });
 
