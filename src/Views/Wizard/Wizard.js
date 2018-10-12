@@ -14,7 +14,7 @@ export default () => {
   return (
     <div>
       <h1>Create Poll</h1>
-      <div className="wizard-container">
+      <div className='poll-buttons'>
       <Route path= '/wizard/step-1' component ={StepOne}/>
       <Route path= '/wizard/step-2' component ={StepTwo} />
       <Route path= '/wizard/step-3' component ={StepThree} />
