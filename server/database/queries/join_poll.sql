@@ -1,4 +1,5 @@
-UPDATE "polls"
-	SET "participants" = "participants" || $2
-WHERE "pollId" = $1
+INSERT INTO "pollUsers" 
+	( "pollId", "username" ) 
+VALUES 
+	($1, $2)
 RETURNING *;
