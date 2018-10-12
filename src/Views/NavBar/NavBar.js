@@ -19,3 +19,8 @@ export class NavBar extends Component {
   }
 }
 
+//  Object.keys(this.props.currentProduct).length > 0 ?
+// <button onClick={() => this.props.submitEditChange(this.props.currentProduct.id, this.state)}> Submit Change </button>
+// :
+// <button onClick={this.submitForm}> Add to Inventory </button>
+// } 
