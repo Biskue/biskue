@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import axios from 'axios'
 import './Wizard.css'
 import * as Actions from '../../Redux/Actions/actions';
 import Geocode from 'react-geocode';
@@ -25,7 +26,8 @@ class StepOne extends Component {
 		};
 	}
 	componentWillMount(){
-		
+		axios.get('/auth/login').then((response)=>{
+		console.log(response)
 	if(this.props.address){
 		this.setState({
 			address: this.props.address,
@@ -41,7 +43,8 @@ class StepOne extends Component {
 			price4: this.props.priceRange.includes(4)
 		})
 	}
-		
+})
+.catch((err)=> {console.log(err); this.props.history.push('/login')})	
 	}
 	handleChange(event, name) {
 		const value = event.target.value;

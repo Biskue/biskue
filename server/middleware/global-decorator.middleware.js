@@ -13,6 +13,22 @@ const corsOptions = {
     optionsSuccessStatus: 200
   }
 
+const sessionMiddleWare = session({
+    store: new PostgresStore({
+        conString: process.env.DB_CONNECTION_STRING,
+    }),
+    key: 'user_sid',
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false,
+    rolling: true,
+    cookie: {
+        maxAge: 30 * 24 * 60 * 60 * 1000,
+        httpOnly: true,
+        sameSite: true,
+    }
+})
+
 function globalDecorator(app) {
     app.use(cors(corsOptions));
     app.use(helmet());
@@ -20,21 +36,7 @@ function globalDecorator(app) {
     app.use(addDb);
     app.use(express.static(__dirname + '/../build'));
     app.use(cookieParser());
-    app.use(session({
-        store: new PostgresStore({
-            conString: process.env.DB_CONNECTION_STRING,
-        }),
-        key: 'user_sid',
-        secret: process.env.SECRET,
-        resave: false,
-        saveUninitialized: false,
-        rolling: true,
-        cookie: {
-            maxAge: 30 * 24 * 60 * 60 * 1000,
-            httpOnly: true,
-            sameSite: true,
-        }
-    }))
+    app.use(sessionMiddleWare)
 }
 
-module.exports = globalDecorator;
+module.exports = { globalDecorator, sessionMiddleWare };

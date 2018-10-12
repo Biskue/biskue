@@ -32,12 +32,13 @@ export default class LivePoll extends Component {
 	}
 componentWillMount(){
 axios.get(`/poll/retrieve/${this.props.match.params.pollCode}`).then(response => {
-	console.log(response)
+	
 	 const restaurants= response.data.map(rest => { return {pollItem: rest.pollOption, upVotes: rest.upVotes, downVotes: rest.downVotes, optionId: rest.optionId}})
 	 
-	 console.log(restaurants)
-	this.setState({restaurants: restaurants})
+	this.setState({restaurants})
 })
+axios.get('/auth/login').then((res)=>{console.log(res)})
+.catch((err)=>  {console.log(err); this.setState({modalIsOpen: true})})
 }
 
 	componentDidMount() {
@@ -78,6 +79,9 @@ axios.get(`/poll/retrieve/${this.props.match.params.pollCode}`).then(response =>
 		console.log(upOrDown, optionId, index)
 		socket.emit('vote', upOrDown, optionId, this.state.pollCode, index)
 	}
+	logout(){
+		axios.post('/auth/logout').then(()=> console.log('logged out'))
+	}
 	render() {
     const modalButton = this.state.username != '' ? <button onClick={()=> this.saveUsername()}>Go</button> : null
 	const restaurantsList = this.state.restaurants.map((rest, index)=> {
@@ -90,7 +94,7 @@ axios.get(`/poll/retrieve/${this.props.match.params.pollCode}`).then(response =>
 			<div>
 				Hello
 				{this.state.response.hello}
-				<button onClick={() => this.increment()}>Increment Socket</button>
+				<button onClick={() => this.logout()}>Increment Socket</button>
 				{this.state.number}
 				{restaurantsList}
 				<Modal
