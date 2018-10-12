@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Register.css';
+
 import axios from 'axios';
 
 import {Link} from 'react-router-dom';
@@ -47,7 +47,7 @@ class Register2 extends Component {
 
             <div className="Register">
                 <div className="title">BISKUE</div>
-                <div className="register-box">
+                <div className="poll-buttons">
                     <div className="input-container">
                         <label>First Name:</label>
                         <input onChange={this.handleChange} name="firstName" value={this.state.firstName} type="text"  />
@@ -55,7 +55,7 @@ class Register2 extends Component {
                         <input onChange={this.handleChange} name="lastName" value={this.state.lastName} type="text" />
                     </div>
                 
-                    <button onClick={this.sendUserInfo}>Register</button>
+                    <button className='create-poll' onClick={this.sendUserInfo}>Register</button>
                 
                 </div>
             </div>

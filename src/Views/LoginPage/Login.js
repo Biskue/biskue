@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import './Login.css';
 
 
@@ -40,7 +41,7 @@ class Login extends Component {
 
             <div className="Login">
                 <div className="title">BISKUE</div>
-                <div className="login-box">
+                <div className="poll-buttons">
                     <div className="input-container">
                         <label>Username:</label>
                         <input onChange={this.handleChange} name="username" value={this.state.username} type="text" />
@@ -48,7 +49,10 @@ class Login extends Component {
                         <input onChange={this.handleChange} name="password" value={this.state.password} type="password" />
                     </div>
 
-                    <button onClick={this.confirmUserInfo}>Login</button>
+                    <button className="create-poll" onClick={this.confirmUserInfo}>Login</button>
+                    <Link to='/register'>
+                    <button className="create-poll " >Register</button>
+                    </Link>
 
                 </div>
             </div>
