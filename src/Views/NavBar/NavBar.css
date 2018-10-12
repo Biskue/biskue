@@ -3,16 +3,17 @@
 .navbar {
     display: flexbox;
     justify-content: space-between;
-    background-color: #822317;
-    width: 100%;
-    height: 6vh;
+    /* background: transparent; */
+    background-color: #215732;
+    /* overflow: hidden; */
+    height: 50px;
     color: black;
-    padding-right: 10px;
+   
 
 }
 
 .navbar span {
-    justify-content: space-evenly;
+    justify-content: flex-end;
     float: right;
     color: white;
     text-align: center;
@@ -23,8 +24,8 @@
 }
 
 .navbar span:hover {
-    background-color: #57180f;
-    text-shadow: 4px 6px 4px black;
+    background-color: #46885b;
+    text-shadow: 2px 2px 2px black;
 
 }
 
