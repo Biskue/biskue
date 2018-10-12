@@ -85,4 +85,20 @@ module.exports = {
 				}
       })
   },
+  vote: (req, res) => {
+    const { pollID } = req.params;
+    const { username } = req.body;  
+    req.db.check_pollUser_votes(pollID, username)
+      .then(async ([ vote ]) => {
+        if (vote.votesUsed < vote.votesPerUser) {
+            const [ updatedVote ] = await req.db.update_user_vote(pollID, username)
+            return res.status(200).send(updatedVote);
+        }
+        res.status(500).send({message: `User: ${username} has exhausted vote allotment for this poll.`})
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).send({error: err.message});
+      })
+  }
 }
