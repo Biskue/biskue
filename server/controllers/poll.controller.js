@@ -3,7 +3,8 @@ const axios = require('axios');
 module.exports = {
   createPoll: (req, res) => {
 		const { pollCode, pollURL, votesPerUser, allowDownVotes, isActive, allowChat, pollOptions } = req.body;
-		const poll = { pollCode, pollURL, votesPerUser, allowDownVotes, isActive, allowChat, adminUserId: 1 }; // need to replace adminUserId when sessions are fully set up
+		const adminUserId = req.session.user.id;
+		const poll = { pollCode, pollURL, votesPerUser, allowDownVotes, isActive, allowChat, adminUserId };
 		req.db.polls.insert(poll)
 		.then(poll => {
 			const pollId = poll.pollId;
