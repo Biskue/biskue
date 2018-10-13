@@ -71,6 +71,13 @@ app.get('/', function (req, res) {
         }
     });
 
+    socket.on('end', (pollCode) => {
+        const db = getDb()
+        db.close_poll(pollCode)
+            .then(result => io.sockets.in(pollCode).emit('closePoll'))
+            .catch(err => console.warn(err))
+    });
+
     socket.on('disconnect', () => console.log('client disconnected'));
 
 });
