@@ -3,10 +3,13 @@ const axios = require('axios');
 module.exports = {
   createPoll: (req, res) => {
 		const { pollCode, pollURL, votesPerUser, allowDownVotes, isActive, allowChat, pollOptions } = req.body;
-		const poll = { pollCode, pollURL, votesPerUser, allowDownVotes, isActive, allowChat, adminUserId: 1 }; // need to replace adminUserId when sessions are fully set up
+    const adminUserId = req.session.user.id;
+    const adminUsername = req.session.user.username;
+		const poll = { pollCode, pollURL, votesPerUser, allowDownVotes, isActive, allowChat, adminUserId };
 		req.db.polls.insert(poll)
 		.then(poll => {
-			const pollId = poll.pollId;
+      const pollId = poll.pollId;
+      req.db.join_poll(pollId, adminUsername)
 			pollOptions.map(o => {
 				let newOption = {
 					pollId,
@@ -66,17 +69,36 @@ module.exports = {
 	},
   joinPoll: (req, res) => {
     const { pollID } = req.params;
-    const { username } = req.body;
-    const participant = '{' + username + '}';
-    req.session.user.username = username;
-    req.db.join_poll(pollID, participant)
-      .then(poll => {
-        console.log(poll);
-        res.status(200).send(poll)
+		const { username } = req.body;
+    req.db.join_poll(pollID, username)
+      .then(pollUser => {
+				console.log(pollUser);
+				req.session.user.username = username;
+        res.status(200).send(pollUser)
+      })
+      .catch(err => {
+				if (err.code === '23505') {
+					res.status(400).send({ error: `Error. A user with the name: '${username}' has already joined the poll. Please use another name.`})
+				} else {
+        console.log(err);
+				res.status(500).send(err);
+				}
+      })
+  },
+  vote: (req, res) => {
+    const { pollID } = req.params;
+    const { username } = req.body;  
+    req.db.check_pollUser_votes(pollID, username)
+      .then(async ([ vote ]) => {
+        if (vote.votesUsed < vote.votesPerUser) {
+            const [ updatedVote ] = await req.db.update_user_vote(pollID, username)
+            return res.status(200).send(updatedVote);
+        }
+        res.status(500).send({message: `User: ${username} has exhausted vote allotment for this poll.`})
       })
       .catch(err => {
         console.log(err);
-        res.status(500).send(err);
+        res.status(500).send({error: err.message});
       })
-  },
+  }
 }
