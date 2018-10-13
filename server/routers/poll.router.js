@@ -13,5 +13,7 @@ PollRouter.get('/search', pollController.search);
 
 PollRouter.post('/join/:pollID', pollController.joinPoll);
 
+PollRouter.put('/vote/:pollID', pollController.vote);
+
 module.exports = PollRouter;
 PollRouter.get('/search', pollController.search)
