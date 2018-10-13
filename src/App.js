@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'reset-css';
-import {NavBar} from './Views/NavBar/NavBar';
+import {Route} from 'react-router-dom';
+import  NavBar from './Views/NavBar/NavBar';
 
 import Routes from './Routes'
 
@@ -10,7 +11,7 @@ class App extends Component {
     return (
 
       <div className="App">
-        <NavBar/>
+       <Route component = {NavBar}/>
       <Routes />
       </div>
     );
