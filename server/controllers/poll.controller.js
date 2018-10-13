@@ -115,5 +115,16 @@ module.exports = {
 				console.error(err);
         res.status(500).send({ error: err.message });
       })
-  },
+	},
+	setWinner: (req, res) => {
+		const { pollID } = req.params;
+		const { winner } = req.body;
+		req.db.setWinner(pollID, winner)
+			.then(result => res.status(200).send({message: `winner has been set for poll: ${pollID}`}))
+			.catch(err => {
+				console.error(err);
+        res.status(500).send({ error: err.message });
+      })
+	}
+	
 }
