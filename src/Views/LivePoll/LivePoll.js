@@ -32,8 +32,8 @@ export default class LivePoll extends Component {
 	}
 componentWillMount(){
 axios.get(`/poll/retrieve/${this.props.match.params.pollCode}`).then(response => {
-	
-	 const restaurants= response.data.map(rest => { return {pollItem: rest.pollOption, upVotes: rest.upVotes, downVotes: rest.downVotes, optionId: rest.optionId}})
+	console.log(response)
+	 const restaurants= response.data.map(rest => { return {pollItem: rest.pollOption, upVotes: rest.upVotes, downVotes: rest.downVotes, optionId: rest.optionId, pollId: rest.pollId}})
 	 
 	this.setState({restaurants})
 })
@@ -66,6 +66,7 @@ axios.get('/auth/login').then((res)=>{console.log(res)})
 					restaurants
 				});
 			});
+			socket.on('joined', (user)=>{console.log(user)})
 		});
 	}
   handleChange(event, name) {
@@ -111,7 +112,10 @@ axios.get('/auth/login').then((res)=>{console.log(res)})
 		);
   }
   saveUsername(){
-	  socket.emit('newUser')
-    this.setState({modalIsOpen: false})
+	  socket.emit('newUser', this.state.username, this.state.pollCode)
+	  console.log(this.state.restaurants[0].pollId)
+	  axios.post(`/poll/join/${this.state.restaurants[0].pollId}`, {username: this.state.username}).then(()=>{
+	this.setState({modalIsOpen: false})
+})
   }
 }
