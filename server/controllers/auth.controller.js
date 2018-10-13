@@ -66,14 +66,14 @@ module.exports = {
     });
   },
   logout: (req, res) => {
-    if (req.session.user && req.cookies.user_sid) {
+    if (req.session.user || req.cookies.user_sid) {
       res.clearCookie('user_sid');
       req.session.destroy();
       res.status(200).send({ message: 'You have logged out.'})
     }
   },
   verifyAuth: (req, res) => {
-    if (req.session.user && req.cookies.user_sid) {
+    if (req.session.user) {
       res.status(200).send(req.session.user)
     } else {
       res.status(401).send({message: 'You are not logged in.'})
