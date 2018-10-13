@@ -74,13 +74,6 @@ app.get('/', function (req, res) {
                 .catch(err => console.warn(err))
         }
     });
-<<<<<<< HEAD
-    socket.on('newUser', (username, pollCode)=>{
-        
-        
-        io.sockets.in(pollCode).emit('joined', socket.handshake.session.user)
-    } )
-=======
 
     socket.on('end', (pollCode) => {
         const db = getDb()
@@ -89,7 +82,6 @@ app.get('/', function (req, res) {
             .catch(err => console.warn(err))
     });
 
->>>>>>> master
     socket.on('disconnect', () => console.log('client disconnected'));
 
 });
