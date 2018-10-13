@@ -8,6 +8,5 @@ CREATE TABLE "polls" (
 	"isActive" BOOLEAN,
 	"pollWinner" JSONB,
 	"createdAt" TIMESTAMP NOT NULL DEFAULT now(),
-	"updatedAt" TIMESTAMP NOT NULL DEFAULT now(),
-	"adminDecidesTie" BOOLEAN
+	"updatedAt" TIMESTAMP NOT NULL DEFAULT now()
 );
