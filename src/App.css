@@ -47,7 +47,7 @@ Button {
   position: relative;
 
   display: block;
-  margin: 30px auto;
+  margin: auto;
   padding: 10px;
 
   overflow: hidden;

@@ -106,19 +106,28 @@ class StepOne extends Component {
 			) : null;
 		return (
 			<div className='step-one'>
-				<div className='location'>
-					<input
-						type="text"
-						placeholder="Enter City and State or Zip"
-						onChange={(e) => this.handleChange(e, 'address')}
-						value={this.state.address}
-					/>
-					<button onClick={() => this.saveLatLong(this.state.address)}>Search</button>
-					<br /><button onClick={this.getLocation}>Use Current Location</button>
+
+				<div className='next'>
+					{nextButton}
 				</div>
 				
+
+				<div className='location'>
+
+						<input
+							type="text"
+							placeholder="Enter City and State or Zip"
+							onChange={(e) => this.handleChange(e, 'address')}
+							value={this.state.address}
+							/>
+						<button onClick={() => this.saveLatLong(this.state.address)}>Search</button>
+					<break></break>
+					<button onClick={this.getLocation}>Use Current Location</button>
+				</div>
+				
+
+				<h2>Distance</h2>
 				<div className='distance'>
-					<h2>Distance</h2>
 					<input
 						type="range"
 						min={5}
@@ -130,9 +139,10 @@ class StepOne extends Component {
 					{this.state.distance + ' Miles'}
 				</div>
 				
+
+				<h2>Price Range</h2>
 				<div className='price-range'>
-					<h2>Price Range</h2>
-					$10 Or less{' '}
+					<div>$10 Or less{' '}
 						<input
 							type="checkbox"
 							checked = {this.state.price1}
@@ -141,8 +151,9 @@ class StepOne extends Component {
 							onChange={(e) => {
 								this.handlePriceChange(e);
 							}}
-						/>
-					$11-$30{' '}
+							/>
+					</div>
+					<div>$11-$30{' '}
 						<input
 							type="checkbox"
 							checked ={this.state.price2}
@@ -152,7 +163,8 @@ class StepOne extends Component {
 								this.handlePriceChange(e);
 							}}
 						/>
-					$31-$60{' '}
+					</div>
+					<div>$31-$60{' '}
 						<input
 							type="checkbox"
 							checked ={this.state.price3}
@@ -162,7 +174,8 @@ class StepOne extends Component {
 								this.handlePriceChange(e);
 							}}
 						/>
-					$61+{' '}
+					</div>
+					<div>$61+{' '}
 						<input
 							type="checkbox"
 							checked ={this.state.price4}
@@ -172,31 +185,43 @@ class StepOne extends Component {
 								this.handlePriceChange(e);
 							}}
 						/>
+					</div>
 				</div>
 
-				<div>
-					<h2>Show Restaurants</h2>
-					<label>Open Now</label>
-					<input
-						type="radio"
-						checked = {this.state.showDateSelector === false || this.state.showDateSelector=== 'false'}
-						value={false}
-						name="nowOrLater"
-						onChange={(e) => this.handleChange(e, 'showDateSelector')}
-						/>
-					<label>Show Restaurants open at a later time</label>
-					<input
-						type="radio"
-						checked = {this.state.showDateSelector === true || this.state.showDateSelector === 'true'}
-						value={true}
-						name="nowOrLater"
-						onChange={(e) => this.handleChange(e, 'showDateSelector')}
-						/>
-					{dateSelector}
+
+				<h2>Show Restaurants</h2>
+				<div className="show-restaurants">
+					<div>
+						<label>Open Now</label>
+						<input
+							type="radio"
+							checked = {this.state.showDateSelector === false || this.state.showDateSelector=== 'false'}
+							value={false}
+							name="nowOrLater"
+							onChange={(e) => this.handleChange(e, 'showDateSelector')}
+							/>
+					</div>
+
+					<div>
+					<label>Open Later</label>
+						<input
+							type="radio"
+							checked = {this.state.showDateSelector === true || this.state.showDateSelector === 'true'}
+							value={true}
+							name="nowOrLater"
+							onChange={(e) => this.handleChange(e, 'showDateSelector')}
+							/>
+					</div>
+					<break></break>
+					
+					<div className="date-selector">
+						{dateSelector}
+					</div>
+
 				</div>
 
 				<div />
-				{nextButton}
+
 			</div>
 		);
 	}

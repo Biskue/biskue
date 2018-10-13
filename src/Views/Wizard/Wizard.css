@@ -1,12 +1,22 @@
 Wizard {
-    justify-content: center;
+    display: flex;
+    align-content: space-around;
+    height: 100vh;
 }
+
+
 
 h1 {
     font-size: 25px;
+    margin-top: 50px;
 }
 
 .poll-buttons {
     width: 70vw;
-    height: 550px;
+    height: 100%;
+    margin-top: 50px;
+}
+
+.next {
+    height: 40px;
 }
