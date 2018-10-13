@@ -3,6 +3,7 @@ import { categories } from '../../categoriesService';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as Actions from '../../Redux/Actions/actions';
+import './StepTwo.css';
 
 
 class StepTwo extends Component {
@@ -54,22 +55,29 @@ class StepTwo extends Component {
 		});
 		const selected = this.state.selected.map((category, index) => {
 			return (
-				<div key={index}>
-					{category.title} <button onClick={() => this.removeCategory(index)}>remove</button>
+				<div id="remove-button" key={index}>
+					<h3>{category.title}</h3> <button onClick={() => this.removeCategory(index)}>&times;</button>
 				</div>
 			);
 		});
 		return (
-			<div>
-				<Link to="/wizard/step-1">
-					<button>previous</button>
-				</Link>
+			<div className="step-two">
+				<div className="next">
+					<Link to="/wizard/step-1">
+						<button>Previous</button>
+					</Link>
+					<Link to="/wizard/step-3">
+						<button onClick={() => this.saveCategoriesToState()}>Next</button>
+					</Link>
+				</div>
+
 				<h2>selected</h2>
-				<Link to="/wizard/step-3">
-					<button onClick={() => this.saveCategoriesToState()}>next</button>
-				</Link>
-				<div>{selected}</div>
+				<div className='selected'>
+					{selected}
+				</div>
+
 				<hr />
+
 				<input type="text" onChange={(e) => this.filerCategories(e.target.value)} />
 				<div className='categories-list'>{categoriesList}</div>
 			</div>

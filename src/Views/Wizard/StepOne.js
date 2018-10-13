@@ -5,7 +5,8 @@ import axios from 'axios'
 import './Wizard.css'
 import * as Actions from '../../Redux/Actions/actions';
 import Geocode from 'react-geocode';
-import date from 'date-and-time'
+import date from 'date-and-time';
+import './StepOne.css';
 
 class StepOne extends Component {
 	constructor(props) {
@@ -104,19 +105,29 @@ class StepOne extends Component {
 				</Link>
 			) : null;
 		return (
-			<div>
-				<input
-					type="text"
-					placeholder="Enter City and State or Zip"
-					onChange={(e) => this.handleChange(e, 'address')}
-					value={this.state.address}
-				/>
-				<button onClick={() => this.saveLatLong(this.state.address)}>Search</button>
-				<div>
+			<div className='step-one'>
+
+				<div className='next'>
+					{nextButton}
+				</div>
+				
+
+				<div className='location'>
+
+						<input
+							type="text"
+							placeholder="Enter City and State or Zip"
+							onChange={(e) => this.handleChange(e, 'address')}
+							value={this.state.address}
+							/>
+						<button onClick={() => this.saveLatLong(this.state.address)}>Search</button>
+					<break></break>
 					<button onClick={this.getLocation}>Use Current Location</button>
 				</div>
-				<div>
-					<b>Distance:</b>
+				
+
+				<h2>Distance</h2>
+				<div className='distance'>
 					<input
 						type="range"
 						min={5}
@@ -127,68 +138,90 @@ class StepOne extends Component {
 					/>{' '}
 					{this.state.distance + ' Miles'}
 				</div>
-				<div>
-					<b>Price Range</b>
-					$10 Or less{' '}
-					<input
-						type="checkbox"
-						checked = {this.state.price1}
-						onClick = {()=> this.handlePriceSelection('price1')}
-						value={1}
-						onChange={(e) => {
-							this.handlePriceChange(e);
-						}}
-					/>
-					$11-$30{' '}
-					<input
-						type="checkbox"
-						checked ={this.state.price2}
-						onClick = {()=> this.handlePriceSelection('price2')}
-						value={2}
-						onChange={(e) => {
-							this.handlePriceChange(e);
-						}}
-					/>
-					$31-$60{' '}
-					<input
-						type="checkbox"
-						checked ={this.state.price3}
-						onClick = {()=> this.handlePriceSelection('price3')}
-						value={3}
-						onChange={(e) => {
-							this.handlePriceChange(e);
-						}}
-					/>
-					$61+{' '}
-					<input
-						type="checkbox"
-						checked ={this.state.price4}
-						onClick = {()=> this.handlePriceSelection('price4')}
-						value={4}
-						onChange={(e) => {
-							this.handlePriceChange(e);
-						}}
-					/>
+				
+
+				<h2>Price Range</h2>
+				<div className='price-range'>
+					<div>$10 Or less{' '}
+						<input
+							type="checkbox"
+							checked = {this.state.price1}
+							onClick = {()=> this.handlePriceSelection('price1')}
+							value={1}
+							onChange={(e) => {
+								this.handlePriceChange(e);
+							}}
+							/>
+					</div>
+					<div>$11-$30{' '}
+						<input
+							type="checkbox"
+							checked ={this.state.price2}
+							onClick = {()=> this.handlePriceSelection('price2')}
+							value={2}
+							onChange={(e) => {
+								this.handlePriceChange(e);
+							}}
+						/>
+					</div>
+					<div>$31-$60{' '}
+						<input
+							type="checkbox"
+							checked ={this.state.price3}
+							onClick = {()=> this.handlePriceSelection('price3')}
+							value={3}
+							onChange={(e) => {
+								this.handlePriceChange(e);
+							}}
+						/>
+					</div>
+					<div>$61+{' '}
+						<input
+							type="checkbox"
+							checked ={this.state.price4}
+							onClick = {()=> this.handlePriceSelection('price4')}
+							value={4}
+							onChange={(e) => {
+								this.handlePriceChange(e);
+							}}
+						/>
+					</div>
 				</div>
-				<label>Show Restaurants open now</label>
-				<input
-					type="radio"
-					checked = {this.state.showDateSelector === false || this.state.showDateSelector=== 'false'}
-					value={false}
-					name="nowOrLater"
-					onChange={(e) => this.handleChange(e, 'showDateSelector')}
-				/>
-				<label>Show Restaurants open at a later time</label>
-				<input
-					type="radio"
-					checked = {this.state.showDateSelector === true || this.state.showDateSelector === 'true'}
-					value={true}
-					name="nowOrLater"
-					onChange={(e) => this.handleChange(e, 'showDateSelector')}
-				/>
-				{dateSelector}
+
+
+				<h2>Show Restaurants</h2>
+				<div className="show-restaurants">
+					<div>
+						<label>Open Now</label>
+						<input
+							type="radio"
+							checked = {this.state.showDateSelector === false || this.state.showDateSelector=== 'false'}
+							value={false}
+							name="nowOrLater"
+							onChange={(e) => this.handleChange(e, 'showDateSelector')}
+							/>
+					</div>
+
+					<div>
+					<label>Open Later</label>
+						<input
+							type="radio"
+							checked = {this.state.showDateSelector === true || this.state.showDateSelector === 'true'}
+							value={true}
+							name="nowOrLater"
+							onChange={(e) => this.handleChange(e, 'showDateSelector')}
+							/>
+					</div>
+					<break></break>
+					
+					<div className="date-selector">
+						{dateSelector}
+					</div>
+
+				</div>
+
 				<div />
-				{nextButton}
+
 			</div>
 		);
 	}
