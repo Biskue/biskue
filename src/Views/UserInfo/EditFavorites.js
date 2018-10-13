@@ -12,14 +12,16 @@ class EditFavorites extends Component {
 		};
 	}
 	componentWillMount() {
-		axios.get('lists/savedLists/').then((response) => {
+		axios.get('lists/').then((response) => {
       console.log(response)
 			this.setState({ favoritesLists: response.data });
 		});
 	}
  getListItems(listId){
-   axios.get(`/lists/list/${listId}`).then(response => {
-     this.props.saveStepThree(response.data)
+   axios.get(`/lists/${listId}`).then(response => {
+     console.log(response)
+     const restaurants = response.data.map(item => item.listItem)
+     this.props.saveStepThree(restaurants)
      this.props.history.push('/wizard/step-4')
    })
  }
@@ -29,7 +31,7 @@ class EditFavorites extends Component {
 				<div key={index}>
 					{list.listName}{' '}
 					
-						<button onClick={() => this.getListItems(list.listId)}>Select</button>
+						<button onClick={() => this.getListItems(list.id)}>Select</button>
 					
 				</div>
 			);
