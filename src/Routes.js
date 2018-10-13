@@ -13,7 +13,7 @@ export default () => {
 	return (
 		<div>
 			<Route path="/poll/:pollCode" component={LivePoll} />
-			<Route path ="poll/winner/:pollCode" component={Winner} />
+			<Route path ="/winner/:pollCode" component={Winner} />
 			<Route path="/user-info" component={UserInfo} />
 			<Route path="/wizard" component={Wizard} />
 			<Route path="/register-2" component={Register2}/>

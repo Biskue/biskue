@@ -32,6 +32,8 @@ export default class LivePoll extends Component {
 			restaurants: [],
 			outOfVotes: false,
 			userId: null,
+			tiebreaker: false,
+			tieOptions: []
 			  
 		};
 	}
@@ -42,7 +44,7 @@ axios.get(`/poll/retrieve/${this.props.match.params.pollCode}`).then(response =>
 	 
 	this.setState({restaurants, adminId: response.data[0].adminUserId, isActive: response.data[0].isActive})
 if(response.data[0].isActive === false){
-	this.props.history.push(`/poll/winner/${this.state.pollCode}`)
+	this.props.history.push(`/winner/${this.state.pollCode}`)
 }
 })
 axios.get('/auth/login').then((res)=>{if(res.data.id){this.setState({userId: res.data.id})}})
@@ -76,7 +78,7 @@ axios.get('/auth/login').then((res)=>{if(res.data.id){this.setState({userId: res
 			});
 			socket.on('joined', (user)=>{console.log(user)})
 			socket.on('closePoll', ()=>{
-				this.props.history.push(`/poll/winner/${this.state.pollCode}`)
+				this.props.history.push(`/winner/${this.state.pollCode}`)
 		});
 	}
 
@@ -101,8 +103,23 @@ axios.get('/auth/login').then((res)=>{if(res.data.id){this.setState({userId: res
 		this.setState({outOfVotes: false})
 	}
 	closePoll(){
-		axios.post().then(()=>{
-			socket.emit('end', this.state.pollCode)
+		axios.get(`/poll/winners/${this.state.restaurants[0].pollId}`).then((response)=>{
+			console.log(response)
+			if(response.data.length === 1){
+				const winner = response.data[0].pollOption
+				axios.put(`/poll/setWinner/${this.state.restaurants[0].pollId}`, {winner}).then(()=>{
+					//socket.emit('end', this.state.pollCode)
+				})
+			}else{
+				this.setState({tiebreaker: true, tieOptions:response.data})
+			}
+		})
+	}
+	breakTie(winner){
+
+		axios.put(`/poll/setWinner/${this.state.restaurants[0].pollId}`, {winner}).then(()=>{
+			this.setState({tiebreaker: false})
+			//socket.emit('end', this.state.pollCode)
 		})
 	}
 	render() {
@@ -112,7 +129,11 @@ axios.get('/auth/login').then((res)=>{if(res.data.id){this.setState({userId: res
 			<RestaurantCard key= {index} currentIndex= {index} optionId ={rest.optionId} currentRes= {rest.pollItem} vote={this.vote} currentVotes= {{upVotes: rest.upVotes, downVotes: rest.downVotes}}/>
 		)
 	})
-	const closePollButton = this.state.adminId === this.state.userId && this.state.isActive? <button>End Poll</button> : null
+	const tiebreakerOptions = this.state.tieOptions.map((rest, index)=>{
+		return <div key= {index} onClick={()=> this.breakTie(rest)}><RestaurantCard currentIndex= {index} optionId ={rest.optionId} currentRes= {rest.pollItem} vote={this.vote} currentVotes= {{upVotes: rest.upVotes, downVotes: rest.downVotes}}/>
+	</div>
+	})
+	const closePollButton = this.state.adminId === this.state.userId && this.state.isActive? <button onClick={()=> this.closePoll()}>End Poll</button> : null
 	return (
 			<div>
 				Hello
@@ -139,6 +160,18 @@ axios.get('/auth/login').then((res)=>{if(res.data.id){this.setState({userId: res
 				>
 					<h3>You are out of votes!</h3>
 					<button onClick={()=>this.closeOutOfVotes()}>OK</button>
+				</Modal>
+				<Modal
+					isOpen={this.state.tiebreaker}
+					onRequestClose={()=>this.saveUsername()}
+					contentLabel="Import Modal"
+					style={customStyles}
+				>
+					<h3>Looks Like a Tie..</h3>
+					<div style={{display: 'flex'}}>
+					{tiebreakerOptions}
+					</div>
+					<button onClick={()=>this.closeOutOfVotes()}>Pick For me</button>
 				</Modal>
 			</div>
 		);
