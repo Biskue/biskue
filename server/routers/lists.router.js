@@ -5,7 +5,7 @@ const ListsRouter = express.Router();
 
 ListsRouter.post('/create', listController.createList);
 
-ListsRouter.get('/savedLists/:userID', listController.getSavedLists);
+ListsRouter.get('/savedLists/', listController.getSavedLists);
 
 ListsRouter.get('/list/:listID', listController.getList);
 
