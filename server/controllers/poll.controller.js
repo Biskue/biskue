@@ -2,11 +2,10 @@ const axios = require('axios');
 
 module.exports = {
   createPoll: (req, res) => {
-		const { pollCode, pollURL, votesPerUser, allowDownVotes, isActive, allowChat, pollOptions, tiebreaker } = req.body;
+		const { pollCode, pollURL, votesPerUser, allowDownVotes, isActive, allowChat, pollOptions } = req.body;
     const adminUserId = req.session.user.id;
     const adminUsername = req.session.user.username;
-    const adminDecidesTie = tiebreaker;
-		const poll = { pollCode, pollURL, votesPerUser, allowDownVotes, isActive, allowChat, adminUserId, adminDecidesTie };
+		const poll = { pollCode, pollURL, votesPerUser, allowDownVotes, isActive, allowChat, adminUserId };
 		req.db.polls.insert(poll)
 		.then(poll => {
       const pollId = poll.pollId;
