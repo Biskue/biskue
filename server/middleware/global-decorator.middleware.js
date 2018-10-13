@@ -11,7 +11,7 @@ const addDb = require('./add-db.middleware');
 const corsOptions = {
     origin: 'http://localhost:3000/',
     optionsSuccessStatus: 200
-  }
+}
 
 const sessionMiddleWare = session({
     store: new PostgresStore({
@@ -26,7 +26,8 @@ const sessionMiddleWare = session({
         maxAge: 30 * 24 * 60 * 60 * 1000,
         httpOnly: true,
         sameSite: true,
-    }
+    },
+    name: 'biskue'
 })
 
 function globalDecorator(app) {

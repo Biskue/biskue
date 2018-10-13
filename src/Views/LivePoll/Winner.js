@@ -4,7 +4,7 @@ export default class Winner extends Component {
   render() {
     return (
       <div>
-        
+        the winner page
       </div>
     )
   }

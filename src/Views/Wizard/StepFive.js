@@ -25,6 +25,9 @@ class StepFive extends Component {
   tiebreakerChange(value){
     this.setState({tiebreaker: value})
   }
+  handleVotesChange(number){
+    this.setState({numberOfVotes: Number(number)})
+  }
   createPoll(){
     const url= 'http://localhost:3000/poll/'
     const randomString= uniqid()
@@ -35,7 +38,8 @@ class StepFive extends Component {
       allowDownVotes: this.state.allowDownVotes,
       isActive: true,
       allowChat: true,
-      pollOptions: this.props.PollItems
+      pollOptions: this.props.PollItems,
+      tiebreaker: this.state.tiebreaker
 
     }
     console.log(pollSettings)
@@ -49,7 +53,7 @@ class StepFive extends Component {
       <div>
         <h1>Select Poll Settings</h1>
         <div>
-          <select>
+          <select onChange={(e)=> this.handleVotesChange(e.target.value)}>
             <option value={1}>1</option>
             <option value={2}>2</option>
             <option value={3}>3</option>
