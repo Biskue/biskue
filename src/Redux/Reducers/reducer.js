@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 
-const initialState = {};
+const initialState = {
+	loggedIn: false,
+};
 
 function wizardSteps(state = initialState, action) {
 	switch (action.type) {
@@ -21,6 +23,8 @@ function wizardSteps(state = initialState, action) {
 			return Object.assign({}, state, {PollItems: action.payload})	
 		case "WIZARD_STEP_FIVE":
 			return Object.assign({}, state, {url: action.payload.url, code: action.payload.code})	
+		case "VERIFIED_USER":
+			return Object.assign({}, state, {loggedIn: action.payload.loggedIn})
 		default:
 			return state;
 	}

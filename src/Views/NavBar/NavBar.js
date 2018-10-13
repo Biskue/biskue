@@ -2,29 +2,60 @@ import React, { Component } from 'react';
 import './NavBar.css';
 import logo from '../../logo.svg'
 import { Link } from 'react-router-dom';
-import LoginControl from './LoginControl';
+import axios from 'axios';
+import { connect } from 'react-redux';
+import * as Actions from '../../Redux/Actions/actions';
 
-export class NavBar extends Component {
+class NavBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loggedIn: false
+    }
+  }
+
+  componentDidMount() {
+    axios.get('/auth/login').then(response => {
+      console.log(response)
+    }).catch(err => {
+      console.log(err);
+  })
+  }
+  
+
+  logout =() => {
+    axios.post('/auth/logout').then(() => {
+      this.props.verifyAuth(this.state.loggedIn)
+      this.setState({
+        user: '',
+      })
+    })
+    console.log(this.state.user)
+  }
+
+  login =() => {
+    this.props.history.push('/login')
+  }
 
 
-  render() {
+
+
+   render() {
+      console.log(this.props)
     return (
       <div className="navbar">
         <Link to='/'>
         <img className="navbar-logo" src={logo} alt="logo" />
         </Link>
-        <LoginControl/>
-        {/* <Link to='/Login'>
-        
-        </Link> */}
-        
+        {this.props.loggedIn ? (
+           <button onClick={this.logout}>Logout</button>
+        ) :
+          (
+            <button onClick={this.login}>Login</button>
+          )
+      } 
       </div>
     )
   }
-}
-
-//  Object.keys(this.props.currentProduct).length > 0 ?
-// <button onClick={() => this.props.submitEditChange(this.props.currentProduct.id, this.state)}> Submit Change </button>
-// :
-// <button onClick={this.submitForm}> Add to Inventory </button>
-// } 
+ }
+export default connect(state => state, Actions)(NavBar);
