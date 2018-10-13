@@ -32,8 +32,16 @@ module.exports = {
       })
   },
   getList:  (req, res) => {
+    const ownerUserId  = req.session.user.id;
     const { listID } = req.params;
-    res.status(200).send(`get list by list id; listID: ${listID}`)
+    req.db.get_list(ownerUserId, listID)
+      .then(list => {
+        res.status(200).send(list);
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(500).send({ error: err.message });
+      })
   },
   editList: (req, res) => {
     const { listID } = req.params;
