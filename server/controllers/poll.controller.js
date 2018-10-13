@@ -70,10 +70,11 @@ module.exports = {
   joinPoll: (req, res) => {
     const { pollID } = req.params;
 		const { username } = req.body;
+		req.session.user = {user: username};
     req.db.join_poll(pollID, username)
       .then(pollUser => {
 				console.log(pollUser);
-				req.session.user.username = username;
+				
         res.status(200).send(pollUser)
       })
       .catch(err => {
@@ -87,7 +88,7 @@ module.exports = {
   },
   vote: (req, res) => {
     const { pollID } = req.params;
-    const { username } = req.body;  
+    const username = req.session.user.username;  
     req.db.check_pollUser_votes(pollID, username)
       .then(async ([ vote ]) => {
         if (vote.votesUsed < vote.votesPerUser) {
