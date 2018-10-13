@@ -119,7 +119,7 @@ module.exports = {
 	setWinner: (req, res) => {
 		const { pollID } = req.params;
 		const { winner } = req.body;
-		req.db.setWinner(pollID, winner)
+		req.db.add_winner(pollID, winner)
 			.then(result => res.status(200).send({message: `winner has been set for poll: ${pollID}`}))
 			.catch(err => {
 				console.error(err);
