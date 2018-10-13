@@ -12,7 +12,7 @@ class StepFive extends Component {
       numberOfVotes: 1,
       allowDownVotes: true,
       allowChat: true,
-      tiebreaker: true,
+      
     }
   }
   handleChange(name){
@@ -21,9 +21,6 @@ class StepFive extends Component {
     }else{
       this.setState({[name]: true})
     }
-  }
-  tiebreakerChange(value){
-    this.setState({tiebreaker: value})
   }
   handleVotesChange(number){
     this.setState({numberOfVotes: Number(number)})
@@ -39,7 +36,7 @@ class StepFive extends Component {
       isActive: true,
       allowChat: true,
       pollOptions: this.props.PollItems,
-      tiebreaker: this.state.tiebreaker
+      
 
     }
     console.log(pollSettings)
@@ -69,9 +66,6 @@ class StepFive extends Component {
           <input type="checkbox" checked onChange={()=>this.handleChange('allowChat')}/>
           <label>Allow Chat</label>
           </div>   
-          <h2>In Case of Tie...</h2>
-          <button onClick={()=> this.tiebreakerChange(false)}>Let Me Choose</button>
-          <button onClick={()=> this.tiebreakerChange(true)}>Choose Random</button>
         </div>
         <div>
           <Link to='/wizard/step-4'>
