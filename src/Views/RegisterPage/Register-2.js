@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './Register.css';
 import axios from 'axios';
 
-import {Link} from 'react-router-dom';
 
 
 class Register2 extends Component {

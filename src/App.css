@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Mukta|Roboto');
 
+App {
+  background-color: #fcfbf7;
+}
+
 .App {
   text-align: center;
   font-family: 'Mukta', sans-serif;
@@ -23,7 +27,7 @@
   background-color: #222;
   height: 150px;
   padding: 20px;
-  color: white;
+  color: #fcfbf7;
 }
 
 .App-title {
@@ -37,4 +41,68 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+Button {
+  position: relative;
+
+  display: block;
+  margin: auto;
+  padding: 10px;
+
+  overflow: hidden;
+
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  
+  background-color: #f18137;
+  color: #ffffff;
+  
+  transition: background-color .3s;
+}
+
+Button:hover, .create-poll:focus {
+  background-color: #db6129;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.25), 0 3px 3px rgba(0,0,0,0.22);
+  color: #ffffffa6;
+}
+
+Button > * {
+  position: relative;
+}
+
+Button span {
+  display: block;
+  padding: 12px 24px;
+}
+
+Button:before {
+  content: "";
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  display: block;
+  width: 0;
+  padding-top: 0;
+    
+  border-radius: 100%;
+  
+  background-color: rgba(236, 240, 241, .3);
+  
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+Button:active:before {
+  width: 120%;
+  padding-top: 120%;
+  
+  transition: width .2s ease-out, padding-top .2s ease-out;
 }
