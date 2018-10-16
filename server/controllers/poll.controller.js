@@ -21,7 +21,11 @@ module.exports = {
 		})
 		.catch(err => {
 			console.error(err);
+      if (err.code == 23505){
+        res.status(400).send({ error: `Poll Code: '${pollCode}' already exists. Please generate a new Poll Code`})
+      } else {
 			res.status(500).send({ error: `Oopsies, you stepped in it, brother.`});
+      }
 		});
 	},
   getPoll: (req, res) => {
@@ -30,7 +34,7 @@ module.exports = {
 			.then(result => res.status(200).send(result))
 			.catch(err => {
 				console.error(err);
-				res.status(500).send({ error: `Oopsies, you stepped in it, brother.`});
+				res.status(500).send({ error: err.message });
 			})
   },
   editPoll: (req, res) => {
@@ -50,7 +54,7 @@ module.exports = {
 			})
 			.catch(err => {
 				console.error(err);
-				res.status(500).send({ error: `Oopsies, you stepped in it, brother.`});
+				res.status(500).send({ error: err.message });
 			});	
 		} else {
 			const { latitude, longitude, term } = req.query;
@@ -63,31 +67,30 @@ module.exports = {
 			})
 			.catch(err => {
 				console.error(err);
-				res.status(500).send({ error: `Oopsies, you stepped in it, brother.`});
+				res.status(500).send({ error: err.message });
 			});
 		}
 	},
   joinPoll: (req, res) => {
     const { pollID } = req.params;
-		const { username } = req.body;
+        const { username } = req.body;
+        req.session.user = {user: username};
     req.db.join_poll(pollID, username)
       .then(pollUser => {
-				console.log(pollUser);
-				req.session.user.username = username;
         res.status(200).send(pollUser)
       })
       .catch(err => {
-				if (err.code === '23505') {
-					res.status(400).send({ error: `Error. A user with the name: '${username}' has already joined the poll. Please use another name.`})
-				} else {
+                if (err.code === '23505') {
+                    res.status(400).send({ error: `Error. A user with the name: '${username}' has already joined the poll. Please use another name.`})
+                } else {
         console.log(err);
-				res.status(500).send(err);
-				}
+                res.status(500).send(err);
+                }
       })
   },
   vote: (req, res) => {
     const { pollID } = req.params;
-    const { username } = req.body;  
+    const username = req.session.user.username;
     req.db.check_pollUser_votes(pollID, username)
       .then(async ([ vote ]) => {
         if (vote.votesUsed < vote.votesPerUser) {
@@ -97,8 +100,30 @@ module.exports = {
         res.status(500).send({message: `User: ${username} has exhausted vote allotment for this poll.`})
       })
       .catch(err => {
-        console.log(err);
+				console.error(err);
         res.status(500).send({error: err.message});
       })
-  }
+  },
+  retrieveWinners: (req, res) => {
+    const { pollID } = req.params;
+    req.db.retrieve_poll_winners(pollID)
+      .then(winners => {
+        res.status(200).send(winners);
+      })
+      .catch(err => {
+				console.error(err);
+        res.status(500).send({ error: err.message });
+      })
+	},
+	setWinner: (req, res) => {
+		const { pollID } = req.params;
+		const { winner } = req.body;
+		req.db.add_winner(pollID, winner)
+			.then(result => res.status(200).send({message: `winner has been set for poll: ${pollID}`}))
+			.catch(err => {
+				console.error(err);
+        res.status(500).send({ error: err.message });
+      })
+	}
+	
 }

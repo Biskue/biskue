@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './Login.css';
-
-
+import { connect } from 'react-redux';
+import * as Actions from '../../Redux/Actions/actions';
 
 
 class Login extends Component {
@@ -11,7 +11,8 @@ class Login extends Component {
         super(props);
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            loggedIn: false
         }
 
     }
@@ -22,8 +23,14 @@ class Login extends Component {
             password: this.state.password,
         }
         axios.post('/auth/login', user)
-          .then((response) => {
-            this.props.history.push('./')
+            .then((response) => {
+                const user = response.data;
+                if (user.id) {
+                    this.props.verifyAuth(!this.state.loggedIn);
+                    this.props.history.push('./');
+                }
+                else console.log('No user found...')
+                
           })
           .catch(err => {
             console.log(err);
@@ -60,4 +67,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default connect(state => state, Actions)(Login);

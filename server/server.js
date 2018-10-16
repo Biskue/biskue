@@ -11,12 +11,13 @@ const app = express();
 const server = require('http').createServer(app);
 const sharedSession = require('express-socket.io-session');  
 const io = require('socket.io')(server);
-io.use(sharedSession(globalDecorator.sessionMiddleWare, {
-    autoSave:true
-})); 
+
 
 
 globalDecorator.globalDecorator(app);
+io.use(sharedSession(globalDecorator.sessionMiddleWare, {
+    autoSave:true
+})); 
 
 routerHub(app);
 
@@ -37,14 +38,17 @@ app.get('/', function (req, res) {
   
   io.on('connection', (socket) => {
 
-    console.log(socket.handshake.session.user);
+   
 
     socket.emit('news', { hello: 'world' });
 
     socket.on('room', room => {
         console.log(`Joining Socket Room ${room}`)
         socket.join(room);
-        // io.sockets.in(room).emit('joined', req.session.user.firstName);
+        if(socket.handshake.session.user){
+            io.sockets.in(room).emit('joined', socket.handshake.session.user.firstName)
+        }
+     
     })
 
     socket.on('connect', data => console.log(data));
@@ -69,6 +73,13 @@ app.get('/', function (req, res) {
                 .then(result => io.sockets.in(pollCode).emit('decremented', result[0].downVotes, index))
                 .catch(err => console.warn(err))
         }
+    });
+
+    socket.on('end', (pollCode) => {
+        const db = getDb()
+        db.close_poll(pollCode)
+            .then(result => io.sockets.in(pollCode).emit('closePoll'))
+            .catch(err => console.warn(err))
     });
 
     socket.on('disconnect', () => console.log('client disconnected'));

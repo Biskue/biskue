@@ -7,11 +7,13 @@ import Wizard from './Views/Wizard/Wizard';
 import Register from './Views/RegisterPage/Register';
 import Register2 from './Views/RegisterPage/Register-2';
 import Login from './Views/LoginPage/Login';
+import Winner from './Views/LivePoll/Winner'
 
 export default () => {
 	return (
 		<div>
 			<Route path="/poll/:pollCode" component={LivePoll} />
+			<Route path ="/winner/:pollCode" component={Winner} />
 			<Route path="/user-info" component={UserInfo} />
 			<Route path="/wizard" component={Wizard} />
 			<Route path="/register-2" component={Register2}/>
