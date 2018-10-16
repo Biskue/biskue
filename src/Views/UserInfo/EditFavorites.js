@@ -8,13 +8,14 @@ class EditFavorites extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			favoritesLists: []
+      favoritesLists: [],
+      loading: true
 		};
 	}
 	componentWillMount() {
 		axios.get('lists/').then((response) => {
       console.log(response)
-			this.setState({ favoritesLists: response.data });
+			this.setState({ favoritesLists: response.data, loading: false });
 		});
 	}
  getListItems(listId){
@@ -35,9 +36,10 @@ class EditFavorites extends Component {
 					
 				</div>
 			);
-		});
+    });
+    const loading = this.state.loading ? "Loading..." : favoritesLists
 		return <div>
-      {favoritesLists}
+     {loading}
     </div>;
 	}
 }

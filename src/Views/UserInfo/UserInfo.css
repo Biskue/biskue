@@ -1,0 +1,23 @@
+.user-info{
+    margin: 2px;
+    padding: 0px
+}
+.profile-picture{
+    height: 75px;
+    width: 75px;
+}
+.personal-info{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+#bold{
+    font-weight: bold;
+    font-size: 1.15em
+}
+.personal-info-header{
+    font-weight: bolder;
+    font-size: 25px;
+    margin-bottom: 20px 
+}
