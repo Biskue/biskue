@@ -3,7 +3,7 @@ import React from 'react'
 const ChatLine = (props) => {
   return (
     <div>
-      {props.user}: {props.message} <br /> 
+      <span className={'chat-user-name'}>{props.user}:</span> {props.message} <br /> 
     </div>
   )
 }

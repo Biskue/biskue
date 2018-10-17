@@ -42,9 +42,11 @@ export default class CurrentUsers extends Component {
       </div>)
     })
     return(
-      <div className='chat-box'>
-        Participants:
-        {current}
+      <div className='participant-box-component'>
+          <h3>Participants</h3>
+        <div className='chat-box'>
+          {current}
+        </div>
       </div>
     )
   }

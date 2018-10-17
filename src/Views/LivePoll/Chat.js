@@ -52,7 +52,7 @@ export default class Chat extends Component {
     })
     return (
       <div className="chat-box-componenet">
-        ChatBox
+        <h3>ChatBox</h3>
         <div className="chat-box">
           {chatLines}
         </div>
