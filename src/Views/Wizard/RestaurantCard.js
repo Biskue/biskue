@@ -8,7 +8,7 @@ export default (props) => {
   const showButton = !props.addRestaurant && !props.delete ? null : <button onClick={clickHandler}>{buttonTitle}</button>
     return (
     <div className='restaurant-card'>
-      <img className ='restaurant-image'src={props.currentRes.image_url} alt="yelp image"/>
+      <img className ='restaurant-image'src={props.currentRes.image_url} alt="from yelp"/>
       <div>
           <h4>{props.currentRes.name}</h4>
           <p>{categoriesJoined}</p>

@@ -152,7 +152,7 @@ export default class LivePoll extends Component {
 
 	}
 	render() {
-		const modalButton = this.state.username != '' ? <button onClick={() => this.saveUsername()}>Go</button> : null;
+		const modalButton = this.state.username !== '' ? <button onClick={() => this.saveUsername()}>Go</button> : null;
 		const restaurantsList = this.state.restaurants.map((rest, index) => {
 			return (
 				<RestaurantCard
