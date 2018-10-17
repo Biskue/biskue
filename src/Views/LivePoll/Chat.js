@@ -39,11 +39,12 @@ export default class Chat extends Component {
     })
   }
 
-  submitChat(e) {
+  submitChat(e, string) {
     e.preventDefault();
     e.stopPropagation();
 
-    this.props.socket.emit('message', this.state.chatInput, this.props.pollCode, this.props.pollId)
+    this.props.socket.emit('message', string, this.props.pollCode, this.props.pollId)
+    this.setState({chatInput: ''})
   }
 
   render() {
@@ -57,7 +58,7 @@ export default class Chat extends Component {
           {chatLines}
         </div>
         <div className="chat-box-form">
-          <form onSubmit={(e) => {this.submitChat(e)}}>
+          <form onSubmit={(e) => {this.submitChat(e, this.state.chatInput)}}>
             <input value={this.state.chatInput} onChange={(e) => this.inputChange(e)}></input>
             <button type="submit">Submit</button>
           </form>
