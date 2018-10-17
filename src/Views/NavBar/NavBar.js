@@ -31,7 +31,6 @@ class NavBar extends Component {
         user: '',
       })
     })
-    console.log(this.state.user)
   }
 
   login =() => {
@@ -42,7 +41,6 @@ class NavBar extends Component {
 
 
    render() {
-      console.log(this.props)
     return (
       <div className="navbar">
         <Link to='/'>
