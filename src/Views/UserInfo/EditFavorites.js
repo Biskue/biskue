@@ -23,6 +23,7 @@ class EditFavorites extends Component {
      console.log(response)
      const restaurants = response.data.map(item => item.listItem)
      this.props.saveStepThree(restaurants)
+     this.props.saveListLocation(this.state.favoritesLists[0].latitude, this.state.favoritesLists[0].longitude)
      this.props.history.push('/wizard/step-4')
    })
  }

@@ -30,8 +30,8 @@ export default class UserInfo extends Component {
 		return Promise.all(promises).then(([ favorites, user ]) => {
 			const { username, email, firstName, lastName, avatar, id } = user;
 			this.setState({ favorites, username, email, firstName, lastName, avatar, id, loading: false });
-		});
-		// .catch(() => this.props.history.push('/login'));
+		})
+		.catch(() => this.props.history.push('/login'));
 	}
 	handleChange(event, name) {
 		const value = event.target.value;
@@ -58,7 +58,7 @@ export default class UserInfo extends Component {
 			email: this.state.email,
 			avatar: this.state.avatar
 		};
-		axios.put('/auth/edit/' + id, user).then((response) => {
+		axios.put(`/auth/edit/${id}?type=`, user).then((response) => {
 			const { username, firstName, lastName, email, avatar } = response.data;
 			this.setState({ username, firstName, lastName, email, avatar, editInfo: false });
 		});
@@ -70,8 +70,8 @@ export default class UserInfo extends Component {
 		this.setState({ updatePassword: true });
   }
   updatePassword(){
-    const passwords={old: this.state.oldPassword, new: this.state.password}
-
+    const passwords={oldPassword: this.state.oldPassword, newPassword: this.state.password}
+    axios.put(`/auth/edit/${this.state.id}?type=updatePassword`, passwords).then(()=> this.setState({updatePassword: false}))
   }
 	render() {
 		const username = this.state.editInfo ? (
