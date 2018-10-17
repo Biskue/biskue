@@ -4,6 +4,7 @@ import axios from 'axios';
 import RestaurantCard from './RestaurantCard';
 import socketIOClient from 'socket.io-client';
 import Chat from './Chat';
+import CurrentUsers from './CurrentUsers';
 const socket = socketIOClient('http://localhost:4005/', {
 	extraHeaders: { 'Access-Control-Allow-Credentials': 'omit' }
 });
@@ -192,7 +193,8 @@ export default class LivePoll extends Component {
 				<button onClick={() => this.logout()}>Increment Socket</button>
 				{closePollButton}
 				{restaurantsList}
-				{this.state.allowChat ? <Chat pollCode={this.state.pollCode} socket={socket} /> : null}
+				<CurrentUsers pollCode={this.state.pollCode} socket={socket} />
+				{this.state.allowChat ? <Chat pollCode={this.state.pollCode} socket={socket} pollId={this.state.restaurants[0].pollId}/> : null}
 				<Modal
 					isOpen={this.state.modalIsOpen}
 					onRequestClose={() => this.saveUsername()}

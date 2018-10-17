@@ -46,7 +46,7 @@ app.get('/', function (req, res) {
         console.log(`Joining Socket Room ${room}`)
         socket.join(room);
         if(socket.handshake.session.user){
-            io.sockets.in(room).emit('joined', socket.handshake.session.user.firstName)
+            io.sockets.in(room).emit('joined', socket.handshake.session.user.username)
         }
      
     })
