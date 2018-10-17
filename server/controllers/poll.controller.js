@@ -134,4 +134,13 @@ module.exports = {
 			res.status(500).send({ error: err.message });
 		})
 	},
+	getChat: (req, res) => {
+		const { pollCode } = req.params;
+		req.db.chat_get_messages(pollCode)
+			.then(chat => res.status(200).send(chat))
+			.catch(err => {
+				console.error(err);
+				res.status(500).send({ error: err.message });
+			})
+	},
 }
