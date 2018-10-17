@@ -71,23 +71,23 @@ module.exports = {
 			});
 		}
 	},
-  joinPoll: (req, res) => {
-    const { pollID } = req.params;
-        const { username } = req.body;
-        req.session.user = {username: username};
-    req.db.join_poll(pollID, username)
-      .then(pollUser => {
-        res.status(200).send(pollUser)
-      })
-      .catch(err => {
-                if (err.code === '23505') {
-                    res.status(400).send({ error: `Error. A user with the name: '${username}' has already joined the poll. Please use another name.`})
-                } else {
-        console.log(err);
-                res.status(500).send(err);
-                }
-      })
-  },
+	joinPoll: (req, res) => {
+		const { pollID } = req.params;
+		const { username } = req.body;
+		req.session.user = { username: username };
+		req.db.join_poll(pollID, username)
+			.then(pollUser => {
+				res.status(200).send(pollUser)
+			})
+			.catch(err => {
+				if (err.code === '23505') {
+					res.status(400).send({ error: `Error. A user with the name: '${username}' has already joined the poll. Please use another name.` })
+				} else {
+					console.log(err);
+					res.status(500).send(err);
+				}
+			})
+	},
   vote: (req, res) => {
     const { pollID } = req.params;
     const username = req.session.user.username;
@@ -124,6 +124,14 @@ module.exports = {
 				console.error(err);
         res.status(500).send({ error: err.message });
       })
-	}
-	
+	},
+	listPollUsers: (req, res) => {
+		const { pollCode } = req.params;
+		req.db.poll_get_users(pollCode)
+		.then(users => res.status(200).send(users))
+		.catch(err => {
+			console.error(err);
+			res.status(500).send({ error: err.message });
+		})
+	},
 }
