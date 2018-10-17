@@ -53,17 +53,41 @@ module.exports = {
   },
   editUser: (req, res) => {
     const { userID } = req.params;
-    const { password, firstName, lastName, avatar, email } = req.body
-    // var pwd = bcrypt.hashSync(password, 10);
-    req.db.edit_user(userID, firstName, lastName, avatar, email)
-    .then(u => {
-      let user = u[0];
-     
-      res.status(200).send(user);
-    })
-    .catch(err => {
-      res.status(500).send(err);
-    });
+    const { firstName, lastName, avatar, email, oldPassword, newPassword } = req.body
+    const { type } = req.query;
+    switch (type) {
+      case 'newPassword':
+        return req.db.get_user(userID)
+          .then( async ([ user ]) => {
+            console.log(bcrypt.hashSync(oldPassword, 10));
+            if (bcrypt.compareSync(oldPassword, user.password)) {
+              const pwd = await bcrypt.hashSync(newPassword, 10);
+              req.db.update_password(userID, pwd)
+              req.session.user = user;
+              return res.status(200).send(`Password was successfully updated for User ID: '${userID}'`);
+            } else {
+              res.status(401).send({ error: 'Invalid Password' });
+            }
+          })
+          .catch(err => {
+            console.error(err);
+            res.status(500).send({ error: err.message });
+          })
+        break;
+      case 'profileEdit':
+        req.db.edit_user(userID, firstName, lastName, avatar, email)
+          .then(u => {
+            let user = u[0];
+            req.session.user = user;
+            return res.status(200).send(user);
+          })
+          .catch(err => {
+            res.status(500).send(err);
+          })
+        break;
+      default:
+        return res.status(500).send({ error: `Your request must include a 'type' of 'newPassword', or 'profileEdit'.` });
+    }
   },
   logout: (req, res) => {
     if (req.session.user || req.cookies.user_sid) {
