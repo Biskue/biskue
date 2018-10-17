@@ -33,8 +33,8 @@ export default class Landing extends Component {
     this.setState({showFavorites: true})
   }
   joinPoll(){
-    if(this.state.pollCode){
-      return this.setState({pollCode: false})
+    if(this.state.joinPoll){
+      return this.setState({joinPoll: false})
     }
     this.setState({joinPoll: true})
   }
