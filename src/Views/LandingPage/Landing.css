@@ -10,10 +10,17 @@
     radial-gradient(circle at 100% 50%, #f8f5f5dc 5%, #eeefead3 6%, #eeefead3 15%, #f8f5f5dc 16%, #f8f5f5dc 20%, #eeefead3 21%, #eeefead3 30%, #f8f5f5dc 31%, #f8f5f5dc 35%, #eeefead3 36%, #eeefead3 45%, #f8f5f5dc 46%, #f8f5f5dc 49%, transparent 50%, transparent),
     radial-gradient(circle at 0    50%, #f8f5f5dc 5%, #eeefead3 6%, #eeefead3 15%, #f8f5f5dc 16%, #f8f5f5dc 20%, #eeefead3 21%, #eeefead3 30%, #f8f5f5dc 31%, #f8f5f5dc 35%, #eeefead3 36%, #eeefead3 45%, #f8f5f5dc 46%, #f8f5f5dc 49%, transparent 50%, transparent);
     background-size:100px 50px; */
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .biskue-logo {
     
+}
+.biskue-top {
+  height: 200px;
+  width: 400px;
 }
 
 .poll-buttons {

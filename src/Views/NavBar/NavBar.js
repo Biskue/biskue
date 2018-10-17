@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './NavBar.css';
-import logo from '../../logo.svg'
+import bisuke_icon from '../../../src/bisuke_icon.png';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { connect } from 'react-redux';
@@ -45,7 +45,7 @@ class NavBar extends Component {
     return (
       <div className="navbar">
         <Link to='/'>
-        <img className="navbar-logo" src={logo} alt="logo" />
+        <img className="navbar-logo" src={bisuke_icon} alt="logo" />
         </Link>
         {this.props.loggedIn ? (
            <button onClick={this.logout}>Logout</button>
