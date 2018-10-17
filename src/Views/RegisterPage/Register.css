@@ -1,16 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster');
 
 .Register {
-    width: 100%;
-    height: 93vh;
-    background: #667db6;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #667db6, #0082c8, #0082c8, #667db6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: 'Lobster', cursive;
 }
 
 .title {
@@ -18,19 +12,6 @@
     font-size: 50px;
     margin-bottom: 5%;
     
-}
-
-.register-box {
-    width: 35%;
-    height: 55%;
-    background-color: #6ba9f7;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    border-radius: 6px;
-    box-shadow:  20px -2px 18px 0px #6f6f6f70
 }
 
 .input-container {
@@ -55,11 +36,5 @@
     border-radius: 6px;
 }
 
-.register-box > button {
-    width: 22%;
-    height: 6%;
-    border: solid 1px none;
-    border-radius: 6px;
-    margin-top: 2%;
-}
+
 

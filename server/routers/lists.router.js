@@ -5,12 +5,12 @@ const ListsRouter = express.Router();
 
 ListsRouter.post('/create', listController.createList);
 
-ListsRouter.get('/savedLists/', listController.getSavedLists);
+ListsRouter.get('/', listController.getSavedLists);
 
-ListsRouter.get('/list/:listID', listController.getList);
+ListsRouter.get('/:listID', listController.getList);
 
 ListsRouter.put('/edit/:listID', listController.editList);
 
-ListsRouter.delete('/deleteList/:listID', listController.deleteList);
+ListsRouter.delete('/delete/:listID', listController.deleteList);
 
 module.exports = ListsRouter;
