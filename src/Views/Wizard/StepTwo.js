@@ -56,7 +56,7 @@ class StepTwo extends Component {
 		const selected = this.state.selected.map((category, index) => {
 			return (
 				<div id="remove-button" key={index}>
-					<h3>{category.title}</h3> <button onClick={() => this.removeCategory(index)}>&times;</button>
+					<h3>{category.title}</h3> <span className='remove' onClick={() => this.removeCategory(index)}>Remove</span>
 				</div>
 			);
 		});

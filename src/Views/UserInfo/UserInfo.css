@@ -39,3 +39,11 @@
 .delete-button{
     margin-top: 10px
 }
+.list-names{
+    text-decoration: underline;
+    margin: 10px;
+    cursor: pointer;
+}
+.list-names:hover{
+    color: #f18137
+}

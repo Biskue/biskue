@@ -12,11 +12,18 @@ h1 {
 }
 
 .poll-buttons {
-    width: 70vw;
+    width: 80vw;
     height: 100%;
     margin-top: 50px;
 }
 
 .next {
     height: 40px;
+}
+.wizard-routes-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
 }

@@ -62,6 +62,7 @@ export default class Landing extends Component {
 					contentLabel="Import Modal"
 					style={customStyles}
 				>
+          <h2 className='favorites-header'>My Favorites Lists</h2>
 					<EditFavorites history = {this.props.history}/>
           <button onClick={()=>this.closeModal()}>Cancel</button>
 				</Modal>
@@ -71,9 +72,13 @@ export default class Landing extends Component {
 					contentLabel="Import Modal"
 					style={customStyles}
 				>
+        <form>
+        <div className='join-modal'>
         <input placeholder= 'Enter Poll Code' value={this.state.pollCode} onChange={(e)=> this.handleChange(e.target.value)}/>
-					<button onClick={()=>this.props.history.push('/poll/'+this.state.pollCode)}>Join</button>
+					<button type='submit' onClick={()=>this.props.history.push('/poll/'+this.state.pollCode)}>Join</button>
+          </div>
           <button onClick={()=>this.joinPoll()}>Cancel</button>
+          </form>
 				</Modal>
           <div>
           </div>
