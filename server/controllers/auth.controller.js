@@ -58,8 +58,7 @@ module.exports = {
     switch (type) {
       case 'newPassword':
         return req.db.get_user(userID)
-          .then( async ([ user ]) => {
-            console.log(bcrypt.hashSync(oldPassword, 10));
+          .then(async ([user]) => {
             if (bcrypt.compareSync(oldPassword, user.password)) {
               const pwd = await bcrypt.hashSync(newPassword, 10);
               req.db.update_password(userID, pwd)
