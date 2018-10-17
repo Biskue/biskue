@@ -54,8 +54,8 @@ app.get('/', function (req, res) {
     socket.on('connect', data => console.log(data));
 
     socket.on('message', (msg, pollCode) => { 
-        console.log(socket.handshake.session.user.user, msg, pollCode);
-        io.sockets.in(pollCode).emit('newMessage', socket.handshake.session.user.user, msg)
+        console.log(socket.handshake.session.user.username, msg, pollCode);
+        io.sockets.in(pollCode).emit('newMessage', socket.handshake.session.user.username, msg)
      });
 
     socket.on('increment', (number, pollCode) => { 
