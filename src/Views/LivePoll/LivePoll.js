@@ -4,6 +4,7 @@ import axios from 'axios';
 import RestaurantCard from './RestaurantCard';
 import socketIOClient from 'socket.io-client';
 import Chat from './Chat';
+import './LivePoll.css'
 import CurrentUsers from './CurrentUsers';
 const socket = socketIOClient('http://localhost:4005/', {
 	extraHeaders: { 'Access-Control-Allow-Credentials': 'omit' }

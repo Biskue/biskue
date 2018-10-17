@@ -52,3 +52,8 @@ export const reRoute = (boolean)=> {
 		payload: boolean
 	}
 }
+export const clearPoll= ()=>{
+	return{
+		type: "CLEAR_POLL"
+	}
+}
