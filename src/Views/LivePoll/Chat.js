@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import ChatLine from './ChatLine';
+import './Chat.css'
 
 export default class Chat extends Component {
   constructor(props){
@@ -10,10 +12,9 @@ export default class Chat extends Component {
     }
   }
 
-  componentDidMount() {
+  componentWillMount() {
     const { socket } = this.props
     socket.on('newMessage', (user, message) => {
-      console.log(user, message);
       let chat = this.state.chatContent;
       chat.push({user, message});
       this.setState({
@@ -37,12 +38,14 @@ export default class Chat extends Component {
   }
 
   render() {
+    const chatLines = this.state.chatContent.map((l, i) => {
+      return <ChatLine key={`chatlines${i}`} user={l.user} message={l.message} />
+    })
     return (
       <div className="chat-box-componenet">
-        ChatBox Component
-        {console.log(this.state.chatContent)}
+        ChatBox
         <div className="chat-box">
-          {this.props.pollCode}
+          {chatLines}
         </div>
         <div className="chat-box-form">
           <form onSubmit={(e) => {this.submitChat(e)}}>
