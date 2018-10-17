@@ -16,7 +16,7 @@ class NavBar extends Component {
 
   componentDidMount() {
     axios.get('/auth/login').then(response => {
-      console.log(response)
+      this.setState({ loggedIn: true }) 
     }).catch(err => {
       console.log(err);
   })
@@ -25,7 +25,7 @@ class NavBar extends Component {
 
   logout =() => {
     axios.post('/auth/logout').then(() => {
-      this.props.verifyAuth(this.state.loggedIn)
+      this.props.verifyAuth(this.state.false)
       this.setState({
         user: '',
       })
