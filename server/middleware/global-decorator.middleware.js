@@ -17,7 +17,7 @@ const sessionMiddleWare = session({
     store: new PostgresStore({
         conString: process.env.DB_CONNECTION_STRING,
     }),
-    key: 'user_sid',
+    key: 'sid',
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
