@@ -187,10 +187,14 @@ export default class LivePoll extends Component {
 				Hello
 				{this.state.response.hello}
 				<button onClick={() => this.logout()}>Increment Socket</button>
-				{closePollButton}
-				{restaurantsList}
-				<CurrentUsers pollCode={this.state.pollCode} socket={socket} />
-				{this.state.allowChat ? <Chat pollCode={this.state.pollCode} socket={socket} pollId={this.state.restaurants[0].pollId}/> : null}
+				
+					{closePollButton}
+					{restaurantsList}
+	
+				<div className={'chat-section'}>
+					<CurrentUsers pollCode={this.state.pollCode} socket={socket} />
+					{this.state.allowChat ? <Chat pollCode={this.state.pollCode} socket={socket} pollId={this.state.restaurants[0].pollId}/> : null}
+				</div>
 				<Modal
 					isOpen={this.state.modalIsOpen}
 					onRequestClose={() => this.saveUsername()}
