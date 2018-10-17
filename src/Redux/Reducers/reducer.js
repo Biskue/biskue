@@ -1,7 +1,14 @@
 import { combineReducers } from 'redux';
 
 const initialState = {
-	loggedIn: false,
+	address: null,
+	longitude: null,
+	latitude: null,
+	radius: null,
+	priceRange: null,
+	date: null,
+	formattedDate: null,
+	showDate: null
 };
 
 function wizardSteps(state = initialState, action) {
@@ -28,7 +35,9 @@ function wizardSteps(state = initialState, action) {
 		case "UPDATE_LOCATION":
 			return Object.assign({}, state, {latitude: action.payload.latitude, longitude: action.payload.longitude})
 		case "RE_ROUTE":
-			return Object.assign({}, state, {sendToWizard: action.payload})	
+			return Object.assign({}, state, {sendToWi: action.payload})	
+		case "CLEAR_POLL":
+			return Object.assign({}, state, initialState)	
 		default:
 			return state;
 	}
