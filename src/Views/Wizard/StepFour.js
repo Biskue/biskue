@@ -6,6 +6,8 @@ import axios from 'axios';
 import * as Actions from '../../Redux/Actions/actions';
 import RestaurantFinder from './RestaurantFinder'
 
+import './StepFour.css';
+
 class StepFour extends Component {
 	constructor(props) {
 		super(props);
@@ -81,7 +83,14 @@ class StepFour extends Component {
       ) : null;
       const restaurantSearch = this.state.displaySearch === true ? <RestaurantFinder addRestaurant={this.addRestaurant}/> : null
 		return (
-			<div>
+			<div className="step-four">
+				<div className="next">
+					<Link to="/wizard/step-3">
+						<button>Previous</button>
+					</Link>
+					<button onClick={()=>this.ConfirmSettings()}>Next</button>
+				</div>
+
 				<div>
 					<h1>Review Selections</h1>
           <div>
@@ -93,12 +102,7 @@ class StepFour extends Component {
 				<input type="checkbox" value={true} onChange={() => this.saveList()} />
 				<label>Save this List to Favorites?</label>
 				{listName}
-				<div>
-					<Link to="/wizard/step-3">
-						<button>Previous</button>
-					</Link>
-					<button onClick={()=>this.ConfirmSettings()}>Next</button>
-				</div>
+
 			</div>
 		);
 	}
