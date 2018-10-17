@@ -41,7 +41,6 @@ export default class LivePoll extends Component {
 	}
 	componentWillMount() {
 		axios.get(`/poll/retrieve/${this.props.match.params.pollCode}`).then((response) => {
-			console.log(response);
 			const restaurants = response.data.map((rest) => {
 				return {
 					pollItem: rest.pollOption,
@@ -77,10 +76,8 @@ export default class LivePoll extends Component {
 			this.setState({
 				response: data
 			});
-			console.log(data);
 		});
 		socket.on('incremented', (number, index) => {
-			console.log(number, index);
 			const restaurants = this.state.restaurants;
 			restaurants[index].upVotes = number;
 			this.setState({
@@ -126,7 +123,6 @@ export default class LivePoll extends Component {
 	}
 	closePoll() {
 		axios.get(`/poll/winners/${this.state.restaurants[0].pollId}`).then((response) => {
-			console.log(response);
 			if (response.data.length === 1) {
 				const winner = response.data[0].pollOption;
 				axios.put(`/poll/setWinner/${this.state.restaurants[0].pollId}`, { winner }).then(() => {

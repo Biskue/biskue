@@ -17,7 +17,6 @@ export default class CurrentUsers extends Component {
         this.setState({
           currentUsers: users
         })
-        console.log(this.state.currentUsers)
       })
       .catch(err => console.warn(err))
   }
@@ -28,7 +27,6 @@ export default class CurrentUsers extends Component {
     socket.on('joined', (user) => {
       if(this.state.currentUsers.indexOf(user) == -1) {
         let users = [...this.state.currentUsers, user];
-        console.log(user, users);
         this.setState({
           currentUsers: users,
         })

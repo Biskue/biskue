@@ -21,5 +21,7 @@ PollRouter.put('/setWinner/:pollID', pollController.setWinner);
 
 PollRouter.get('/retrieveUsers/:pollCode', pollController.listPollUsers);
 
+PollRouter.get('/retrieveChat/:pollCode', pollController.getChat);
+
 module.exports = PollRouter;
 PollRouter.get('/search', pollController.search)

@@ -43,7 +43,6 @@ app.get('/', function (req, res) {
     socket.emit('news', { hello: 'world' });
 
     socket.on('room', room => {
-        const db = getDb()
         console.log(`Joining Socket Room ${room}`)
         socket.join(room);
         if(socket.handshake.session.user){
@@ -54,7 +53,9 @@ app.get('/', function (req, res) {
 
     socket.on('connect', data => console.log(data));
 
-    socket.on('message', (msg, pollCode) => { 
+    socket.on('message', (msg, pollCode, pollId) => { 
+        const db = getDb()
+        db.chat_insert_message(pollId, socket.handshake.session.user.username, msg) 
         console.log(socket.handshake.session.user.username, msg, pollCode);
         io.sockets.in(pollCode).emit('newMessage', socket.handshake.session.user.username, msg)
      });
