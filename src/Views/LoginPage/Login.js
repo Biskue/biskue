@@ -27,10 +27,10 @@ class Login extends Component {
                 const user = response.data;
                 if (user.id) {
                     this.props.verifyAuth(!this.state.loggedIn);
-                    if(this.props.reRoute){
-                        return this.props.history.push('/wizard/step-1')
+                    if(!this.props.sendToWizard){
+                        this.props.history.push('/')
                     }
-                    this.props.history.push('./');
+                    else{this.props.history.push('/wizard/step-1')};
                 }
                 else console.log('No user found...')
                 
