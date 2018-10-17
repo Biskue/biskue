@@ -58,7 +58,7 @@ export default class UserInfo extends Component {
 			email: this.state.email,
 			avatar: this.state.avatar
 		};
-		axios.put(`/auth/edit/${id}?type=`, user).then((response) => {
+		axios.put(`/auth/edit/${id}?type=profileEdit`, user).then((response) => {
 			const { username, firstName, lastName, email, avatar } = response.data;
 			this.setState({ username, firstName, lastName, email, avatar, editInfo: false });
 		});
@@ -71,7 +71,7 @@ export default class UserInfo extends Component {
   }
   updatePassword(){
     const passwords={oldPassword: this.state.oldPassword, newPassword: this.state.password}
-    axios.put(`/auth/edit/${this.state.id}?type=updatePassword`, passwords).then(()=> this.setState({updatePassword: false}))
+    axios.put(`/auth/edit/${this.state.id}?type=newPassword`, passwords).then(()=> this.setState({updatePassword: false}))
   }
 	render() {
 		const username = this.state.editInfo ? (
