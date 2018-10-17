@@ -1,7 +1,7 @@
 .landing {
     display: flex;
     justify-content: center;
-    height: 100vh;
+    /* height: 100vh; */
     /* background-color:#eeefead3;
     background-image: 
     radial-gradient(circle at 100% 150%, #eeefead3 24%, #f8f5f5dc 25%, #f8f5f5dc 28%, #eeefead3 29%, #eeefead3 36%, #f8f5f5dc 36%, #f8f5f5dc 40%, transparent 40%, transparent),
