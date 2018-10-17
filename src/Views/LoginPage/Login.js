@@ -27,6 +27,9 @@ class Login extends Component {
                 const user = response.data;
                 if (user.id) {
                     this.props.verifyAuth(!this.state.loggedIn);
+                    if(this.props.reRoute){
+                        return this.props.history.push('/wizard/step-1')
+                    }
                     this.props.history.push('./');
                 }
                 else console.log('No user found...')

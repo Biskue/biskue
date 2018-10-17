@@ -44,7 +44,7 @@ class StepOne extends Component {
 		})
 	}
 })
-.catch((err)=> {console.log(err); this.props.history.push('/login')})	
+.catch((err)=> {console.log(err); this.props.reRoute(true); this.props.history.push('/login') })	
 	}
 	handleChange(event, name) {
 		const value = event.target.value;
