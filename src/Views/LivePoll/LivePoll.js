@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import axios from 'axios';
 import RestaurantCard from './RestaurantCard';
 import socketIOClient from 'socket.io-client';
+import Chat from './Chat';
 const socket = socketIOClient('http://localhost:4005/', {
 	extraHeaders: { 'Access-Control-Allow-Credentials': 'omit' }
 });
@@ -33,7 +34,8 @@ export default class LivePoll extends Component {
 			outOfVotes: false,
 			userId: null,
 			tiebreaker: false,
-			tieOptions: []
+			tieOptions: [],
+			allowChat: false,
 		};
 	}
 	componentWillMount() {
@@ -49,7 +51,7 @@ export default class LivePoll extends Component {
 				};
 			});
 
-			this.setState({ restaurants, adminId: response.data[0].adminUserId, isActive: response.data[0].isActive });
+			this.setState({ restaurants, adminId: response.data[0].adminUserId, isActive: response.data[0].isActive, allowChat: response.data[0].allowChat });
 			if (response.data[0].isActive === false) {
 				this.props.history.push(`/winner/${this.state.pollCode}`);
 			}
@@ -75,7 +77,6 @@ export default class LivePoll extends Component {
 				response: data
 			});
 			console.log(data);
-			socket.send('hi');
 		});
 		socket.on('incremented', (number, index) => {
 			console.log(number, index);
@@ -191,6 +192,7 @@ export default class LivePoll extends Component {
 				<button onClick={() => this.logout()}>Increment Socket</button>
 				{closePollButton}
 				{restaurantsList}
+				{this.state.allowChat ? <Chat pollCode={this.state.pollCode} socket={socket} /> : null}
 				<Modal
 					isOpen={this.state.modalIsOpen}
 					onRequestClose={() => this.saveUsername()}
