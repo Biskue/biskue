@@ -1,0 +1,12 @@
+
+h2 {
+    margin: 20px 0px 35px 0px;
+}
+
+.step-three > .next {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: space-between;
+    margin: 10px;
+}
