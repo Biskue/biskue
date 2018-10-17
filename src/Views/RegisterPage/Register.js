@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Register.css';
+import biskue_top from '../../../src/biskue_top.png';
 
 import Register2 from './Register-2';
 
@@ -38,7 +39,9 @@ class Register extends Component {
             <div>
                 {this.state.view ? <Register2 state={this.state}/> :
                     <div className="Register" >
-                        <div className="title">BISKUE</div>
+                        <div className='biskue-logo'>
+                            <img src={biskue_top} alt="biskue logo" className='biskue-top'/>
+                        </div>
                         <div className="poll-buttons">
                             <div className="input-container">
                                 <label>Username:</label>

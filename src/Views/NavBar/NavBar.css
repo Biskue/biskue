@@ -13,17 +13,6 @@
 
 }
 
-.login-logout-button {
-    justify-content: flex-end;
-    float: right;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    font-size: 22px;
-    line-height: 50px;
-    padding: 0px 35px;
-}
-
 .navbar span {
     justify-content: flex-end;
     float: right;

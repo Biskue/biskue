@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import './Landing.css';
 import EditFavorites from '../UserInfo/EditFavorites'
+import biskue_top from '../../../src/biskue_top.png';
 
 const customStyles = {
 	content: {
@@ -34,7 +35,7 @@ export default class Landing extends Component {
       
       <div className="landing">
         <div className='biskue-logo'>
-          <h1>BIIIIIIIIIIISKUE</h1>
+          <img src={biskue_top} alt="biskue logo" className='biskue-top'/>
         </div>
         <div className='poll-buttons'>
           <div>
