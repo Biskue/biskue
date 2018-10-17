@@ -1,10 +1,10 @@
 UPDATE "users" 
   SET
-    "password" = $2,
-    "firstName" = $3,
-    "lastName" = $4,
-    "avatar" = $5,
-    "email" = $6
+    
+    "firstName" = $2,
+    "lastName" = $3,
+    "avatar" = $4,
+    "email" = $5
 WHERE 
   "id" = $1
 

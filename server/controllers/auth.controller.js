@@ -54,11 +54,11 @@ module.exports = {
   editUser: (req, res) => {
     const { userID } = req.params;
     const { password, firstName, lastName, avatar, email } = req.body
-    var pwd = bcrypt.hashSync(password, 10);
-    req.db.edit_user(userID, pwd, firstName, lastName, avatar, email)
+    // var pwd = bcrypt.hashSync(password, 10);
+    req.db.edit_user(userID, firstName, lastName, avatar, email)
     .then(u => {
       let user = u[0];
-      delete user.password;
+     
       res.status(200).send(user);
     })
     .catch(err => {
