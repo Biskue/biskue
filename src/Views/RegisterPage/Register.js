@@ -39,7 +39,7 @@ class Register extends Component {
                 {this.state.view ? <Register2 state={this.state}/> :
                     <div className="Register" >
                         <div className="title">BISKUE</div>
-                        <div className="register-box">
+                        <div className="poll-buttons">
                             <div className="input-container">
                                 <label>Username:</label>
                                 <input onChange={this.handleChange} name="username" type="text" value={this.state.username} />
@@ -48,7 +48,7 @@ class Register extends Component {
                                 <label>Password:</label>
                                 <input onChange={this.handleChange} name="password" type="text" value={this.state.password} />
                             </div>
-                                <button onClick={this.changeView}> Next</button>
+                                <button className="create-poll" onClick={this.changeView}> Next</button>
                         </div>
                     </div >
                 }
