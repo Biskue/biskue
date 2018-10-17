@@ -43,10 +43,11 @@ app.get('/', function (req, res) {
     socket.emit('news', { hello: 'world' });
 
     socket.on('room', room => {
+        const db = getDb()
         console.log(`Joining Socket Room ${room}`)
         socket.join(room);
         if(socket.handshake.session.user){
-            io.sockets.in(room).emit('joined', socket.handshake.session.user.username)
+            io.sockets.in(room).emit('joined', socket.handshake.session.user.username);
         }
      
     })
@@ -57,6 +58,10 @@ app.get('/', function (req, res) {
         console.log(socket.handshake.session.user.username, msg, pollCode);
         io.sockets.in(pollCode).emit('newMessage', socket.handshake.session.user.username, msg)
      });
+
+    socket.on('newUser', (user, pollCode) => {
+        io.sockets.in(pollCode).emit('joined', user);
+    })
 
     socket.on('increment', (number, pollCode) => { 
 

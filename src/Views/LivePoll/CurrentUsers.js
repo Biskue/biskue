@@ -13,12 +13,17 @@ export default class CurrentUsers extends Component {
   componentWillMount() {
     axios.get(`/poll/retrieveUsers/${this.props.pollCode}`)
       .then(response => {
-        console.log(response.data)
+        const users = response.data.map(u => u.username)
         this.setState({
-          currentUsers: [...response.data.participants]
+          currentUsers: users
         })
+        console.log(this.state.currentUsers)
       })
       .catch(err => console.warn(err))
+  }
+
+  componentDidMount(){
+    
     const { socket } = this.props
     socket.on('joined', (user) => {
       if(this.state.currentUsers.indexOf(user) == -1) {
