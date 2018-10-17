@@ -4,7 +4,7 @@ App {
   background-color: #fcfbf7;
 }
 
-.App {
+.App, body {
   text-align: center;
   font-family: 'Mukta', sans-serif;
   height: 100vh;
@@ -16,6 +16,7 @@ App {
   radial-gradient(circle at 100% 50%, #f8f5f5dc 5%, #eeefead3 6%, #eeefead3 15%, #f8f5f5dc 16%, #f8f5f5dc 20%, #eeefead3 21%, #eeefead3 30%, #f8f5f5dc 31%, #f8f5f5dc 35%, #eeefead3 36%, #eeefead3 45%, #f8f5f5dc 46%, #f8f5f5dc 49%, transparent 50%, transparent),
   radial-gradient(circle at 0    50%, #f8f5f5dc 5%, #eeefead3 6%, #eeefead3 15%, #f8f5f5dc 16%, #f8f5f5dc 20%, #eeefead3 21%, #eeefead3 30%, #f8f5f5dc 31%, #f8f5f5dc 35%, #eeefead3 36%, #eeefead3 45%, #f8f5f5dc 46%, #f8f5f5dc 49%, transparent 50%, transparent);
   background-size:100px 50px;
+  background-attachment: scroll;
 }
 
 .App-logo {
@@ -105,4 +106,73 @@ Button:active:before {
   padding-top: 120%;
   
   transition: width .2s ease-out, padding-top .2s ease-out;
+}
+
+.restaurant-image {
+width: 200px;
+height: 200px;
+}
+
+.create-poll{
+position: relative;
+
+display: block;
+margin: 30px auto;
+padding: 10px;
+
+overflow: hidden;
+
+border-width: 0;
+outline: none;
+border-radius: 2px;
+box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+
+background-color: #f18137;
+color: #ffffff;
+
+transition: background-color .3s;
+}
+
+.create-poll:hover, .create-poll:focus {
+background-color: #db6129;
+box-shadow: 0 6px 10px rgba(0,0,0,0.25), 0 3px 3px rgba(0,0,0,0.22);
+color: #ffffffa6;
+}
+
+.create-poll > * {
+position: relative;
+}
+
+.create-poll span {
+display: block;
+padding: 12px 24px;
+}
+
+.create-poll:before {
+content: "";
+
+position: absolute;
+top: 50%;
+left: 50%;
+
+display: block;
+width: 0;
+padding-top: 0;
+
+border-radius: 100%;
+
+background-color: rgba(236, 240, 241, .3);
+
+-webkit-transform: translate(-50%, -50%);
+-moz-transform: translate(-50%, -50%);
+-ms-transform: translate(-50%, -50%);
+-o-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);
+}
+
+.create-poll:active:before {
+width: 120%;
+padding-top: 120%;
+
+transition: width .2s ease-out, padding-top .2s ease-out;
 }

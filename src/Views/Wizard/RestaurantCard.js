@@ -7,7 +7,7 @@ export default (props) => {
   const clickHandler = props.delete? () => props.delete(props.currentIndex): ()=> props.addRestaurant(props.currentRes) 
   const showButton = !props.addRestaurant && !props.delete ? null : <button onClick={clickHandler}>{buttonTitle}</button>
     return (
-    <div>
+    <div className='restaurant-card'>
       <img className ='restaurant-image'src={props.currentRes.image_url} alt="yelp image"/>
       <div>
           <h4>{props.currentRes.name}</h4>

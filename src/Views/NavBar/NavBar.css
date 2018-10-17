@@ -1,26 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Mukta|Roboto');
 
 .navbar {
-    display: flexbox;
+    display: flex;
+    padding: 10px;
     justify-content: space-between;
     /* background: transparent; */
     background-color: #215732;
     /* overflow: hidden; */
-    height: 50px;
+    height: 60px;
     color: black;
     opacity: 0.95;
 
-}
-
-.login-logout-button {
-    justify-content: flex-end;
-    float: right;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    font-size: 22px;
-    line-height: 50px;
-    padding: 0px 35px;
 }
 
 .navbar span {
@@ -50,5 +40,11 @@ a {
     color: black;
     text-decoration: none;
 }
-
+.buttons-container{
+    display: flex;
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+    margin-right: 30px 
+}
 

@@ -30,11 +30,8 @@ class EditFavorites extends Component {
 	render() {
 		const favoritesLists = this.state.favoritesLists.map((list, index) => {
 			return (
-				<div key={index}>
-					{list.listName}{' '}
-					
-						<button onClick={() => this.getListItems(list.id)}>Select</button>
-					
+				<div className='list-names' key={index} onClick={() => this.getListItems(list.id)}>
+					{list.listName}
 				</div>
 			);
     });

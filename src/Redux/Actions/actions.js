@@ -46,3 +46,9 @@ export const saveListLocation = (latitude, longitude) => {
 		}
 	}
 }
+export const reRoute = (boolean)=> {
+	return {
+		type: "RE_ROUTE",
+		payload: boolean
+	}
+}

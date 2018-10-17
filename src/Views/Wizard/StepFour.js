@@ -90,18 +90,22 @@ class StepFour extends Component {
 					</Link>
 					<button onClick={()=>this.ConfirmSettings()}>Next</button>
 				</div>
-
+				<div>
+					<input type="checkbox" value={true} onChange={() => this.saveList()} />
+				<label>Save this List to Favorites?</label>
+				{listName}
+				</div>
 				<div>
 					<h1>Review Selections</h1>
           <div>
             <button onClick={()=> this.showHideSearch()}>Add Restaurant</button>
             <div>{restaurantSearch}</div>
           </div>
+					<div className='restaurants-list'>
 					{restaurantList}
+					</div>
 				</div>
-				<input type="checkbox" value={true} onChange={() => this.saveList()} />
-				<label>Save this List to Favorites?</label>
-				{listName}
+			
 
 			</div>
 		);
