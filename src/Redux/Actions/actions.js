@@ -30,3 +30,10 @@ export const saveStepFive = (url, code) =>{
 		}
 	}
 }
+
+export const verifyAuth = (loggedIn) => {
+	return {
+		type: 'VERIFIED_USER',
+		payload: {loggedIn},
+	}
+}

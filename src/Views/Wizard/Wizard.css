@@ -1,18 +1,22 @@
-.restaurant-image{
-    height: 100px;
-    width: 150px;
+Wizard {
+    display: flex;
+    align-content: space-around;
+    height: 100vh;
 }
-.categories-list{
-    display: grid;
-		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+
+
+h1 {
+    font-size: 25px;
+    margin-top: 50px;
 }
-.category-container{
-    margin: 5px;
-    padding: 2px;
-    border: #822317 1px solid
+
+.poll-buttons {
+    width: 70vw;
+    height: 100%;
+    margin-top: 50px;
 }
-.category-container:hover{
-    background-color: #822317;
-    color: white;
-    cursor: pointer;
+
+.next {
+    height: 40px;
 }

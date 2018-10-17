@@ -59,7 +59,7 @@ class StepFour extends Component {
 	};
 	render() {
 		const { longitude, latitude, radius, priceRange, date, titles, PollItems } = this.props;
-		const categoryList = titles.join(', ');
+		
 		const restaurantList = this.state.restaurants.map((restaurant, index) => {
 			return (
 				<RestaurantCard
