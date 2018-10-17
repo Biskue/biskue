@@ -27,6 +27,8 @@
     margin: 100px;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    padding: 15px;
 
 }
 
