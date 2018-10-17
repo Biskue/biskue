@@ -15,6 +15,7 @@ const io = require('socket.io')(server);
 
 
 globalDecorator.globalDecorator(app);
+
 io.use(sharedSession(globalDecorator.sessionMiddleWare, {
     autoSave:true
 })); 
