@@ -54,11 +54,11 @@ module.exports = {
   editUser: (req, res) => {
     const { userID } = req.params;
     const { password, firstName, lastName, avatar, email } = req.body
-    var pwd = bcrypt.hashSync(password, 10);
-    req.db.edit_user(userID, pwd, firstName, lastName, avatar, email)
+    // var pwd = bcrypt.hashSync(password, 10);
+    req.db.edit_user(userID, firstName, lastName, avatar, email)
     .then(u => {
       let user = u[0];
-      delete user.password;
+     
       res.status(200).send(user);
     })
     .catch(err => {
@@ -66,14 +66,14 @@ module.exports = {
     });
   },
   logout: (req, res) => {
-    if (req.session.user && req.cookies.user_sid) {
+    if (req.session.user || req.cookies.user_sid) {
       res.clearCookie('user_sid');
       req.session.destroy();
       res.status(200).send({ message: 'You have logged out.'})
     }
   },
   verifyAuth: (req, res) => {
-    if (req.session.user && req.cookies.user_sid) {
+    if (req.session.user) {
       res.status(200).send(req.session.user)
     } else {
       res.status(401).send({message: 'You are not logged in.'})
