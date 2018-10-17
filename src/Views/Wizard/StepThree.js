@@ -38,10 +38,15 @@ class StepThree extends Component {
     }else{
       this.setState({displaySearch: true})
     }
-  }
+	}
+	removeRestaurant = (index)=>{
+		const selected = this.state.selected
+		selected.splice(index,1)
+		this.setState({selected})
+	}
 	render() {
 		const restaurantsList = this.state.restaurants.map((restaurant, index) => {
-			return <RestaurantCard key={index} addRestaurant={this.addRestaurant} currentRes={restaurant} />;
+			return <RestaurantCard className='restaurant-card' key={index} addRestaurant={this.addRestaurant} currentRes={restaurant} />;
 		});
 		const doneButton =
 			this.state.selected.length > 0 ? (
@@ -49,7 +54,8 @@ class StepThree extends Component {
 					<button onClick={()=> this.props.saveStepThree(this.state.selected)}>Done</button>
 				</Link>
       ) : null;
-    const restaurantSearch = this.state.displaySearch === true ? <RestaurantFinder addRestaurant={this.addRestaurant}/> : null
+		const restaurantSearch = this.state.displaySearch === true ? <RestaurantFinder addRestaurant={this.addRestaurant}/> : null
+	const selectedRestaurants = this.state.selected.map((rest, index)=> {return (<div key={index}>{rest.name} <span className='remove' onClick={this.removeRestaurant}>Remove</span> </div>)})
 		return (
 			<div className="step-three">
 				<div className="next">
@@ -59,11 +65,13 @@ class StepThree extends Component {
 					{doneButton}
 				</div>
 				
+					{this.state.selected.length > 0 ?<div> <h2>Selected Restaurants</h2> {selectedRestaurants} </div> :null}
+				
 				<h2>Select Restaurants to add to Poll</h2>
-        <button onClick= {()=>this.showHideSearch()}>Search for a Specific Restaurant</button>
+        <button onClick= {()=>this.showHideSearch()}>{this.state.displaySearch? "Hide Search": "Search for a Specific Restaurant"}</button>
         {restaurantSearch}
         
-				<div>
+				<div className='restaurants-list'>
         {restaurantsList}
         </div>
 			</div>

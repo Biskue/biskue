@@ -12,7 +12,7 @@ import './Wizard.css';
 
 export default () => {
   return (
-    <div>
+    <div className='wizard-routes-container'>
       <h1>Create Poll</h1>
       <div className='poll-buttons'>
       <Route path= '/wizard/step-1' component ={StepOne}/>
