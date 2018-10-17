@@ -16,6 +16,7 @@ class NavBar extends Component {
 
   componentDidMount() {
     axios.get('/auth/login').then(response => {
+      this.props.verifyAuth(true)
       this.setState({ loggedIn: true }) 
     }).catch(err => {
       console.log(err);
@@ -25,7 +26,7 @@ class NavBar extends Component {
 
   logout =() => {
     axios.post('/auth/logout').then(() => {
-      this.props.verifyAuth(this.state.false)
+      this.props.verifyAuth(false)
       this.setState({
         user: '',
       })
@@ -47,13 +48,16 @@ class NavBar extends Component {
         <Link to='/'>
         <img className="navbar-logo" src={biskue_icon_lined_wh} alt="logo" />
         </Link>
+        <div className='buttons-container'>
         {this.props.loggedIn ? (
            <button onClick={this.logout}>Logout</button>
         ) :
           (
             <button onClick={this.login}>Login</button>
           )
-      } 
+      }
+      {this.props.loggedIn? <Link to='/user-info'><button>Account Info</button> </Link> : null} 
+      </div>
       </div>
     )
   }
