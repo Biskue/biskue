@@ -25,6 +25,8 @@ function wizardSteps(state = initialState, action) {
 			return Object.assign({}, state, {url: action.payload.url, code: action.payload.code})	
 		case "VERIFIED_USER":
 			return Object.assign({}, state, {loggedIn: action.payload.loggedIn})
+		case "UPDATE_LOCATION":
+			return Object.assign({}, state, {latitude: action.payload.latitude, longitude: action.payload.longitude})
 		default:
 			return state;
 	}
