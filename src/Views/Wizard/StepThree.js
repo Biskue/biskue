@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import * as Actions from '../../Redux/Actions/actions';
 import axios from 'axios';
 import RestaurantCard from './RestaurantCard';
-import RestaurantFinder from './RestaurantFinder'
+import RestaurantFinder from './RestaurantFinder';
+import './StepThree.css';
 
 class StepThree extends Component {
 	constructor(props) {
@@ -50,15 +51,19 @@ class StepThree extends Component {
       ) : null;
     const restaurantSearch = this.state.displaySearch === true ? <RestaurantFinder addRestaurant={this.addRestaurant}/> : null
 		return (
-			<div>
+			<div className="step-three">
+				<div className="next">
+        	<Link to='/wizard/step-2'>
+        	<button>Previous</button>
+        	</Link>
+					{doneButton}
+				</div>
+				
 				<h2>Select Restaurants to add to Poll</h2>
-        <Link to='/wizard/step-2'>
-        <button>Previous</button>
-        </Link>
         <button onClick= {()=>this.showHideSearch()}>Search for a Specific Restaurant</button>
         {restaurantSearch}
-        <div>
-				{doneButton}
+        
+				<div>
         {restaurantsList}
         </div>
 			</div>
