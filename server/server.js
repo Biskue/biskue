@@ -46,17 +46,23 @@ app.get('/', function (req, res) {
         console.log(`Joining Socket Room ${room}`)
         socket.join(room);
         if(socket.handshake.session.user){
-            io.sockets.in(room).emit('joined', socket.handshake.session.user.firstName)
+            io.sockets.in(room).emit('joined', socket.handshake.session.user.username);
         }
      
     })
 
     socket.on('connect', data => console.log(data));
 
-    socket.on('message', (msg, pollCode) => { 
+    socket.on('message', (msg, pollCode, pollId) => { 
+        const db = getDb()
+        db.chat_insert_message(pollId, socket.handshake.session.user.username, msg) 
         console.log(socket.handshake.session.user.username, msg, pollCode);
         io.sockets.in(pollCode).emit('newMessage', socket.handshake.session.user.username, msg)
      });
+
+    socket.on('newUser', (user, pollCode) => {
+        io.sockets.in(pollCode).emit('joined', user);
+    })
 
     socket.on('increment', (number, pollCode) => { 
 

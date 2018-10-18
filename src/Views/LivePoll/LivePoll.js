@@ -4,6 +4,8 @@ import axios from 'axios';
 import RestaurantCard from './RestaurantCard';
 import socketIOClient from 'socket.io-client';
 import Chat from './Chat';
+import './LivePoll.css'
+import CurrentUsers from './CurrentUsers';
 const socket = socketIOClient('http://localhost:4005/', {
 	extraHeaders: { 'Access-Control-Allow-Credentials': 'omit' }
 });
@@ -40,7 +42,6 @@ export default class LivePoll extends Component {
 	}
 	componentWillMount() {
 		axios.get(`/poll/retrieve/${this.props.match.params.pollCode}`).then((response) => {
-			console.log(response);
 			const restaurants = response.data.map((rest) => {
 				return {
 					pollItem: rest.pollOption,
@@ -76,10 +77,8 @@ export default class LivePoll extends Component {
 			this.setState({
 				response: data
 			});
-			console.log(data);
 		});
 		socket.on('incremented', (number, index) => {
-			console.log(number, index);
 			const restaurants = this.state.restaurants;
 			restaurants[index].upVotes = number;
 			this.setState({
@@ -125,7 +124,6 @@ export default class LivePoll extends Component {
 	}
 	closePoll() {
 		axios.get(`/poll/winners/${this.state.restaurants[0].pollId}`).then((response) => {
-			console.log(response);
 			if (response.data.length === 1) {
 				const winner = response.data[0].pollOption;
 				axios.put(`/poll/setWinner/${this.state.restaurants[0].pollId}`, { winner }).then(() => {
@@ -155,7 +153,7 @@ export default class LivePoll extends Component {
 
 	}
 	render() {
-		const modalButton = this.state.username != '' ? <button onClick={() => this.saveUsername()}>Go</button> : null;
+		const modalButton = this.state.username !== '' ? <button onClick={() => this.saveUsername()}>Go</button> : null;
 		const restaurantsList = this.state.restaurants.map((rest, index) => {
 			return (
 				<RestaurantCard
@@ -190,9 +188,14 @@ export default class LivePoll extends Component {
 				Hello
 				{this.state.response.hello}
 				<button onClick={() => this.logout()}>Increment Socket</button>
-				{closePollButton}
-				{restaurantsList}
-				{this.state.allowChat ? <Chat pollCode={this.state.pollCode} socket={socket} /> : null}
+				
+					{closePollButton}
+					{restaurantsList}
+	
+				<div className={'chat-section'}>
+					<CurrentUsers pollCode={this.state.pollCode} socket={socket} />
+					{this.state.allowChat ? <Chat pollCode={this.state.pollCode} socket={socket} pollId={this.state.restaurants[0].pollId}/> : null}
+				</div>
 				<Modal
 					isOpen={this.state.modalIsOpen}
 					onRequestClose={() => this.saveUsername()}

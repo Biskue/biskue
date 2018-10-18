@@ -1,2 +1,3 @@
 SELECT * FROM "chat"
-WHERE "pollId" = $1;
+WHERE "pollId" = $1
+ORDER BY "sentAt" ASC;

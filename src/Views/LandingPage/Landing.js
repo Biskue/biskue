@@ -22,6 +22,8 @@ export default class Landing extends Component {
     super(props)
     this.state = {
       showFavorites: false,
+      joinPoll: false,
+      pollCode: ''
     }
   }
   closeModal(){
@@ -29,6 +31,15 @@ export default class Landing extends Component {
   }
   openModal(){
     this.setState({showFavorites: true})
+  }
+  joinPoll(){
+    if(this.state.joinPoll){
+      return this.setState({joinPoll: false})
+    }
+    this.setState({joinPoll: true})
+  }
+  handleChange(string){
+    this.setState({pollCode: string})
   }
   render() {
     return (
@@ -43,7 +54,7 @@ export default class Landing extends Component {
               <button className='create-poll'>Start Poll</button>
             </Link>
               <button onClick={()=> this.openModal()} className='create-poll'>Select poll from favorites</button>
-            <button className='create-poll'>Join Poll</button>
+            <button className='create-poll' onClick={()=> this.joinPoll()}>Join Poll</button>
           </div>
           <Modal
 					isOpen={this.state.showFavorites}
@@ -51,8 +62,23 @@ export default class Landing extends Component {
 					contentLabel="Import Modal"
 					style={customStyles}
 				>
+          <h2 className='favorites-header'>My Favorites Lists</h2>
 					<EditFavorites history = {this.props.history}/>
           <button onClick={()=>this.closeModal()}>Cancel</button>
+				</Modal>
+        <Modal
+					isOpen={this.state.joinPoll}
+					onRequestClose={() => this.joinPoll()}
+					contentLabel="Import Modal"
+					style={customStyles}
+				>
+        <form>
+        <div className='join-modal'>
+        <input placeholder= 'Enter Poll Code' value={this.state.pollCode} onChange={(e)=> this.handleChange(e.target.value)}/>
+					<button type='submit' onClick={()=>this.props.history.push('/poll/'+this.state.pollCode)}>Join</button>
+          </div>
+          <button onClick={()=>this.joinPoll()}>Cancel</button>
+          </form>
 				</Modal>
           <div>
           </div>

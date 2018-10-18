@@ -11,7 +11,7 @@ export default class RestaurantCard extends Component {
 		const categoriesJoined = categories.join(', ');
 		return (
 			<div>
-				<img className="restaurant-image" src={this.props.currentRes.image_url} alt="yelp image" />
+				<img className="restaurant-image" src={this.props.currentRes.image_url} alt="from yelp" />
 				<div>
 					<h4>{this.props.currentRes.name}</h4>
 					<p>{categoriesJoined}</p>

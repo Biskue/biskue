@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import axios from 'axios';
 import ChatLine from './ChatLine';
 import './Chat.css'
 
@@ -13,10 +14,18 @@ export default class Chat extends Component {
   }
 
   componentWillMount() {
+    axios.get(`/poll/retrieveChat/${this.props.pollId}`)
+      .then(results => {
+        this.setState({
+          chatContent: results.data,
+        });
+      })
+      .catch(err => console.warn(err))
+    
     const { socket } = this.props
-    socket.on('newMessage', (user, message) => {
+    socket.on('newMessage', (username, message) => {
       let chat = this.state.chatContent;
-      chat.push({user, message});
+      chat.push({username, message});
       this.setState({
         chatContent: chat,
       })
@@ -30,25 +39,26 @@ export default class Chat extends Component {
     })
   }
 
-  submitChat(e) {
+  submitChat(e, string) {
     e.preventDefault();
     e.stopPropagation();
 
-    this.props.socket.emit('message', this.state.chatInput, this.props.pollCode)
+    this.props.socket.emit('message', string, this.props.pollCode, this.props.pollId)
+    this.setState({chatInput: ''})
   }
 
   render() {
     const chatLines = this.state.chatContent.map((l, i) => {
-      return <ChatLine key={`chatlines${i}`} user={l.user} message={l.message} />
+      return <ChatLine key={`chatlines${i}`} user={l.username} message={l.message} />
     })
     return (
       <div className="chat-box-componenet">
-        ChatBox
+        <h3>ChatBox</h3>
         <div className="chat-box">
           {chatLines}
         </div>
         <div className="chat-box-form">
-          <form onSubmit={(e) => {this.submitChat(e)}}>
+          <form onSubmit={(e) => {this.submitChat(e, this.state.chatInput)}}>
             <input value={this.state.chatInput} onChange={(e) => this.inputChange(e)}></input>
             <button type="submit">Submit</button>
           </form>
