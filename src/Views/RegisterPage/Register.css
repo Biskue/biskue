@@ -3,6 +3,7 @@
 .Register {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 
@@ -15,6 +16,7 @@
     border: none;
     border-radius: 6px;
     font-size: 20px;
+    background-color: white;
 }
 
 

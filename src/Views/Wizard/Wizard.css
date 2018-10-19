@@ -20,8 +20,22 @@ h1 {
 }
 
 .next {
+    display: flex;
+    justify-content: space-between;
+    align-items: space-between;
     height: 40px;
+    width: 90%;
+    margin: auto;
 }
+
+.next > button {
+    background-color: #ffcf1f;
+}
+
+.next > button:hover {
+    background-color: #e2b40b;
+}
+
 .wizard-routes-container{
     display: flex;
     flex-direction: column;

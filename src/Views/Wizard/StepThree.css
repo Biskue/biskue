@@ -1,15 +1,15 @@
 
 h2 {
-    margin: 20px 0px 5px 0px;
+    margin: 20px 0px 20px 0px;
 }
 
 .step-three > .next {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-content: space-between;
-    margin: 10px;
+
 }
+
 .restaurant-card{
     border: 3px solid #438a59;
     width: 300px;
