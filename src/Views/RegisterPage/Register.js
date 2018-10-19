@@ -74,13 +74,7 @@ class Register extends Component {
                 value={this.state.username}
                 placeholder="Username"
               />
-              <input
-                onChange={this.handleChange}
-                name="email"
-                type="text"
-                value={this.state.email}
-                placeholder="Email"
-              />
+             
               <input
                 onChange={this.handleChange}
                 name="firstName"
@@ -88,13 +82,7 @@ class Register extends Component {
                 type="text"
                 placeholder="First Name"
               />
-              <input
-                onChange={this.handleChange}
-                name="lastName"
-                value={this.state.lastName}
-                type="text"
-                placeholder="Last Name"
-              />
+            
               <input
                 onChange={this.handleChange}
                 name="password"
@@ -102,13 +90,33 @@ class Register extends Component {
                 value={this.state.password}
                 placeholder="Password"
               />
+             
+            </div>
+            <div className="input-container-two">
+                <input
+                onChange={this.handleChange}
+                name="email"
+                type="text"
+                value={this.state.email}
+                placeholder="Email"
+              />
+
               <input
+                onChange={this.handleChange}
+                name="lastName"
+                value={this.state.lastName}
+                type="text"
+                placeholder="Last Name"
+              />
+
+             <input
                 onChange={this.handleChange}
                 name="confirmPassword"
                 type="password"
                 value={this.state.confirmPassword}
                 placeholder="Confirm Password"
               />
+            
             </div>
             {passwordMatch}
           </div>
