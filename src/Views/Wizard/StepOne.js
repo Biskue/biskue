@@ -101,7 +101,7 @@ class StepOne extends Component {
 		const nextButton =
 			this.state.latitude != null && this.state.longitude != null ? (
 				<Link to="/wizard/step-2">
-					<button onClick={() => this.saveWhereToState()}>Next</button>
+					<button onClick={() => this.saveWhereToState()} id="next-button">Next</button>
 				</Link>
 			) : null;
 		return (

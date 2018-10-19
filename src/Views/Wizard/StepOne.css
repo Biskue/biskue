@@ -28,6 +28,7 @@ button {
     font-size: 13px;
     line-height: 13px;
     height: 30px;
+    border-radius: 13px;
 }
 
 .step-one {
@@ -40,6 +41,14 @@ button {
 .step-one > .next {
     display: flex;
     justify-content: flex-end;
+}
+
+#next-button {
+    background-color: #ffcf1f;
+}
+
+#next-button:hover {
+    background-color: #e2b40b;
 }
 
 
@@ -55,6 +64,7 @@ button {
 .location > button {
     margin: 0;
     align-content: center;
+    background-color: #76cbff;
 }
 
 .location > break {
