@@ -25,7 +25,6 @@ export default class LivePoll extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			response: '',
 			adminId: null,
 			isActive: true,
 			number: 0,
@@ -38,6 +37,7 @@ export default class LivePoll extends Component {
 			tiebreaker: false,
 			tieOptions: [],
 			allowChat: false,
+			allowDownVote: false,
 		};
 	}
 	componentWillMount() {
@@ -52,7 +52,13 @@ export default class LivePoll extends Component {
 				};
 			});
 
-			this.setState({ restaurants, adminId: response.data[0].adminUserId, isActive: response.data[0].isActive, allowChat: response.data[0].allowChat });
+			this.setState({ 
+				restaurants, 
+				adminId: response.data[0].adminUserId, 
+				isActive: response.data[0].isActive, 
+				allowChat: response.data[0].allowChat,
+				allowDownVote: response.data[0].allowDownVotes, 
+			});
 			if (response.data[0].isActive === false) {
 				this.props.history.push(`/winner/${this.state.pollCode}`);
 			}
@@ -72,12 +78,9 @@ export default class LivePoll extends Component {
 
 	componentDidMount() {
 		var room = this.state.pollCode;
+
 		socket.emit('room', room);
-		socket.on('news', (data) => {
-			this.setState({
-				response: data
-			});
-		});
+		
 		socket.on('incremented', (number, index) => {
 			const restaurants = this.state.restaurants;
 			restaurants[index].upVotes = number;
@@ -85,6 +88,7 @@ export default class LivePoll extends Component {
 				restaurants
 			});
 		});
+
 		socket.on('decremented', (number, index) => {
 			const restaurants = this.state.restaurants;
 			restaurants[index].downVotes = number;
@@ -92,9 +96,11 @@ export default class LivePoll extends Component {
 				restaurants
 			});
 		});
+
 		socket.on('joined', (user) => {
 			console.log(user);
 		});
+
 		socket.on('closePoll', () => {
 			this.props.history.push(`/winner/${this.state.pollCode}`);
 		});
@@ -104,9 +110,7 @@ export default class LivePoll extends Component {
 		const value = event.target.value;
 		this.setState({ [name]: value });
 	}
-	increment() {
-		socket.emit('increment', this.state.number, this.state.pollCode);
-	}
+	
 	vote = (upOrDown, optionId, index) => {
 		axios
 			.put(`/poll/vote/${this.state.restaurants[0].pollId}`)
@@ -163,6 +167,7 @@ export default class LivePoll extends Component {
 					currentRes={rest.pollItem}
 					vote={this.vote}
 					currentVotes={{ upVotes: rest.upVotes, downVotes: rest.downVotes }}
+					allowDownVote={this.state.allowDownVotes}
 				/>
 			);
 		});
@@ -170,6 +175,7 @@ export default class LivePoll extends Component {
 			return (
 				<div key={index} onClick={() => this.breakTie(rest.pollOption)}>
 					<RestaurantCard
+						className='restaurant-card'
 						currentIndex={index}
 						optionId={rest.optionId}
 						currentRes={rest.pollOption}
@@ -185,16 +191,15 @@ export default class LivePoll extends Component {
 			) : null;
 		return (
 			<div>
-				Hello
-				{this.state.response.hello}
-				<button onClick={() => this.logout()}>Increment Socket</button>
-				
-					{closePollButton}
-					{restaurantsList}
-	
-				<div className={'chat-section'}>
-					<CurrentUsers pollCode={this.state.pollCode} socket={socket} />
-					{this.state.allowChat ? <Chat pollCode={this.state.pollCode} socket={socket} pollId={this.state.restaurants[0].pollId}/> : null}
+				{closePollButton}
+				<div className='live-poll'>
+					<div className='poll-list'>
+						{restaurantsList}
+					</div>
+					<div className='chat-section'>
+						<CurrentUsers pollCode={this.state.pollCode} socket={socket} />
+						{this.state.allowChat ? <Chat pollCode={this.state.pollCode} socket={socket} pollId={this.state.restaurants[0].pollId}/> : null}
+					</div>
 				</div>
 				<Modal
 					isOpen={this.state.modalIsOpen}

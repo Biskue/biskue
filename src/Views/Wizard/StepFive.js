@@ -39,7 +39,7 @@ class StepFive extends Component {
       votesPerUser: this.state.numberOfVotes,
       allowDownVotes: this.state.allowDownVotes,
       isActive: true,
-      allowChat: true,
+      allowChat: this.state.allowChat,
       pollOptions: this.props.PollItems,
       
 
@@ -64,11 +64,11 @@ class StepFive extends Component {
           </select>
           <label>Number of votes per user</label>
           <div>
-          <input type="checkbox" checked onChange={()=>this.handleChange('allowDownVotes')}/>
+          <input type="checkbox" checked={this.state.allowDownVotes} onChange={()=>this.handleChange('allowDownVotes')}/>
           <label > Allow Down Votes</label>
         </div>
         <div>               
-          <input type="checkbox" checked onChange={()=>this.handleChange('allowChat')}/>
+          <input type="checkbox" checked={this.state.allowChat} onChange={()=>this.handleChange('allowChat')}/>
           <label>Allow Chat</label>
           </div>   
         </div>
