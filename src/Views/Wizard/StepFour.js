@@ -18,6 +18,10 @@ class StepFour extends Component {
       displaySearch: false,
 		};
 	}
+	componentWillMount(){
+		if(this.props.latitude && this.props.longitude){
+	}else{this.props.history.push('/wizard/step-1')}
+	}
 	deleteRestaurant = (index) => {
 		const restaurants = this.state.restaurants;
     restaurants.splice(index, 1);

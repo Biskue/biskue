@@ -19,7 +19,7 @@ class StepOne extends Component {
 			longitude: null,
 			date: date.format(new Date(),`YYYY-MM-DD${'T'}HH:mm`),
 			showDateSelector: false,
-			price1: false,
+			price1: true,
 			price2: false,
 			price3: false,
 			price4: false
@@ -108,6 +108,7 @@ class StepOne extends Component {
 			<div className='step-one'>
 
 				<div className='next'>
+				<h2>Step 1 of 5 When and where</h2>
 					{nextButton}
 				</div>
 				

@@ -17,6 +17,7 @@ class StepThree extends Component {
 		};
 	}
 	componentWillMount() {
+		if(this.props.latitude && this.props.longitude){
 		const { latitude, longitude, radius, categories, priceRange, date } = this.props;
 		axios
 			.get(
@@ -25,7 +26,7 @@ class StepThree extends Component {
       .then((results) => this.setState({ restaurants: results.data.businesses }));
       if(this.props.PollItems){
         this.setState({selected: this.props.PollItems})
-      }
+      }}else{this.props.history.push('/wizard/step-1')}
 	}
 	addRestaurant = (restaurant) => {
 		const selected = this.state.selected;
