@@ -5,14 +5,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
-.title {
-    display: flex;
-    font-size: 50px;
-    margin-bottom: 5%;
-    
+.Register  input {
+    width: 100%;
+    height: 3vh;
+    margin: 4% 0;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
 }
+
 
 .input-container {
     width: 45%;
@@ -21,20 +25,27 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    margin-right: auto;
 }
 
-.input-container > label {
-    font-size: 22px;
-    color: grey;
-}
-
-.input-container > input {
-    width: 100%;
-    height: 14%;
-    margin: 4% 0;
-    border: none;
-    border-radius: 6px;
+.input-container-two {
+    width: 45%;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-right: auto;
 }
 
 
+
+
+.poll-buttons {
+width: 80vw;
+height: 100%;
+margin-top: 50px;
+display: flex;
+flex-direction: row;
+}
 
