@@ -32,15 +32,23 @@ button {
 }
 
 .step-one {
+    display: flex;
+    flex-direction: column;
     align-content: center;
     justify-content: center;
     margin: 10px;
     padding-bottom: 50px;
+    width: 100%
+}
+.when-and-where{
+    width: 80%;
+    margin-left: 10%
 }
 
 .step-one > .next {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    width: 90%
 }
 
 #next-button {
@@ -400,3 +408,21 @@ input[type=datetime-local] {
     color: blue;
   }
   
+  @media(min-width:550px){
+    .when-and-where{
+        width: 60%;
+        margin-left: 20%
+    }
+  }
+  @media (min-width: 875px){
+    .when-and-where{
+        width: 50%;
+        margin-left: 25%
+    }
+  }
+  @media (min-width:1200px ){
+      .when-and-where{
+        width: 40%;
+        margin-left: 30%
+      }
+  }

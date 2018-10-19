@@ -92,13 +92,17 @@ class StepFour extends Component {
 					<Link to="/wizard/step-3">
 						<button>Previous</button>
 					</Link>
-					<button onClick={()=>this.ConfirmSettings()}>Next</button>
+					<button className='next-step' onClick={()=>this.ConfirmSettings()}>Next</button>
+				</div>
+				<div className='inputGroup check-favorites'>
+					<input id='favorites-box' type="checkbox" value={true} onChange={() => this.saveList()} />
+				<label htmlFor='favorites-box'>Save this List to Favorites?</label>
 				</div>
 				<div>
-					<input type="checkbox" value={true} onChange={() => this.saveList()} />
-				<label>Save this List to Favorites?</label>
 				{listName}
 				</div>
+				
+				
 				<div>
 					<h1>Review Selections</h1>
           <div>

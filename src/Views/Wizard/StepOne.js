@@ -119,8 +119,8 @@ class StepOne extends Component {
 				<h2> WHEN AND WHERE (Step 1 of 5)</h2>
 					{nextButton}
 				</div>
-				
 
+				<div className='when-and-where'>
 				<div className='location'>
 				<div className='location-button-container' style={{display: 'flex'}}>
 					<button className='location-button' onClick={()=> this.showSearch()}>Search a location</button>
@@ -250,7 +250,7 @@ class StepOne extends Component {
 				</div>
 
 				<div />
-
+				</div>
 			</div>
 		);
 	}
