@@ -57,12 +57,12 @@ export default class Chat extends Component {
         <div className="chat-box">
           {chatLines}
         </div>
-        <div className="chat-box-form">
+        
           <form onSubmit={(e) => {this.submitChat(e, this.state.chatInput)}}>
-            <input value={this.state.chatInput} onChange={(e) => this.inputChange(e)}></input>
-            <button type="submit">Submit</button>
+            <input className='chat-form' value={this.state.chatInput} onChange={(e) => this.inputChange(e)}></input>
+            <button className='chat-button' type="submit">Send</button>
           </form>
-        </div>
+        
       </div>
     )
   }
