@@ -48,13 +48,13 @@ class NavBar extends Component {
         </Link>
         <div className='buttons-container'>
         {this.props.loggedIn ? (
-           <button onClick={this.logout}>Logout</button>
+           <span onClick={this.logout}>Logout</span>
         ) :
           (
-            <button onClick={this.login}>Login</button>
+            <span onClick={this.login}>Login</span>
           )
       }
-      {this.props.loggedIn? <Link to='/user-info'><button>Account Info</button> </Link> : null} 
+      {this.props.loggedIn? <Link to='/user-info'><span>Account Info</span> </Link> : null} 
       </div>
       </div>
     )
