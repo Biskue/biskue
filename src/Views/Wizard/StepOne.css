@@ -21,7 +21,7 @@ input[type=checkbox] {
 }
 
 input[type=radio] {
-    margin: 35px 0px 10px 10px;
+    margin: 0px 0px 10px 10px;
 }
  
 button {
@@ -78,7 +78,8 @@ button {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
+    height: 70px;
 }
 
 .price-range {
@@ -88,7 +89,7 @@ button {
     align-content: center;
     width: 100%;
     padding: 0px 15px;
-    margin: 35px 0px;
+    margin: 30px 0px;
 }
 
 .price-range > div {
