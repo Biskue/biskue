@@ -19,9 +19,11 @@
     color: white;
     text-align: center;
     text-decoration: none;
-    font-size: 22px;
-    line-height: 50px;
-    padding: 0px 35px;
+    font-size: 18px;
+    line-height: 60px;
+    padding: 0px 30px;
+    background-color: #215732;
+    width: 150px;
 }
 
 .navbar span:hover {
@@ -42,6 +44,7 @@ a {
 }
 .buttons-container{
     display: flex;
+    flex-direction: row-reverse;
     width: 20%;
     align-items: center;
     justify-content: center;
