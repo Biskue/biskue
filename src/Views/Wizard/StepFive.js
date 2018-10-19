@@ -15,6 +15,11 @@ class StepFive extends Component {
       
     }
   }
+  componentWillMount(){
+    if(!this.props.PollItems){
+      this.props.history.push('/wizard/step-1')
+    }
+  }
   handleChange(name){
     if(this.state[name]=== true){
       this.setState({[name]: false})

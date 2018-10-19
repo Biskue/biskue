@@ -18,9 +18,11 @@ class StepTwo extends Component {
 		};
 	}
 	componentWillMount(){
+		if(this.props.latitude && this.props.longitude){
 		if(this.props.catArray){
 			this.setState({selected: this.props.catArray})
 		}
+	}else{this.props.history.push('/wizard/step-1')}
 	}
 	selectCategory(category) {
 		const selectCategories = this.state.selected;
