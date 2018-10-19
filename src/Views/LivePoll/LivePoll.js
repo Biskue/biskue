@@ -166,8 +166,8 @@ export default class LivePoll extends Component {
 					optionId={rest.optionId}
 					currentRes={rest.pollItem}
 					vote={this.vote}
+					downVote={this.state.allowDownVote}
 					currentVotes={{ upVotes: rest.upVotes, downVotes: rest.downVotes }}
-					allowDownVote={this.state.allowDownVotes}
 				/>
 			);
 		});
@@ -187,18 +187,21 @@ export default class LivePoll extends Component {
 		});
 		const closePollButton =
 			this.state.adminId === this.state.userId && this.state.isActive ? (
-				<button onClick={() => this.closePoll()}>End Poll</button>
+				<div className='close-button-div'><button onClick={() => this.closePoll()}>End Poll</button></div>
 			) : null;
 		return (
 			<div>
+				
 				{closePollButton}
 				<div className='live-poll'>
+					<div className='chat-section'>
+						<div className='current-users'>
+							<CurrentUsers pollCode={this.state.pollCode} socket={socket} />
+						</div>
+						{this.state.allowChat ? <Chat pollCode={this.state.pollCode} socket={socket} pollId={this.state.restaurants[0].pollId}/> : null}
+					</div>
 					<div className='poll-list'>
 						{restaurantsList}
-					</div>
-					<div className='chat-section'>
-						<CurrentUsers pollCode={this.state.pollCode} socket={socket} />
-						{this.state.allowChat ? <Chat pollCode={this.state.pollCode} socket={socket} pollId={this.state.restaurants[0].pollId}/> : null}
 					</div>
 				</div>
 				<Modal
