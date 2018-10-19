@@ -118,12 +118,15 @@ class StepOne extends Component {
 				<div className='next'>
 					{nextButton}
 				</div>
-
-				<h2> WHEN AND WHERE </h2>
-				<br /><h4>(Step 1 of 5)</h4>
 					
 				
 				<div className='when-and-where'>
+
+				<div className='step-header'>
+					<h2> WHEN AND WHERE </h2>
+					<br /><h4>(Step 1 of 5)</h4>
+				</div>
+				
 				<div className='location'>
 				<div className='location-button-container' style={{display: 'flex'}}>
 					<button className='location-button' onClick={()=> this.showSearch()}>Search a location</button>

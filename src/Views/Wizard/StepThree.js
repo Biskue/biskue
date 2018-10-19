@@ -66,10 +66,19 @@ class StepThree extends Component {
 					{doneButton}
 				</div>
 				
+				<div className='step-header'>
+					<h2>Select Restaurants to add to Poll</h2>
+					<b4 /><h4>(Step 3 of 5)</h4>
+				</div>
+
+
+				<div className='selected-list'>
 					{this.state.selected.length > 0 ?<div> <h2>Selected Restaurants</h2> {selectedRestaurants} </div> :null}
+				</div>
 				
-				<h2>Select Restaurants to add to Poll</h2>
-        <button onClick= {()=>this.showHideSearch()}>{this.state.displaySearch? "Hide Search": "Search for a Specific Restaurant"}</button>
+				
+      
+			  <button onClick= {()=>this.showHideSearch()}>{this.state.displaySearch? "Hide Search": "Search for a Specific Restaurant"}</button>
         {restaurantSearch}
         
 				<div className='restaurants-list'>

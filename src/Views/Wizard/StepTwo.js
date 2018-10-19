@@ -119,6 +119,11 @@ class StepTwo extends Component {
 					</Link>
 				</div>
 
+				<div className='step-header'>
+					<h2>WHAT</h2>
+					<br /><h4>(Step 2 of 5)</h4>
+				</div>
+
 				<h2>Selected Categories:</h2>
 				<div className='selected'>
 					{selected}

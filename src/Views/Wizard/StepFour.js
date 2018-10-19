@@ -88,27 +88,35 @@ class StepFour extends Component {
       const restaurantSearch = this.state.displaySearch === true ? <RestaurantFinder addRestaurant={this.addRestaurant}/> : null
 		return (
 			<div className="step-four">
+				
 				<div className="next">
 					<Link to="/wizard/step-3">
 						<button>&larr;</button>
 					</Link>
 					<button className='next-step' onClick={()=>this.ConfirmSettings()} id='done-button'>Done</button>
 				</div>
+				
 				<div className='inputGroup check-favorites'>
 					<input id='favorites-box' type="checkbox" value={true} onChange={() => this.saveList()} />
 				<label htmlFor='favorites-box'>Save this List to Favorites?</label>
 				</div>
+				
 				<div>
 				{listName}
 				</div>
 				
 				
 				<div>
-					<h1>Review Selections</h1>
-          <div>
+					<div className='step-header'>
+						<h2>Review Selections</h2>
+						<br /><h4>(Step 4 of 5)</h4>
+					</div>
+          
+					<div>
             <button onClick={()=> this.showHideSearch()}>Add Restaurant</button>
             <div>{restaurantSearch}</div>
           </div>
+
 					<div className='restaurants-list'>
 					{restaurantList}
 					</div>

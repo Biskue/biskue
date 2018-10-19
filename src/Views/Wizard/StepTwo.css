@@ -8,15 +8,6 @@ button {
     height: 30px;
 }
 
-/* .step-two > .next {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-content: center;
-    margin: 0;
-} */
-
-
 .selected {
     display: flex;
     flex-direction: row;

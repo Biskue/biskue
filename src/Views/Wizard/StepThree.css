@@ -1,7 +1,4 @@
 
-h2 {
-    margin: 20px 0px 20px 0px;
-}
 
 .step-three > .next {
     display: flex;
@@ -12,7 +9,7 @@ h2 {
 }
 
 .restaurant-card{
-    border: 3px solid #438a59;
+    border: 3px solid #499762;
     width: 300px;
     margin: 10px;
     padding: 10px;
@@ -27,6 +24,13 @@ h2 {
 .remove:hover{
     color: blue
 }
+
+.selected-list {
+    margin-bottom: 20px;
+    line-height: 20px;
+}
+
+
 
 #done-button {
     line-height: 10px;

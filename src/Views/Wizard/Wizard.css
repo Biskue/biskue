@@ -44,3 +44,8 @@ h1 {
     align-items: center;
     justify-content: center;
 }
+
+.step-header {
+    margin-bottom: 30px;
+    line-height: 20px;
+}
