@@ -150,7 +150,7 @@ class StepOne extends Component {
 				</div>
 				<hr/>
 
-				<h2 className='distance-header'>Distance:</h2>
+				<h2 className='distance-header'>Distance</h2>
 				<div className='distance'>
 					<input
 						className='slider'
@@ -165,7 +165,7 @@ class StepOne extends Component {
 				</div>
 				<hr/>
 
-				<h2 className='distance-header'>Price Range:</h2>
+				<h2 className='distance-header'>Price Range</h2>
 				<div className='price-range'>
 					<div className='inputGroup'> 
 						<input
@@ -222,7 +222,7 @@ class StepOne extends Component {
 				</div>
 					<hr/>
 
-				<h2 className='distance-header'>Show Restaurants:</h2>
+				<h2 className='distance-header'>Show Restaurants</h2>
 				<div className="show-restaurants">
 					<div className='inputGroup checkbox-radio'>
 						<input
