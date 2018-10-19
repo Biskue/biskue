@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 import axios from 'axios';
-import RestaurantCard from './RestaurantCard';
 import socketIOClient from 'socket.io-client';
+
+import RestaurantCard from './RestaurantCard';
+import TiedRestaurantCard from './TiedRestaurantCard';
 import Chat from './Chat';
 import './LivePoll.css'
 import CurrentUsers from './CurrentUsers';
+
 const socket = socketIOClient('http://localhost:4005/', {
 	extraHeaders: { 'Access-Control-Allow-Credentials': 'omit' }
 });
@@ -174,13 +177,11 @@ export default class LivePoll extends Component {
 		const tiebreakerOptions = this.state.tieOptions.map((rest, index) => {
 			return (
 				<div key={index} onClick={() => this.breakTie(rest.pollOption)}>
-					<RestaurantCard
-						className='restaurant-card'
+					<TiedRestaurantCard
 						currentIndex={index}
-						optionId={rest.optionId}
 						currentRes={rest.pollOption}
-						vote={this.vote}
-						currentVotes={{ upVotes: rest.upVotes, downVotes: rest.downVotes }}
+						upVotes={rest.upVotes} 
+						downVotes= {rest.downVotes}
 					/>
 				</div>
 			);
