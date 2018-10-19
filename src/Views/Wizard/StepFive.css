@@ -14,12 +14,8 @@ select {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: auto;
-    width: 90%;
-}
-
-.step-five > .step-header {
-    margin-bottom: 20px;
+    padding: 0px 20px;
+    width: 100%;
 }
 
 .options-box {
@@ -28,6 +24,7 @@ select {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    margin: 40px 0px;
 }
 
 .options-box > div {

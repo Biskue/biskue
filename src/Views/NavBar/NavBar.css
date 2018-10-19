@@ -10,15 +10,13 @@ a {
     justify-content: space-between;
     background-color: #215732;
     height: 60px;
-    color: black;
-    opacity: 0.95;
     width: 100vw;
     max-width: 100vw;
 }
 
 .navbar span {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     float: right;
     color: white;
@@ -26,7 +24,7 @@ a {
     text-decoration: none;
     font-size: 18px;
     line-height: 60px;
-    padding: 0px 30px;
+    padding: 0px 15px;
     background-color: #215732;
     width: 100px;
     margin: auto;
@@ -51,7 +49,7 @@ a {
     width: 20%;
     align-items: center;
     justify-content: center;
-    margin-right: 10px;
+    margin: 0;
     height: 60px;
 }
 
