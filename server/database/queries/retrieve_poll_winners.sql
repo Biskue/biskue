@@ -1,5 +1,5 @@
 WITH tally AS (
-    SELECT po."optionId", po."pollOption", SUM(po."upVotes" - po."downVotes") as "score"
+    SELECT po."optionId", po."pollOption", po."upVotes", po."downVotes", SUM(po."upVotes" - po."downVotes") as "score"
     FROM "pollOptions" po
     JOIN "polls" p
     ON po."pollId" = p."pollId"
