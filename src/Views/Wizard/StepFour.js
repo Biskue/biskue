@@ -90,9 +90,9 @@ class StepFour extends Component {
 			<div className="step-four">
 				<div className="next">
 					<Link to="/wizard/step-3">
-						<button>Previous</button>
+						<button>&larr;</button>
 					</Link>
-					<button className='next-step' onClick={()=>this.ConfirmSettings()}>Next</button>
+					<button className='next-step' onClick={()=>this.ConfirmSettings()} id='done-button'>Done</button>
 				</div>
 				<div className='inputGroup check-favorites'>
 					<input id='favorites-box' type="checkbox" value={true} onChange={() => this.saveList()} />

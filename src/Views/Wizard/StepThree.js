@@ -52,7 +52,7 @@ class StepThree extends Component {
 		const doneButton =
 			this.state.selected.length > 0 ? (
 				<Link to="/wizard/step-4">
-					<button onClick={()=> this.props.saveStepThree(this.state.selected)}>Done</button>
+					<button onClick={()=> this.props.saveStepThree(this.state.selected)}>&rarr;</button>
 				</Link>
       ) : null;
 		const restaurantSearch = this.state.displaySearch === true ? <RestaurantFinder addRestaurant={this.addRestaurant}/> : null
@@ -61,7 +61,7 @@ class StepThree extends Component {
 			<div className="step-three">
 				<div className="next">
         	<Link to='/wizard/step-2'>
-        	<button>Previous</button>
+        	<button>&larr;</button>
         	</Link>
 					{doneButton}
 				</div>

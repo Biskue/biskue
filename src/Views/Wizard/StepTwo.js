@@ -112,10 +112,10 @@ class StepTwo extends Component {
 			<div className="step-two">
 				<div className="next">
 					<Link to="/wizard/step-1">
-						<button>Previous</button>
+						<button>&larr;</button>
 					</Link>
 					<Link to="/wizard/step-3">
-						<button onClick={() => this.saveCategoriesToState()}>Next</button>
+						<button onClick={() => this.saveCategoriesToState()}>&rarr;</button>
 					</Link>
 				</div>
 

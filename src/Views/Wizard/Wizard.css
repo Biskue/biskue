@@ -28,11 +28,12 @@ h1 {
     margin: auto;
 }
 
-.next > button {
+.next button {
     background-color: #ffcf1f;
+    font-size: 20px;
 }
 
-.next > button:hover {
+.next button:hover {
     background-color: #e2b40b;
 }
 

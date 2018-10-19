@@ -8,13 +8,13 @@ button {
     height: 30px;
 }
 
-.step-two > .next {
+/* .step-two > .next {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-content: center;
     margin: 0;
-}
+} */
 
 
 .selected {
@@ -31,13 +31,13 @@ button {
     justify-content: space-around;
     margin: 5px;
     padding: 5px;
-    background-color: #215732;
+    background-color: #46885b;
     color: white;
     border-radius: 4px;
     cursor: pointer;
 }
 .category-container:hover{
-    background-color: #50775c;
+    background-color: #215732;
     box-shadow: 0 6px 10px rgba(0,0,0,0.25), 0 3px 3px rgba(0,0,0,0.22);
     color: #ffffffee    
 }

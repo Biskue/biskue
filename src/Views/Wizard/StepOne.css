@@ -51,15 +51,6 @@ button {
     justify-content: flex-end;
 }
 
-#next-button {
-    background-color: #ffcf1f;
-}
-
-#next-button:hover {
-    background-color: #e2b40b;
-}
-
-
 .location {
     display: flex;
     flex-direction: column;
