@@ -64,7 +64,7 @@ class Login extends Component {
 
                     <button className="create-poll" onClick={this.confirmUserInfo}>Login</button>
                     <Link to='/register'>
-                    <button className="create-poll" >Register</button>
+                    <span>Don't have an account? Click here to register.</span>
                     </Link>
 
                 </div>
