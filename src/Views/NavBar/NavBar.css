@@ -9,9 +9,11 @@
     opacity: 0.95;
     width: 100vw;
     max-width: 100vw;
+    padding: 0;
 }
 
 .navbar span {
+    display: flex;
     justify-content: flex-end;
     float: right;
     color: white;
@@ -21,7 +23,8 @@
     line-height: 60px;
     padding: 0px 30px;
     background-color: #215732;
-    width: 150px;
+    width: 120px;
+    margin: 0;
 }
 
 .navbar span:hover {

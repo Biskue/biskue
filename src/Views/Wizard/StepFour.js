@@ -93,7 +93,7 @@ class StepFour extends Component {
 					<Link to="/wizard/step-3">
 						<button>&larr;</button>
 					</Link>
-					<button className='next-step' onClick={()=>this.ConfirmSettings()} id='done-button'>Done</button>
+					<button className='next-step' onClick={()=>this.ConfirmSettings()}>&rarr;</button>
 				</div>
 				
 				<div className='inputGroup check-favorites'>
@@ -113,7 +113,7 @@ class StepFour extends Component {
 					</div>
           
 					<div>
-            <button onClick={()=> this.showHideSearch()}>Add Restaurant</button>
+            <button onClick={()=> this.showHideSearch()} className='search-button'>Add Restaurant</button>
             <div>{restaurantSearch}</div>
           </div>
 

@@ -134,19 +134,20 @@ class StepOne extends Component {
 					</div>
 					
 					{this.state.showSearch || this.state.address !== ''?(
-						<div className='location-search-container'>
-						<input
-							id='search-bar'
-							type="text"
-							placeholder="Enter City and State or Zip"
-							onChange={(e) => this.handleChange(e, 'address')}
-							value={this.state.address}
-							/>
-						<button className='search-button' onClick={() => this.saveLatLong(this.state.address)}>Search</button>
+						  <div className='location-search-container'>
+						  <input
+						  	id='search-bar'
+						  	type="text"
+						  	placeholder="Enter City and State or Zip"
+						  	onChange={(e) => this.handleChange(e, 'address')}
+						  	value={this.state.address}
+						  	/>
+						  <button 
+						  	className='search-button' 
+						  	onClick={() => this.saveLatLong(this.state.address)}>Search
+						  </button>
 						</div>
-					)
-						: null
-		}
+					) : null }
 				</div>
 				<hr/>
 

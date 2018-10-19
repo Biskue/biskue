@@ -78,7 +78,7 @@ class StepThree extends Component {
 				
 				
       
-			  <button onClick= {()=>this.showHideSearch()}>{this.state.displaySearch? "Hide Search": "Search for a Specific Restaurant"}</button>
+			  <button onClick= {()=>this.showHideSearch()} className='search-button'>{this.state.displaySearch? "Hide Search": "Search for a Specific Restaurant"}</button>
         {restaurantSearch}
         
 				<div className='restaurants-list'>

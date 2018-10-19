@@ -45,9 +45,11 @@ export default class Landing extends Component {
     return (
       
       <div className="landing">
+
         <div className='biskue-logo'>
           <img src={biskue_top} alt="biskue logo" className='biskue-top'/>
         </div>
+        
         <div className='poll-buttons'>
           <div>
             <Link to='/wizard/step-1'>

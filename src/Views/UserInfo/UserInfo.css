@@ -27,6 +27,12 @@
     align-items: center;
     justify-content: center;
 }
+
+.personal-info-container button {
+    margin: auto;
+    margin-top: 10px;
+}
+
 .favs-container, .personal-info-container{
     background-color: #eeefea8e;
     border: 3px solid #438a59;

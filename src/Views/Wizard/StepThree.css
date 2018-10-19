@@ -30,7 +30,9 @@
     line-height: 20px;
 }
 
-
+.search-button {
+    margin-bottom: 15px;
+}
 
 #done-button {
     line-height: 10px;

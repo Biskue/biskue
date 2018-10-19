@@ -46,16 +46,18 @@ class NavBar extends Component {
         <Link to='/'>
         <img className="navbar-logo" src={biskue_icon_lined_wh} alt="logo" />
         </Link>
+
         <div className='buttons-container'>
-        {this.props.loggedIn ? (
-           <span onClick={this.logout}>Logout</span>
-        ) :
-          (
-            <span onClick={this.login}>Login</span>
-          )
-      }
-      {this.props.loggedIn? <Link to='/user-info'><span>Account</span> </Link> : null} 
-      </div>
+          {this.props.loggedIn ? (
+             <span onClick={this.logout}>Logout</span>
+          ) :
+            (
+              <span onClick={this.login}>Login</span>
+            )
+          }
+          {this.props.loggedIn? <Link to='/user-info'><span>Account</span> </Link> : null} 
+        </div>
+      
       </div>
     )
   }
