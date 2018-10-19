@@ -150,7 +150,7 @@ export default class UserInfo extends Component {
 		);
 		const savePassword =
 			this.state.password !== '' && this.state.password === this.state.passwordConfirm ? (
-				<button>Submit Changes</button>
+				<button onClick={() => this.updatePassword()}>Submit Changes</button>
 			) : null;
 		const changePassword = this.state.updatePassword ? (
 			<div>
