@@ -47,22 +47,24 @@ export default class RestaurantCard extends Component {
 							/>
 							{this.props.currentVotes.upVotes}
 						</div>
-						<div
-							style={{
-								display: 'flex',
-								alignItems: 'center',
-								justifyContent: 'center',
-								flexDirection: 'column'
-							}}
-						>
-							<img
-								src={downVote}
-								alt="down vote"
-								style={{ height: '50px', width: '50px', cursor: 'pointer' }}
-								onClick={() => this.props.vote(false, this.props.optionId, this.props.currentIndex)}
-							/>
-							{this.props.currentVotes.downVotes}
-						</div>
+						{this.props.allowDownVote ? 	
+							<div
+								style={{
+									display: 'flex',
+									alignItems: 'center',
+									justifyContent: 'center',
+									flexDirection: 'column'
+								}}
+							>
+								<img
+									src={downVote}
+									alt="down vote"
+									style={{ height: '50px', width: '50px', cursor: 'pointer' }}
+									onClick={() => this.props.vote(false, this.props.optionId, this.props.currentIndex)}
+								/>
+								{this.props.currentVotes.downVotes}
+							</div>
+						: null}
 					</div>
 				</div>
 			</div>

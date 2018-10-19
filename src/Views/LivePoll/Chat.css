@@ -1,3 +1,15 @@
+.live-poll {
+    display: flex;
+}
+
+.poll-list > .next {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: space-between;
+    margin: 10px;
+}
+
 .chat-box {
     border: 2px solid #dedede;
     width: 400px;
@@ -16,12 +28,15 @@
 
 .chat-section {
     display: flex;
+    flex-direction: column;
+    width: 450px;
+    margin: 30px 0;
 }
 
 .chat-form {
  float: left;
  width: 330px;
- height: 30px;
+ height: 33px;
  margin: 0 0 0 30px;
  border: 2px solid #dedede;
 }
@@ -33,6 +48,9 @@
     float: left;
     margin: 0;
     width: 70px;
+    border-radius: 0;
+    box-shadow: none;
+    height: 33px;
 }
 
 .chat-button:hover {

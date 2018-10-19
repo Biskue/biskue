@@ -59,7 +59,7 @@ export default class Chat extends Component {
         </div>
         
           <form onSubmit={(e) => {this.submitChat(e, this.state.chatInput)}}>
-            <input className='chat-form' value={this.state.chatInput} onChange={(e) => this.inputChange(e)}></input>
+            <input className='chat-form' placeholder='Message others in poll' value={this.state.chatInput} onChange={(e) => this.inputChange(e)}></input>
             <button className='chat-button' type="submit">Send</button>
           </form>
         
