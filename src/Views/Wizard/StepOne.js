@@ -8,6 +8,7 @@ import Geocode from 'react-geocode';
 import date from 'date-and-time';
 import './StepOne.css';
 
+
 class StepOne extends Component {
 	constructor(props) {
 		super(props);
@@ -22,7 +23,8 @@ class StepOne extends Component {
 			price1: true,
 			price2: false,
 			price3: false,
-			price4: false
+			price4: false,
+			showSearch: false,
 		};
 	}
 	componentWillMount(){
@@ -58,7 +60,11 @@ class StepOne extends Component {
 			(response) => {
 				const { lat, lng } = response.results[0].geometry.location;
 				console.log(lat, lng);
-				this.setState({ latitude: lat, longitude: lng });
+				this.setState({ latitude: lat, longitude: lng })
+					Geocode.fromLatLng(lat, lng).then((response)=> {
+						this.setState({address: response.results[3].formatted_address})
+					})
+				
 			},
 			(error) => {
 				console.error(error);
@@ -91,7 +97,9 @@ class StepOne extends Component {
 			this.setState({[name]: true})
 		}
 	}
-
+	showSearch(){
+		this.setState({showSearch: true})
+	}
 	render() {
 		
 		const dateSelector =
@@ -108,43 +116,54 @@ class StepOne extends Component {
 			<div className='step-one'>
 
 				<div className='next'>
-				<h2>Step 1 of 5 When and where</h2>
+				<h2> WHEN AND WHERE (Step 1 of 5)</h2>
 					{nextButton}
 				</div>
 				
 
 				<div className='location'>
-
+				<div className='location-button-container' style={{display: 'flex'}}>
+					<button className='location-button' onClick={()=> this.showSearch()}>Search a location</button>
+					<button className='location-button' onClick={this.getLocation}>Use Current Location</button>
+					</div>
+					
+					{this.state.showSearch || this.state.address !== ''?(
+						<div className='location-search-container'>
 						<input
+							id='search-bar'
 							type="text"
 							placeholder="Enter City and State or Zip"
 							onChange={(e) => this.handleChange(e, 'address')}
 							value={this.state.address}
 							/>
-						<button onClick={() => this.saveLatLong(this.state.address)}>Search</button>
-					<break></break>
-					<button onClick={this.getLocation}>Use Current Location</button>
+						<button className='search-button' onClick={() => this.saveLatLong(this.state.address)}>Search</button>
+						</div>
+					)
+						: null
+		}
 				</div>
-				
+				<hr/>
 
-				<h2>Distance</h2>
+				<h2 className='distance-header'>Distance:</h2>
 				<div className='distance'>
 					<input
+						className='slider'
 						type="range"
 						min={5}
 						max={25}
 						value={this.state.distance}
 						step={5}
 						onChange={(e) => this.handleChange(e, 'distance')}
-					/>{' '}
+					/>
 					{this.state.distance + ' Miles'}
 				</div>
-				
+				<hr/>
 
-				<h2>Price Range</h2>
+				<h2 className='distance-header'>Price Range:</h2>
 				<div className='price-range'>
-					<div>$10 Or less{' '}
+					<div className='inputGroup'> 
 						<input
+							id="option1"
 							type="checkbox"
 							checked = {this.state.price1}
 							onClick = {()=> this.handlePriceSelection('price1')}
@@ -153,9 +172,11 @@ class StepOne extends Component {
 								this.handlePriceChange(e);
 							}}
 							/>
+							<label htmlFor='option1'>$10 or less</label>
 					</div>
-					<div>$11-$30{' '}
+					<div className='inputGroup'> 
 						<input
+							id="option2"
 							type="checkbox"
 							checked ={this.state.price2}
 							onClick = {()=> this.handlePriceSelection('price2')}
@@ -164,9 +185,11 @@ class StepOne extends Component {
 								this.handlePriceChange(e);
 							}}
 						/>
+						<label htmlFor='option2'>$11-$30</label>
 					</div>
-					<div>$31-$60{' '}
+					<div className='inputGroup'> 
 						<input
+							id="option3"
 							type="checkbox"
 							checked ={this.state.price3}
 							onClick = {()=> this.handlePriceSelection('price3')}
@@ -175,9 +198,11 @@ class StepOne extends Component {
 								this.handlePriceChange(e);
 							}}
 						/>
+						<label htmlFor='option3'>$31-$60</label>
 					</div>
-					<div>$61+{' '}
+					<div className='inputGroup'> 
 						<input
+							id="option4"
 							type="checkbox"
 							checked ={this.state.price4}
 							onClick = {()=> this.handlePriceSelection('price4')}
@@ -186,32 +211,35 @@ class StepOne extends Component {
 								this.handlePriceChange(e);
 							}}
 						/>
+						<label htmlFor='option4'>$61+</label>
 					</div>
 				</div>
+					<hr/>
 
-
-				<h2>Show Restaurants</h2>
+				<h2 className='distance-header'>Show Restaurants:</h2>
 				<div className="show-restaurants">
-					<div>
-						<label>Open Now</label>
+					<div className='inputGroup checkbox-radio'>
 						<input
+							id='radio1'
 							type="radio"
 							checked = {this.state.showDateSelector === false || this.state.showDateSelector=== 'false'}
 							value={false}
 							name="nowOrLater"
 							onChange={(e) => this.handleChange(e, 'showDateSelector')}
 							/>
+							<label htmlFor='radio1'>Open Now</label>
 					</div>
 
-					<div>
-					<label>Open Later</label>
+					<div className='inputGroup checkbox-radio'>
 						<input
+							id='radio2'
 							type="radio"
 							checked = {this.state.showDateSelector === true || this.state.showDateSelector === 'true'}
 							value={true}
 							name="nowOrLater"
 							onChange={(e) => this.handleChange(e, 'showDateSelector')}
 							/>
+							<label htmlFor='radio2'>Open Later</label>
 					</div>
 					<break></break>
 					

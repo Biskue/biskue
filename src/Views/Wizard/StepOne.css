@@ -54,11 +54,11 @@ button {
 
 .location {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
-    align-items: baseline;
+    align-items: center;
     justify-content: center;
-    margin-bottom: 60px;
+    margin-bottom: 0px;
 }
 
 .location > button {
@@ -78,17 +78,34 @@ button {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom:0px;
 }
-
+.distance-header{
+    margin: 0px;
+    text-decoration: underline;
+    font-weight: bold
+}
+.slider{
+    margin: 10px
+}
+.search-button{
+    margin: 0px 5px;
+    
+}
+#search-bar{
+    margin: 0px
+}
 .price-range {
     display: flex;
-    /* flex-direction: row; */
+    flex-direction: column;
     justify-content: space-around;
     align-content: center;
     width: 100%;
     padding: 0px 15px;
-    margin: 35px 0px;
+    margin:  10px;
+}
+.checkbox-radio{
+    width: 80%
 }
 
 .price-range > div {
@@ -97,27 +114,17 @@ button {
     flex-direction: row;
     align-items: baseline;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 0;
 }
 
 .show-restaurants {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: baseline;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
 }
 
-.show-restaurants > div {
-    width: 20;
-}
-
-.show-restaurants > break {
-    flex-basis: 100%;
-    width: 0px;
-    height: 0px;
-}
 
 .step-one > .date-selector {
     height: 50px;
@@ -133,3 +140,264 @@ button {
     align-content: center;
     justify-content: center;
 }
+.location-button{
+    margin: 10px;
+}
+.location-search-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+input[type=range] {
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    width: 100%; /* Specific width is required for Firefox. */
+    background: transparent; /* Otherwise white in Chrome */
+  }
+  
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+  
+  input[type=range]:focus {
+    outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+  }
+  
+  input[type=range]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+  
+    /* Hides the slider so custom styles can be added */
+    background: transparent; 
+    border-color: transparent;
+    color: transparent;
+  }
+  /* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+    margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+  }
+  
+  /* All the same stuff for Firefox */
+  input[type=range]::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+  }
+  
+  /* All the same stuff for IE */
+  input[type=range]::-ms-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: 1px solid #000000;
+    height: 36px;
+    width: 16px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #76cbff;;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+  }
+  
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #76cbff;;
+  }
+  
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: #6ba9f7;;
+    border-radius: 1.3px;
+    border: 0.2px solid #010101;
+  }
+  
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    border-width: 16px 0;
+    color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: #76cbff;;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: #6ba9f7;;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: #76cbff;;
+    border: 0.2px solid #010101;
+    border-radius: 2.6px;
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: #76cbff;;
+  }
+  .inputGroup {
+    background-color: #fff;
+    display: block;
+    margin: 10px 0;
+    position: relative;
+  }
+  .inputGroup label {
+    padding: 12px 30px;
+    width: 100%;
+    display: block;
+    text-align: left;
+    color: #3c454c;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: color 200ms ease-in;
+    overflow: hidden;
+  }
+  .inputGroup label:before {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    content: "";
+    background-color: #76cbff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%) scale3d(1, 1, 1);
+            transform: translate(-50%, -50%) scale3d(1, 1, 1);
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    z-index: -1;
+  }
+  .inputGroup label:after {
+    width: 32px;
+    height: 32px;
+    content: "";
+    border: 2px solid #d1d7dc;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
+    background-repeat: no-repeat;
+    background-position: 2px 3px;
+    border-radius: 50%;
+    z-index: 2;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    cursor: pointer;
+    transition: all 200ms ease-in;
+  }
+  .inputGroup input:checked ~ label {
+    color: #fff;
+  }
+  .inputGroup input:checked ~ label:before {
+    -webkit-transform: translate(-50%, -50%) scale3d(56, 56, 1);
+            transform: translate(-50%, -50%) scale3d(56, 56, 1);
+    opacity: 1;
+  }
+  .inputGroup input:checked ~ label:after {
+    background-color: #215732;
+    border-color: #215732;
+  }
+  .inputGroup input {
+    width: 32px;
+    height: 32px;
+    order: 1;
+    z-index: 2;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    cursor: pointer;
+    visibility: hidden;
+  }
+  
+  .form {
+    padding: 0 16px;
+    max-width: 550px;
+    margin: 50px auto;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 36px;
+  }
+  
+  body {
+    background-color: #d1d7dc;
+    font-family: "Fira Sans", sans-serif;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+  html {
+    box-sizing: border-box;
+  }
+  
+  code {
+    background-color: #9aa3ac;
+    padding: 0 8px;
+  }
+  
+input[type=datetime-local] {
+    height: 35px;
+    margin: 0 auto;
+    width: 100%;
+    font-family: arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #76cbff;
+    outline: none;
+    border: 0;
+    border-radius: 3px;
+    padding: 0 3px;
+    color: #fff;
+  }
+
+  input[type=datetime-local]::-webkit-clear-button {
+    font-size: 18px;
+    height: 30px;
+    position: relative;
+    right: 5px;
+    margin-right: 4px;
+  }
+  input[type=datetime-local]::-webkit-inner-spin-button {
+    height: 30px;
+  }
+  input[type=datetime-local]::-webkit-calendar-picker-indicator {
+    font-size: 18px;
+  }
+  input[type=datetime-local]::-webkit-calendar-picker-indicator:hover {
+    background-color: #76cbff;
+    color: #215732;
+    cursor: pointer;
+  }
+  input[type=datetime-local]::-webkit-calendar-picker-indicator:active {
+    color: blue;
+  }
+  
