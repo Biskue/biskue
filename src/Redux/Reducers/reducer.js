@@ -38,6 +38,7 @@ function wizardSteps(state = initialState, action) {
 			return Object.assign({}, state, {sendToWi: action.payload})	
 		case "CLEAR_POLL":
 			return Object.assign({}, state, initialState)	
+			
 		default:
 			return state;
 	}

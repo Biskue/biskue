@@ -113,7 +113,7 @@ class StepOne extends Component {
 				</Link>
 			) : null;
 		return (
-			<div className='step-one'>
+			<div className='step-one slide-in-fwd-right'>
 				<h2> WHEN AND WHERE (Step 1 of 5)</h2>
 				<div className='next'>
 				<div></div>

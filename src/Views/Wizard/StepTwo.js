@@ -113,7 +113,7 @@ class StepTwo extends Component {
 		<button id="next-button" onClick={() => this.saveCategoriesToState()}>Next</button>
 	</Link> : <div></div>
 		return (
-			<div className="step-two">
+			<div className="step-two slide-in-fwd-right">
 			<h2>SELECT CATEGORIES (STEP 2 of 5)</h2>
 				<div className="next">
 					<Link to="/wizard/step-1">

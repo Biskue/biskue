@@ -61,7 +61,7 @@ class StepThree extends Component {
 		const restaurantSearch = this.state.displaySearch === true ? <RestaurantFinder addRestaurant={this.addRestaurant}/> : null
 	const selectedRestaurants = this.state.selected.map((rest, index)=> {return (<div key={index}>{rest.name} <img className='remove' src={removeImage} alt="delte" onClick={this.removeRestaurant}/></div>)})
 		return this.state.loading? <div>Loading...</div> : ( 
-			<div className="step-three">
+			<div className="step-three slide-in-fwd-right">
 				
 			<h2>ADD RESTAURANTS (STEP 3 of 5)</h2>
 				<div className="next">

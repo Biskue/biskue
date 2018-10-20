@@ -87,7 +87,7 @@ class StepFour extends Component {
       ) : null;
       const restaurantSearch = this.state.displaySearch === true ? <RestaurantFinder addRestaurant={this.addRestaurant}/> : null
 		return (
-			<div className="step-four">
+			<div className="step-four slide-in-fwd-right">
 				<h2>REVIEW SELECTIONS (STEP 4 of 5)</h2>
 				<div className="next">
 					<Link to="/wizard/step-3">
