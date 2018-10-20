@@ -44,8 +44,80 @@ h1 {
     align-items: center;
     justify-content: center;
 }
+<<<<<<< HEAD
 
 .step-header {
     margin-bottom: 30px;
     line-height: 20px;
 }
+=======
+#mainselection select {
+    border: 0;
+    color: #EEE;
+    background: transparent;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 2px 10px;
+    width: 35px;
+    *width: 35px;
+    *background: #58B14C;
+    -webkit-appearance: none;
+ }
+ 
+ .select {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  .select select {
+    display: inline-block;
+    width: 100px;
+    cursor: pointer;
+    padding: 10px 15px;
+    outline: 0;
+    border: solid 3px #76cbff;
+    border-radius: 0;
+    background: white;
+    color: black;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  .select select::-ms-expand {
+    display: none;
+  }
+  .select select:hover,
+  .select select:focus {
+    color: #000;
+    background: white;
+  }
+  .select select:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  .select__arrow {
+    position: absolute;
+    top: 16px;
+    right: 67px;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    border-style: solid;
+    border-width: 8px 5px 0 5px;
+    border-color: #215732 transparent transparent transparent;
+  }
+  .select select:hover ~ .select__arrow,
+  .select select:focus ~ .select__arrow {
+    border-top-color: #215732;
+  }
+  .select select:disabled ~ .select__arrow {
+    border-top-color: #ccc;
+  }
+  .user-votes{
+      display: flex
+  }
+  .step-five{
+      width: 280px
+  }
+>>>>>>> master

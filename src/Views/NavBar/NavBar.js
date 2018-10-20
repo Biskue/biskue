@@ -48,6 +48,7 @@ class NavBar extends Component {
         </Link>
 
         <div className='buttons-container'>
+<<<<<<< HEAD
           {this.props.loggedIn ? (
              <span onClick={this.logout}>Logout</span>
           ) :
@@ -58,6 +59,17 @@ class NavBar extends Component {
           {this.props.loggedIn? <Link to='/user-info'><span>Account</span> </Link> : null} 
         </div>
       
+=======
+        {this.props.loggedIn ? (
+           <span onClick={this.logout}>Logout</span>
+        ) :
+          (
+            <span onClick={this.login}>Login</span>
+          )
+      }
+      {this.props.loggedIn? <Link to='/user-info'><span>Account</span> </Link> : null} 
+      </div>
+>>>>>>> master
       </div>
     )
   }

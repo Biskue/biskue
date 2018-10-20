@@ -3,6 +3,7 @@ import { categories } from '../../categoriesService';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as Actions from '../../Redux/Actions/actions';
+import removeImage from '../../removeImage.png'
 import './StepTwo.css';
 
 
@@ -104,18 +105,28 @@ class StepTwo extends Component {
 		const selected = this.state.selected.map((category, index) => {
 			return (
 				<div id="remove-button" key={index}>
-					<h3>{category.title}</h3> <span className='remove' onClick={() => this.removeCategory(index)}>Remove</span>
+					{category.title} <img src={removeImage} className='remove' onClick={() => this.removeCategory(index)}/>
 				</div>
 			);
 		});
 		return (
 			<div className="step-two">
+			<h2>SELECT CATEGORIES (STEP 2 of 5)</h2>
 				<div className="next">
 					<Link to="/wizard/step-1">
+<<<<<<< HEAD
 						<button>&larr;</button>
+=======
+						<button id="next-button">Previous</button>
+>>>>>>> master
 					</Link>
+					
 					<Link to="/wizard/step-3">
+<<<<<<< HEAD
 						<button onClick={() => this.saveCategoriesToState()}>&rarr;</button>
+=======
+						<button id="next-button" onClick={() => this.saveCategoriesToState()}>Next</button>
+>>>>>>> master
 					</Link>
 				</div>
 

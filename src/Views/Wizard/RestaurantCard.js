@@ -7,8 +7,9 @@ export default (props) => {
   const clickHandler = props.delete? () => props.delete(props.currentIndex): ()=> props.addRestaurant(props.currentRes) 
   const showButton = !props.addRestaurant && !props.delete ? null : <button onClick={clickHandler}>{buttonTitle}</button>
   const classText= props.animate? 'restaurant-card swirl-in-fwd' : 'restaurant-card'
+  const selected = props.selected? ' selected-rest': ''
   return (
-    <div className={classText}>
+    <div className={classText+selected}>
       <img className ='restaurant-image'src={props.currentRes.image_url} alt="yelp image"/>
       <div>
           <h4>{props.currentRes.name}</h4>
