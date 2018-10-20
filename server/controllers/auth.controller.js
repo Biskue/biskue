@@ -96,7 +96,7 @@ module.exports = {
     }
   },
   verifyAuth: (req, res) => {
-    if (req.session.user) {
+    if (req.session.user.email) {
       res.status(200).send(req.session.user)
     } else {
       res.status(401).send({message: 'You are not logged in.'})
