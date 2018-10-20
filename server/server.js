@@ -39,10 +39,6 @@ app.get('/', function (req, res) {
   
   io.on('connection', (socket) => {
 
-   
-
-    socket.emit('news', { hello: 'world' });
-
     socket.on('room', room => {
         console.log(`Joining Socket Room ${room}`)
         socket.join(room);
@@ -56,21 +52,18 @@ app.get('/', function (req, res) {
 
     socket.on('message', (msg, pollCode, pollId) => { 
         const db = getDb()
-        db.chat_insert_message(pollId, socket.handshake.session.user.username, msg) 
-        console.log(socket.handshake.session.user.username, msg, pollCode);
-        io.sockets.in(pollCode).emit('newMessage', socket.handshake.session.user.username, msg)
+        if(socket.handshake.session.user) {
+            db.chat_insert_message(pollId, socket.handshake.session.user.username, msg)
+                .then(result => io.sockets.in(pollCode).emit('newMessage', socket.handshake.session.user.username, msg)) 
+                .catch(err => console.warn(err))
+        }
      });
 
     socket.on('newUser', (user, pollCode) => {
         io.sockets.in(pollCode).emit('joined', user);
+        socket.handshake.session.user = {username: user};
+        socket.handshake.session.save();
     })
-
-    socket.on('increment', (number, pollCode) => { 
-
-        console.log(number);
-        const incremented = number + 1;
-        io.sockets.in(pollCode).emit('incremented', incremented);
-    });
 
     socket.on('vote', (upOrDown, optionId, pollCode, index) => { 
         const db = getDb()
