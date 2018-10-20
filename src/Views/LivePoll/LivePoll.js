@@ -106,7 +106,6 @@ export default class LivePoll extends Component {
 		});
 
 		socket.on('closePoll', () => {
-<<<<<<< HEAD
 			if(this.state.userId){
 			this.props.history.push(`/winner/${this.state.pollCode}`);
 			}
@@ -116,17 +115,6 @@ export default class LivePoll extends Component {
 				})
 			}
 		});
-=======
-            if(this.state.userId){
-            this.props.history.push(`/winner/${this.state.pollCode}`);
-            }
-            else{
-                axios.post('/auth/logout').then(()=>{
-                    this.props.history.push(`/winner/${this.state.pollCode}`)
-                })
-            }
-        });
->>>>>>> master
 	}
 
 	handleChange(event, name) {
