@@ -88,11 +88,12 @@ class StepFour extends Component {
       const restaurantSearch = this.state.displaySearch === true ? <RestaurantFinder addRestaurant={this.addRestaurant}/> : null
 		return (
 			<div className="step-four">
+				<h2>REVIEW SELECTIONS (STEP 4 of 5)</h2>
 				<div className="next">
 					<Link to="/wizard/step-3">
-						<button>Previous</button>
+						<button id="next-button">Previous</button>
 					</Link>
-					<button className='next-step' onClick={()=>this.ConfirmSettings()}>Next</button>
+					<button id="next-button" className='next-step' onClick={()=>this.ConfirmSettings()}>Next</button>
 				</div>
 				<div className='inputGroup check-favorites'>
 					<input id='favorites-box' type="checkbox" value={true} onChange={() => this.saveList()} />
@@ -104,7 +105,7 @@ class StepFour extends Component {
 				
 				
 				<div>
-					<h1>Review Selections</h1>
+				
           <div>
             <button onClick={()=> this.showHideSearch()}>Add Restaurant</button>
             <div>{restaurantSearch}</div>

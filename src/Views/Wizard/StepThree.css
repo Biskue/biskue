@@ -17,10 +17,11 @@ h2 {
     padding: 10px;
 }
 .remove{
-    font-size: .6em;
-    text-decoration: underline;
-    font-style: italic;
+   height: 12px;
+   width: 12px;
     cursor: pointer;
+    margin: 5px
+    
 }
 .remove:hover{
     color: blue
@@ -39,4 +40,9 @@ h2 {
         grid-template-columns: 1fr 1fr 1fr;
         margin: 15px
     }
+}
+.selected-rest{
+    background-color:#438a59;
+    box-shadow: 3px 3px 3px 3px rgba(49, 49, 49, 0.384);
+    color: white
 }
