@@ -54,11 +54,7 @@ class StepThree extends Component {
 		const doneButton =
 			this.state.selected.length > 0 ? (
 				<Link to="/wizard/step-4">
-<<<<<<< HEAD
 					<button onClick={()=> this.props.saveStepThree(this.state.selected)}>&rarr;</button>
-=======
-					<button onClick={()=> this.props.saveStepThree(this.state.selected)} id="next-button">Next</button>
->>>>>>> master
 				</Link>
       ) : <div></div>;
 		const restaurantSearch = this.state.displaySearch === true ? <RestaurantFinder addRestaurant={this.addRestaurant}/> : null
@@ -68,11 +64,7 @@ class StepThree extends Component {
 			<h2>ADD RESTAURANTS (STEP 3 of 5)</h2>
 				<div className="next">
         	<Link to='/wizard/step-2'>
-<<<<<<< HEAD
         	<button>&larr;</button>
-=======
-        	<button id="next-button">Previous</button>
->>>>>>> master
         	</Link>
 					
 					{doneButton}
@@ -89,13 +81,8 @@ class StepThree extends Component {
 				</div>
 				
 				
-<<<<<<< HEAD
       
 			  <button onClick= {()=>this.showHideSearch()} className='search-button'>{this.state.displaySearch? "Hide Search": "Search for a Specific Restaurant"}</button>
-=======
-			
-        <button onClick= {()=>this.showHideSearch()}>{this.state.displaySearch? "Hide Search": "Search for a Specific Restaurant"}</button>
->>>>>>> master
         {restaurantSearch}
         
 				<div className='restaurants-list'>

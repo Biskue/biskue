@@ -114,15 +114,8 @@ class StepOne extends Component {
 			) : null;
 		return (
 			<div className='step-one'>
-<<<<<<< HEAD
 
 				<div className='next'>
-=======
-				<h2> WHEN AND WHERE (Step 1 of 5)</h2>
-				<div className='next'>
-				<div></div>
-			
->>>>>>> master
 					{nextButton}
 				</div>
 					

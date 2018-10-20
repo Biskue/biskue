@@ -114,19 +114,11 @@ class StepTwo extends Component {
 			<h2>SELECT CATEGORIES (STEP 2 of 5)</h2>
 				<div className="next">
 					<Link to="/wizard/step-1">
-<<<<<<< HEAD
 						<button>&larr;</button>
-=======
-						<button id="next-button">Previous</button>
->>>>>>> master
 					</Link>
 					
 					<Link to="/wizard/step-3">
-<<<<<<< HEAD
 						<button onClick={() => this.saveCategoriesToState()}>&rarr;</button>
-=======
-						<button id="next-button" onClick={() => this.saveCategoriesToState()}>Next</button>
->>>>>>> master
 					</Link>
 				</div>
 
