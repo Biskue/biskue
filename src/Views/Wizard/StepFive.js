@@ -69,26 +69,27 @@ class StepFive extends Component {
         </div> */}
         
         <div className='options-box'>
-          <div>
-            <select onChange={(e)=> this.handleVotesChange(e.target.value)}>
-              <option value={1}>1</option>
-              <option value={2}>2</option>
-              <option value={3}>3</option>
-              <option value={4}>4</option>
-              <option value={5}>5</option>
-            </select>
-            <label>Number of votes per user</label>
+        <div className='user-votes'>
+            <label>Votes Per User</label>
+        <div className='select'>
+          <select onChange={(e)=> this.handleVotesChange(e.target.value)}>
+            <option value={1}>1</option>
+            <option value={2}>2</option>
+            <option value={3}>3</option>
+            <option value={4}>4</option>
+            <option value={5}>5</option>
+          </select>
+          <div className="select__arrow"></div>
           </div>
-
-          <div>
-          <input type="checkbox" checked={this.state.allowDownVotes} onChange={()=>this.handleChange('allowDownVotes')}/>
-          <label > Allow Down Votes</label>
           </div>
-
-          <div>
-          <input type="checkbox" checked={this.state.allowChat} onChange={()=>this.handleChange('allowChat')}/>
-          <label>Allow Chat</label>
-          </div>
+          <div className='inputGroup'>
+          <input id='allow-down-votes' type="checkbox" checked={this.state.allowDownVotes} onChange={()=>this.handleChange('allowDownVotes')}/>
+          <label htmlFor='allow-down-votes'> Allow Down Votes</label>
+        </div>
+        <div className='inputGroup' >               
+          <input id='allow-chat' type="checkbox" checked={this.state.allowChat} onChange={()=>this.handleChange('allowChat')}/>
+          <label htmlFor='allow-chat' >Allow Chat</label>
+          </div>  
 
         </div>
 
