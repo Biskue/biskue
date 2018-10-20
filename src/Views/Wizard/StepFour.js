@@ -88,6 +88,8 @@ class StepFour extends Component {
       const restaurantSearch = this.state.displaySearch === true ? <RestaurantFinder addRestaurant={this.addRestaurant}/> : null
 		return (
 			<div className="step-four">
+
+			<h2>REVIEW SELECTIONS (Step 4 of 5)</h2>
 				
 				<div className="next">
 					<Link to="/wizard/step-3">
@@ -107,10 +109,10 @@ class StepFour extends Component {
 				
 				
 				<div>
-					<div className='step-header'>
+					{/* <div className='step-header'>
 						<h2>Review Selections</h2>
 						<br /><h4>(Step 4 of 5)</h4>
-					</div>
+					</div> */}
           
 					<div>
             <button onClick={()=> this.showHideSearch()} className='search-button'>Add Restaurant</button>

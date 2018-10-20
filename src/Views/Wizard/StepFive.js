@@ -56,6 +56,8 @@ class StepFive extends Component {
     return (
       <div className='step-five'>
 
+        <h2>SELECT POLL SETTINGS (Step 5 of 5)</h2>
+
         <div className='next'>
           <Link to='/wizard/step-4'>
           <button>&larr;</button>
@@ -63,10 +65,10 @@ class StepFive extends Component {
           <button onClick={()=> this.createPoll()} id='done-button'>Done</button>
         </div>
 
-        <div classname='step-header'>
+        {/* <div classname='step-header'>
           <h2>Select Poll Settings</h2>
           <h4>(Step 5 of 5)</h4>
-        </div>
+        </div> */}
         
         <div className='options-box'>
           <div>

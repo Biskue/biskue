@@ -115,6 +115,7 @@ class StepOne extends Component {
 		return (
 			<div className='step-one'>
 
+				<h2> WHEN AND WHERE (Step 1 of 5)</h2>
 				<div className='next'>
 					{nextButton}
 				</div>
@@ -122,10 +123,10 @@ class StepOne extends Component {
 				
 				<div className='when-and-where'>
 
-				<div className='step-header'>
+				{/* <div className='step-header'>
 					<h2> WHEN AND WHERE </h2>
 					<br /><h4>(Step 1 of 5)</h4>
-				</div>
+				</div> */}
 				
 				<div className='location'>
 				<div className='location-button-container' style={{display: 'flex'}}>

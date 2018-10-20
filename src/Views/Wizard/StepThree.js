@@ -70,10 +70,10 @@ class StepThree extends Component {
 					{doneButton}
 				</div>
 				
-				<div className='step-header'>
+				{/* <div className='step-header'>
 					<h2>Select Restaurants to add to Poll</h2>
 					<b4 /><h4>(Step 3 of 5)</h4>
-				</div>
+				</div> */}
 
 
 				<div className='selected-list'>
