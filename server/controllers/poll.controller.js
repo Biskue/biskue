@@ -29,7 +29,10 @@ module.exports = {
 		});
 	},
   getPoll: (req, res) => {
-    const { pollID } = req.params;
+		const { pollID } = req.params;
+		if (req.session.user.username) {
+			req.db.join_poll(pollID, req.session.user.username)
+		}
 		req.db.get_poll(pollID)
 			.then(result => res.status(200).send(result))
 			.catch(err => {
