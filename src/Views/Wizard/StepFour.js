@@ -87,10 +87,8 @@ class StepFour extends Component {
       ) : null;
       const restaurantSearch = this.state.displaySearch === true ? <RestaurantFinder addRestaurant={this.addRestaurant}/> : null
 		return (
-			<div className="step-four">
-
-			<h2>REVIEW SELECTIONS (Step 4 of 5)</h2>
-				
+			<div className="step-four slide-in-fwd-right">
+				<h2>REVIEW SELECTIONS (STEP 4 of 5)</h2>
 				<div className="next">
 					<Link to="/wizard/step-3">
 						<button>&larr;</button>
@@ -100,7 +98,7 @@ class StepFour extends Component {
 				
 				<div className='inputGroup check-favorites'>
 					<input id='favorites-box' type="checkbox" value={true} onChange={() => this.saveList()} />
-				<label htmlFor='favorites-box'>Save this List to Favorites?</label>
+				<label htmlFor='favorites-box'>Save this list for future polls?</label>
 				</div>
 				
 				<div>

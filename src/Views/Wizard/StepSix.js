@@ -5,7 +5,7 @@ import './StepSix.css';
  class StepSix extends Component {
   render() {
     return (
-      <div className='step-six'>
+      <div className='slide-in-fwd-right'>
         <h1>Poll Created!</h1>
         <div>
         <h2>Send This Link:</h2>

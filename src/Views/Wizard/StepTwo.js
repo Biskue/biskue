@@ -109,30 +109,26 @@ class StepTwo extends Component {
 				</div>
 			);
 		});
+		const nextButton= this.state.selected.length > 0 ? <Link to="/wizard/step-3">
+		<button id="next-button" onClick={() => this.saveCategoriesToState()}>Next</button>
+	</Link> : <div></div>
 		return (
-			<div className="step-two">
+			<div className="step-two slide-in-fwd-right">
 			<h2>SELECT CATEGORIES (STEP 2 of 5)</h2>
 				<div className="next">
 					<Link to="/wizard/step-1">
 						<button>&larr;</button>
 					</Link>
+					{nextButton}
 					
-					<Link to="/wizard/step-3">
-						<button onClick={() => this.saveCategoriesToState()}>&rarr;</button>
-					</Link>
 				</div>
-
-				{/* <div className='step-header'>
-					<h2>WHAT</h2>
-					<br /><h4>(Step 2 of 5)</h4>
-				</div> */}
-
+				<p>Choose some categories that interest you</p>
 				<h2>Selected Categories:</h2>
 				<div className='selected'>
 					{selected}
 				</div>
 				<hr />
-				<input type="text" onChange={(e) => this.filerCategories(e.target.value)} />
+				<input placeholder='Search for a category' type="text" onChange={(e) => this.filerCategories(e.target.value)} />
 				<div className='categories-list'>{categoriesList}</div>
 				{ this.state.displayToggle ? <div> {toggleCategories} </div> : null }
 			</div>
