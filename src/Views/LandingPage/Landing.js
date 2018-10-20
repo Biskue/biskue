@@ -45,15 +45,17 @@ export default class Landing extends Component {
     return (
       
       <div className="landing">
+
         <div className='biskue-logo'>
           <img src={biskue_top} alt="biskue logo" className='biskue-top'/>
         </div>
+        
         <div className='poll-buttons'>
           <div>
             <Link to='/wizard/step-1'>
               <button className='create-poll'>Start Poll</button>
             </Link>
-              <button onClick={()=> this.openModal()} className='create-poll'>Select poll from favorites</button>
+              <button onClick={()=> this.openModal()} className='create-poll'>Select Poll from Favorites</button>
             <button className='create-poll' onClick={()=> this.joinPoll()}>Join Poll</button>
           </div>
           <Modal

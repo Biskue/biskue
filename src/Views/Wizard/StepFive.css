@@ -1,0 +1,38 @@
+select {
+    margin-right: 20px;
+}
+
+.step-five{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.step-five > .next {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+}
+
+.options-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 40px 0px;
+}
+
+.options-box > div {
+    margin-bottom: 20px;
+}
+
+#done-button {
+    line-height: 10px;
+    font-size: 13px;
+    margin: 0;
+}

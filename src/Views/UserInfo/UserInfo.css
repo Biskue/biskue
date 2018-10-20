@@ -5,6 +5,7 @@
 .profile-picture{
     height: 75px;
     width: 75px;
+    margin: 20px;
 }
 .personal-info{
     display: flex;
@@ -12,6 +13,12 @@
     flex-direction: column;
     justify-content: center;
 }
+
+.info-fields {
+    margin-top: 10px;
+    line-height: 20px;
+}
+
 #bold{
     font-weight: bold;
     font-size: 1.15em
@@ -19,31 +26,67 @@
 .personal-info-header{
     font-weight: bolder;
     font-size: 25px;
-    margin-bottom: 20px 
 }
 .user-info-container{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 20px;
 }
+
+.personal-info-container button {
+    margin: auto;
+    margin-top: 10px;
+}
+
 .favs-container, .personal-info-container{
     background-color: #eeefea8e;
-    border: 3px solid #438a59;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     margin: 15px;
     padding: 15px;
-    width: 50%
+    width: 50%;
+    border-radius: 15px;
 }
+
+.favs-container:hover {
+    background-color: #fffffff8;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+
+.personal-info-container:hover {
+    background-color: #fffffff8;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
 .delete-button{
     margin-top: 10px
 }
+
 .list-names{
     text-decoration: underline;
     margin: 10px;
     cursor: pointer;
 }
+
 .list-names:hover{
+<<<<<<< HEAD
+    color: #5ca874;
+}
+
+.password-button {
+    margin-top: 10px;
+}
+
+.password-button button {
+    background-color: #ffcf1f;
+}
+
+.password-button button:hover {
+    background-color: #e2b40b;
+=======
     color: #76cbff
+>>>>>>> master
 }

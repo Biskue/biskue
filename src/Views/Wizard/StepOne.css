@@ -2,6 +2,11 @@
 
 h2 {
     font-size: 20px;
+    align-self: center;
+}
+
+hr {
+  margin-bottom: 20px;
 }
 
 
@@ -21,7 +26,7 @@ input[type=checkbox] {
 }
 
 input[type=radio] {
-    margin: 35px 0px 10px 10px;
+    margin: 10px 0px 10px 10px;
 }
  
 button {
@@ -46,19 +51,8 @@ button {
 }
 
 .step-one > .next {
-    display: flex;
-    justify-content: space-between;
-    width: 90%
+    justify-content: flex-end;
 }
-
-#next-button {
-    background-color: #ffcf1f;
-}
-
-#next-button:hover {
-    background-color: #e2b40b;
-}
-
 
 .location {
     display: flex;
@@ -66,7 +60,8 @@ button {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    margin-bottom: 0px;
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 .location > button {
@@ -86,22 +81,8 @@ button {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-bottom:0px;
-}
-.distance-header{
-    margin: 0px;
-    text-decoration: underline;
-    font-weight: bold
-}
-.slider{
-    margin: 10px
-}
-.search-button{
-    margin: 0px 5px;
-    
-}
-#search-bar{
-    margin: 0px
+    margin-bottom: 20px;
+    height: 70px;
 }
 .price-range {
     display: flex;
@@ -110,10 +91,7 @@ button {
     align-content: center;
     width: 100%;
     padding: 0px 15px;
-    margin:  10px;
-}
-.checkbox-radio{
-    width: 80%
+    margin: 30px 0px;
 }
 
 .price-range > div {
@@ -140,7 +118,7 @@ button {
 
 .date-selector {
     margin: 0;
-    height: 100%;
+    height: 200%;
     min-height: 100%;
 }
 
@@ -148,6 +126,7 @@ button {
     align-content: center;
     justify-content: center;
 }
+
 .location-button{
     margin: 10px;
 }
@@ -272,8 +251,10 @@ input[type=range]::-webkit-slider-thumb {
   .inputGroup label {
     padding: 12px 30px;
     width: 100%;
+    min-width: 100%;
     display: block;
     text-align: left;
+    border-radius: 15px;
     color: #3c454c;
     cursor: pointer;
     position: relative;
@@ -324,8 +305,8 @@ input[type=range]::-webkit-slider-thumb {
     opacity: 1;
   }
   .inputGroup input:checked ~ label:after {
-    background-color: #215732;
-    border-color: #215732;
+    background-color: #ffcf1f;
+    border-color: #e2b40b;
   }
   .inputGroup input {
     width: 32px;
@@ -340,7 +321,11 @@ input[type=range]::-webkit-slider-thumb {
     cursor: pointer;
     visibility: hidden;
   }
-  
+
+  .checkbox-radio {
+    width: 80%;
+  }
+
   .form {
     padding: 0 16px;
     max-width: 550px;
@@ -425,4 +410,8 @@ input[type=datetime-local] {
         width: 40%;
         margin-left: 30%
       }
+  }
+
+  .step-one > .poll-buttons {
+    padding: 0px;
   }
