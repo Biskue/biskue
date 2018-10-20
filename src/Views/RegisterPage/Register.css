@@ -9,7 +9,7 @@
 
 }
 
-.Register > .poll-buttons {
+.Register > .large-input-container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -25,16 +25,6 @@
     /* background-color: white; */
 }
 
-.input-container {
-    width: 45%;
-    height: 45%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 10px;
-    /* margin-right: auto; */
-}
 
 .input-container-two {
     width: 45%;
@@ -47,14 +37,12 @@
     /* margin-right: auto; */
 }
 
-
-
-
-.poll-buttons {
+.large-input-container {
 width: 80vw;
 height: 100%;
 margin-top: 50px;
 display: flex;
 flex-direction: row;
+margin-left: inherit;
 }
 
