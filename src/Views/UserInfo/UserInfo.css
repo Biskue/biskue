@@ -72,7 +72,6 @@
 }
 
 .list-names:hover{
-<<<<<<< HEAD
     color: #5ca874;
 }
 
@@ -86,7 +85,4 @@
 
 .password-button button:hover {
     background-color: #e2b40b;
-=======
-    color: #76cbff
->>>>>>> master
 }

@@ -33,7 +33,7 @@ class StepFive extends Component {
     this.setState({numberOfVotes: Number(number)})
   }
   createPoll(){
-    const url= 'http://localhost:3000/poll/'
+    const url= 'http://www.biskue.com/poll/'
     const randomString= uniqid()
     const pollSettings ={
       pollCode: randomString,
