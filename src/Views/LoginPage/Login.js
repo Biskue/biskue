@@ -57,15 +57,15 @@ class Login extends Component {
 
                 <div className="poll-buttons">
                     <div className="input-container">
-                        <label>Username</label>
-                        <br /><input onChange={this.handleChange} name="username" value={this.state.username} type="text" />
-                        <br /><label>Password</label>
-                        <br /><input onChange={this.handleChange} name="password" value={this.state.password} type="password" />
+                        
+                        <br /><input placeholder='Username' onChange={this.handleChange} name="username" value={this.state.username} type="text" />
+                        
+                        <br /><input placeholder='Password' onChange={this.handleChange} name="password" value={this.state.password} type="password" />
                     
 
                         <button className="create-poll" onClick={this.confirmUserInfo} id='login-buttons'>Login</button>
                         <Link to='/register'>
-                        <button className="create-poll" id='login-buttons'>Register</button>
+                            Need an account? Register!
                         </Link>
                     </div>
                 </div>
