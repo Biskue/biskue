@@ -9,16 +9,21 @@
 
 }
 
-.Register  input {
+.Register > .poll-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 40px 20px;
+}
+
+.Register input {
     width: 100%;
     height: 3vh;
     margin: 4% 0;
-    border: none;
     border-radius: 6px;
     font-size: 20px;
-    background-color: white;
+    /* background-color: white; */
 }
-
 
 .input-container {
     width: 45%;
@@ -27,7 +32,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    margin-right: auto;
+    padding: 10px;
+    /* margin-right: auto; */
 }
 
 .input-container-two {
@@ -37,7 +43,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    margin-right: auto;
+    padding: 10px;
+    /* margin-right: auto; */
 }
 
 

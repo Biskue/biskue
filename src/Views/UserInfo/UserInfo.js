@@ -113,7 +113,7 @@ export default class UserInfo extends Component {
 		const favoritesList = this.state.favorites.map((fav, index) => {
 			return (
 				<div key={index}>
-					<EditFavorites history ={this.props.history}/><button className='delete-button' onClick={() => this.deleteList(index, fav.id)}>delete</button>
+					<EditFavorites history ={this.props.history}/><button className='delete-button' onClick={() => this.deleteList(index, fav.id)}>Delete</button>
 				</div>
 			);
 		});

@@ -40,7 +40,8 @@
     border: none;
     border-radius: 6px;
     font-size: 20px;
-    background-color: aliceblue;
+    background-color: rgb(253, 254, 255);
+    
 }
 
 #login-buttons {
