@@ -1,6 +1,6 @@
-select {
+/* select {
     margin-right: 20px;
-}
+} */
 
 .step-five{
     display: flex;
@@ -25,10 +25,12 @@ select {
     align-items: center;
     flex-wrap: wrap;
     margin: 40px 0px;
+    width: 280px;
 }
 
 .options-box > div {
     margin-bottom: 20px;
+    width: 250px;
 }
 
 #done-button {
@@ -36,3 +38,60 @@ select {
     font-size: 13px;
     margin: 0;
 }
+
+.select {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  .select select {
+    display: inline-block;
+    width: 100px;
+    cursor: pointer;
+    padding: 10px 15px;
+    outline: 0;
+    border: solid 3px #76cbff;
+    border-radius: 0;
+    background: white;
+    color: black;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+  .select select::-ms-expand {
+    display: none;
+  }
+  .select select:hover,
+  .select select:focus {
+    color: #000;
+    background: white;
+  }
+  .select select:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+  .select__arrow {
+    position: absolute;
+    top: 16px;
+    right: 52px;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    border-style: solid;
+    border-width: 8px 5px 0 5px;
+    border-color: #215732 transparent transparent transparent;
+  }
+  .select select:hover ~ .select__arrow,
+  .select select:focus ~ .select__arrow {
+    border-top-color: #215732;
+  }
+  .select select:disabled ~ .select__arrow {
+    border-top-color: #ccc;
+  }
+  .user-votes{
+      display: flex;
+      margin-left: auto;
+      justify-content: center;
+      align-content: center;
+  }

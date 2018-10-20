@@ -69,7 +69,9 @@ class StepFive extends Component {
         </div> */}
         
         <div className='options-box'>
-          <div>
+          <div className='user-votes'>
+            <label>Votes Per User</label>
+            <div className='select'>
             <select onChange={(e)=> this.handleVotesChange(e.target.value)}>
               <option value={1}>1</option>
               <option value={2}>2</option>
@@ -77,15 +79,16 @@ class StepFive extends Component {
               <option value={4}>4</option>
               <option value={5}>5</option>
             </select>
-            <label>Number of votes per user</label>
+            <div className="select__arrow"></div>
+          </div>
           </div>
 
-          <div>
+          <div className='inputGroup'>
           <input type="checkbox" checked={this.state.allowDownVotes} onChange={()=>this.handleChange('allowDownVotes')}/>
           <label > Allow Down Votes</label>
           </div>
 
-          <div>
+          <div className='inputGroup'>
           <input type="checkbox" checked={this.state.allowChat} onChange={()=>this.handleChange('allowChat')}/>
           <label>Allow Chat</label>
           </div>

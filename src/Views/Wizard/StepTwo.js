@@ -110,7 +110,7 @@ class StepTwo extends Component {
 			);
 		});
 		const nextButton= this.state.selected.length > 0 ? <Link to="/wizard/step-3">
-		<button id="next-button" onClick={() => this.saveCategoriesToState()}>Next</button>
+		<button id="next-button" onClick={() => this.saveCategoriesToState()}>&rarr;</button>
 	</Link> : <div></div>
 		return (
 			<div className="step-two slide-in-fwd-right">
