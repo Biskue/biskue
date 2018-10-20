@@ -54,7 +54,7 @@ class NavBar extends Component {
             <span onClick={this.login}>Login</span>
           )
       }
-      {this.props.loggedIn? <Link to='/user-info'><span>Account Info</span> </Link> : null} 
+      {this.props.loggedIn? <Link to='/user-info'><span>Account</span> </Link> : null} 
       </div>
       </div>
     )

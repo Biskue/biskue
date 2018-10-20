@@ -6,6 +6,7 @@ import axios from 'axios';
 import RestaurantCard from './RestaurantCard';
 import RestaurantFinder from './RestaurantFinder';
 import './StepThree.css';
+import removeImage from '../../removeImage.png'
 
 class StepThree extends Component {
 	constructor(props) {
@@ -46,29 +47,32 @@ class StepThree extends Component {
 		this.setState({selected})
 	}
 	render() {
+		const restaurantId = this.state.selected.map(rest=> rest.id)
 		const restaurantsList = this.state.restaurants.map((restaurant, index) => {
-			return <RestaurantCard className='restaurant-card' key={index} addRestaurant={this.addRestaurant} currentRes={restaurant} />;
+			return <RestaurantCard selected={restaurantId.includes(restaurant.id)} className='restaurant-card' key={index} addRestaurant={this.addRestaurant} currentRes={restaurant} />;
 		});
 		const doneButton =
 			this.state.selected.length > 0 ? (
 				<Link to="/wizard/step-4">
-					<button onClick={()=> this.props.saveStepThree(this.state.selected)}>Done</button>
+					<button onClick={()=> this.props.saveStepThree(this.state.selected)} id="next-button">Next</button>
 				</Link>
-      ) : null;
+      ) : <div></div>;
 		const restaurantSearch = this.state.displaySearch === true ? <RestaurantFinder addRestaurant={this.addRestaurant}/> : null
-	const selectedRestaurants = this.state.selected.map((rest, index)=> {return (<div key={index}>{rest.name} <span className='remove' onClick={this.removeRestaurant}>Remove</span> </div>)})
+	const selectedRestaurants = this.state.selected.map((rest, index)=> {return (<div key={index}>{rest.name} <img className='remove' src={removeImage} alt="delte" onClick={this.removeRestaurant}/></div>)})
 		return (
 			<div className="step-three">
+			<h2>ADD RESTAURANTS (STEP 3 of 5)</h2>
 				<div className="next">
         	<Link to='/wizard/step-2'>
-        	<button>Previous</button>
+        	<button id="next-button">Previous</button>
         	</Link>
+					
 					{doneButton}
 				</div>
 				
 					{this.state.selected.length > 0 ?<div> <h2>Selected Restaurants</h2> {selectedRestaurants} </div> :null}
 				
-				<h2>Select Restaurants to add to Poll</h2>
+			
         <button onClick= {()=>this.showHideSearch()}>{this.state.displaySearch? "Hide Search": "Search for a Specific Restaurant"}</button>
         {restaurantSearch}
         

@@ -52,9 +52,18 @@ class StepFive extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>Select Poll Settings</h1>
-        <div>
+      <div className='step-four'>
+        <h2>POLL SETTINGS (STEP 5 of 5)</h2>
+        <div className='next'>
+        <Link to='/wizard/step-4'>
+          <button id="next-button" >back</button>
+          </Link>
+          <div></div>
+          </div>
+          <div className='step-five'>
+            <div className='user-votes'>
+            <label>Votes Per User</label>
+        <div className='select'>
           <select onChange={(e)=> this.handleVotesChange(e.target.value)}>
             <option value={1}>1</option>
             <option value={2}>2</option>
@@ -62,21 +71,23 @@ class StepFive extends Component {
             <option value={4}>4</option>
             <option value={5}>5</option>
           </select>
-          <label>Number of votes per user</label>
-          <div>
-          <input type="checkbox" checked={this.state.allowDownVotes} onChange={()=>this.handleChange('allowDownVotes')}/>
-          <label > Allow Down Votes</label>
+          <div className="select__arrow"></div>
+          </div>
+          
+          </div>
+          
+          <div className='inputGroup'>
+          <input id='allow-down-votes' type="checkbox" checked={this.state.allowDownVotes} onChange={()=>this.handleChange('allowDownVotes')}/>
+          <label htmlFor='allow-down-votes'> Allow Down Votes</label>
         </div>
-        <div>               
-          <input type="checkbox" checked={this.state.allowChat} onChange={()=>this.handleChange('allowChat')}/>
-          <label>Allow Chat</label>
+        <div className='inputGroup' >               
+          <input id='allow-chat' type="checkbox" checked={this.state.allowChat} onChange={()=>this.handleChange('allowChat')}/>
+          <label htmlFor='allow-chat' >Allow Chat</label>
           </div>   
         </div>
         <div>
-          <Link to='/wizard/step-4'>
-          <button>back</button>
-          </Link>
-          <button onClick={()=> this.createPoll()}>Done</button>
+         
+          <button id="next-button" onClick={()=> this.createPoll()}>Done</button>
         </div>
       </div>
     )
