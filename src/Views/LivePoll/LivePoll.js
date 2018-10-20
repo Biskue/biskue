@@ -9,7 +9,7 @@ import Chat from './Chat';
 import './LivePoll.css'
 import CurrentUsers from './CurrentUsers';
 
-const socket = socketIOClient('http://localhost:4005/', {
+const socket = socketIOClient('/', {
 	extraHeaders: { 'Access-Control-Allow-Credentials': 'omit' }
 });
 
