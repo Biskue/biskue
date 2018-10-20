@@ -243,8 +243,9 @@ export default class LivePoll extends Component {
 		);
 	}
 	saveUsername() {
-		axios.post(`/poll/join/${this.state.restaurants[0].pollId}`, { username: this.state.username }).then(() => {
-			socket.emit('newUser', this.state.username, this.state.pollCode);
+		const guestUserName = this.state.username + '(GUEST)'
+		axios.post(`/poll/join/${this.state.restaurants[0].pollId}`, { username: guestUserName }).then(() => {
+			socket.emit('newUser', guestUserName, this.state.pollCode);
 			this.setState({ modalIsOpen: false });
 		});
 	}
