@@ -106,15 +106,15 @@ export default class LivePoll extends Component {
 		});
 
 		socket.on('closePoll', () => {
-            if(this.state.userId){
-            this.props.history.push(`/winner/${this.state.pollCode}`);
-            }
-            else{
-                axios.post('/auth/logout').then(()=>{
-                    this.props.history.push(`/winner/${this.state.pollCode}`)
-                })
-            }
-        });
+			if(this.state.userId){
+			this.props.history.push(`/winner/${this.state.pollCode}`);
+			}
+			else{
+				axios.post('/auth/logout').then(()=>{
+					this.props.history.push(`/winner/${this.state.pollCode}`)
+				})
+			}
+		});
 	}
 
 	handleChange(event, name) {
