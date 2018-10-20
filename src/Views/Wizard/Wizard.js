@@ -16,7 +16,7 @@ export default () => {
     <div className='wizard-routes-container'>
       <h1>Create Poll</h1>
       
-      <div className='poll-buttons slide-in-fwd-right'>
+      <div className='poll-buttons slide-in-fwd-right' id='wizard-container'>
       <Route path= '/wizard/step-1' component ={StepOne}/>
       <Route path= '/wizard/step-2' component ={StepTwo} />
       <Route path= '/wizard/step-3' component ={StepThree} />
