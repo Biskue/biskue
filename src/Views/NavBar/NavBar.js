@@ -30,6 +30,7 @@ class NavBar extends Component {
       this.setState({
         user: '',
       })
+      this.props.history.push('/')
     })
   }
 
