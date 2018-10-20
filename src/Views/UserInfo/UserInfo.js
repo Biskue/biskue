@@ -43,13 +43,7 @@ export default class UserInfo extends Component {
 		}
 		this.setState({ editInfo: true });
 	}
-	deleteList(index, id) {
-		const favorites = this.state.favorites;
-		favorites.splice(index, 1);
-		axios.delete('/lists/delete/' + id).then(() => {
-			this.setState({ favorites });
-		});
-	}
+	
 	saveChanges(id) {
 		const user = {
 			username: this.state.username,
@@ -110,13 +104,7 @@ export default class UserInfo extends Component {
 		const saveChanges = this.state.editInfo ? (
 			<button onClick={() => this.saveChanges(this.state.id)}>Save Changes</button>
 		) : null;
-		const favoritesList = this.state.favorites.map((fav, index) => {
-			return (
-				<div key={index}>
-					<EditFavorites history ={this.props.history}/><button className='delete-button' onClick={() => this.deleteList(index, fav.id)}>delete</button>
-				</div>
-			);
-		});
+		
 		const loading = this.state.loading ? (
 			'Loading...'
 		) : (
@@ -185,7 +173,7 @@ export default class UserInfo extends Component {
 				{loading}
 				<div className="favs-container">
 					<h2 className="personal-info-header">Favorites Lists</h2>
-					{favoritesList}
+					<EditFavorites deleteList={true} history ={this.props.history}/>
 				</div>
         <div>
           {changePassword}

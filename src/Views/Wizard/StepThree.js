@@ -14,7 +14,8 @@ class StepThree extends Component {
 		this.state = {
 			restaurants: [],
       selected: [],
-      displaySearch: false,
+			displaySearch: false,
+			loading: true,
 		};
 	}
 	componentWillMount() {
@@ -24,7 +25,7 @@ class StepThree extends Component {
 			.get(
 				`/poll/search?latitude=${latitude}&longitude=${longitude}&radius=${radius}&open_at=${date}&categories=${categories}&price=${priceRange}`
 			)
-      .then((results) => this.setState({ restaurants: results.data.businesses }));
+      .then((results) => this.setState({ restaurants: results.data.businesses, loading: false }));
       if(this.props.PollItems){
         this.setState({selected: this.props.PollItems})
       }}else{this.props.history.push('/wizard/step-1')}
@@ -59,8 +60,9 @@ class StepThree extends Component {
       ) : <div></div>;
 		const restaurantSearch = this.state.displaySearch === true ? <RestaurantFinder addRestaurant={this.addRestaurant}/> : null
 	const selectedRestaurants = this.state.selected.map((rest, index)=> {return (<div key={index}>{rest.name} <img className='remove' src={removeImage} alt="delte" onClick={this.removeRestaurant}/></div>)})
-		return (
-			<div className="step-three">
+		return this.state.loading? <div>Loading...</div> : ( 
+			<div className="step-three slide-in-fwd-right">
+				
 			<h2>ADD RESTAURANTS (STEP 3 of 5)</h2>
 				<div className="next">
         	<Link to='/wizard/step-2'>
@@ -79,6 +81,8 @@ class StepThree extends Component {
 				<div className='restaurants-list'>
         {restaurantsList}
         </div>
+				
+		
 			</div>
 		);
 	}

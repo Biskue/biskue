@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
  class StepSix extends Component {
   render() {
     return (
-      <div>
+      <div className='slide-in-fwd-right'>
         <h1>Poll Created!</h1>
         <div>
         <h2>Send This Link:</h2>

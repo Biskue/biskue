@@ -52,7 +52,7 @@ class StepFive extends Component {
   }
   render() {
     return (
-      <div className='step-four'>
+      <div className='step-four slide-in-fwd-right'>
         <h2>POLL SETTINGS (STEP 5 of 5)</h2>
         <div className='next'>
         <Link to='/wizard/step-4'>
