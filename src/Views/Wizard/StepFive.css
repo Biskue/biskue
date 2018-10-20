@@ -14,8 +14,8 @@ select {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0px 20px;
-    width: 100%;
+    width: 90%;
+    margin: auto;
 }
 
 .options-box {
