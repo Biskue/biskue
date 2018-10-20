@@ -41,6 +41,7 @@ export default class LivePoll extends Component {
 			tieOptions: [],
 			allowChat: false,
 			allowDownVote: false,
+			loggedIn: false,
 		};
 	}
 	componentWillMount() {
@@ -70,7 +71,7 @@ export default class LivePoll extends Component {
 			.get('/auth/login')
 			.then((res) => {
 				if (res.data.id) {
-					this.setState({ userId: res.data.id });
+					this.setState({ userId: res.data.id,  loggedIn: true});
 				}
 			})
 			.catch((err) => {
@@ -105,6 +106,7 @@ export default class LivePoll extends Component {
 		});
 
 		socket.on('closePoll', () => {
+<<<<<<< HEAD
 			if(this.state.userId){
 			this.props.history.push(`/winner/${this.state.pollCode}`);
 			}
@@ -114,6 +116,17 @@ export default class LivePoll extends Component {
 				})
 			}
 		});
+=======
+            if(this.state.userId){
+            this.props.history.push(`/winner/${this.state.pollCode}`);
+            }
+            else{
+                axios.post('/auth/logout').then(()=>{
+                    this.props.history.push(`/winner/${this.state.pollCode}`)
+                })
+            }
+        });
+>>>>>>> master
 	}
 
 	handleChange(event, name) {
@@ -214,7 +227,6 @@ export default class LivePoll extends Component {
 				</div>
 				<Modal
 					isOpen={this.state.modalIsOpen}
-					onRequestClose={() => this.saveUsername()}
 					contentLabel="Import Modal"
 					style={customStyles}
 				>
@@ -224,7 +236,6 @@ export default class LivePoll extends Component {
 				</Modal>
 				<Modal
 					isOpen={this.state.outOfVotes}
-					onRequestClose={() => this.saveUsername()}
 					contentLabel="Import Modal"
 					style={customStyles}
 				>
@@ -233,7 +244,6 @@ export default class LivePoll extends Component {
 				</Modal>
 				<Modal
 					isOpen={this.state.tiebreaker}
-					onRequestClose={() => this.saveUsername()}
 					contentLabel="Import Modal"
 					style={customStyles}
 				>
@@ -245,9 +255,8 @@ export default class LivePoll extends Component {
 		);
 	}
 	saveUsername() {
-		socket.emit('newUser', this.state.username, this.state.pollCode);
-		console.log(this.state.restaurants[0].pollId);
 		axios.post(`/poll/join/${this.state.restaurants[0].pollId}`, { username: this.state.username }).then(() => {
+			socket.emit('newUser', this.state.username, this.state.pollCode);
 			this.setState({ modalIsOpen: false });
 		});
 	}

@@ -1,29 +1,33 @@
 @import url('https://fonts.googleapis.com/css?family=Mukta|Roboto');
 
+a {
+    color: black;
+    text-decoration: none;
+}
+
 .navbar {
     display: flex;
-    padding: 10px;
     justify-content: space-between;
-    /* background: transparent; */
     background-color: #215732;
-    /* overflow: hidden; */
     height: 60px;
-    color: black;
-    opacity: 0.95;
-
+    width: 100vw;
+    max-width: 100vw;
 }
 
 .navbar span {
-    justify-content: flex-end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     float: right;
     color: white;
     text-align: center;
     text-decoration: none;
     font-size: 18px;
     line-height: 60px;
-    padding: 0px 30px;
+    padding: 0px 15px;
     background-color: #215732;
-    width: 150px;
+    width: 100px;
+    margin: auto;
 }
 
 .navbar span:hover {
@@ -33,21 +37,19 @@
 }
 
 .navbar-logo {
-    height: 50px;
+    height: 57px;
     float: left;
+    margin-left: 20px;
     
 }
 
-a {
-    color: black;
-    text-decoration: none;
-}
 .buttons-container{
     display: flex;
     flex-direction: row-reverse;
     width: 20%;
     align-items: center;
     justify-content: center;
-    margin-right: 30px 
+    margin: 0;
+    height: 60px;
 }
 

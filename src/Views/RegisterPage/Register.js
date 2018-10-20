@@ -61,11 +61,15 @@ class Register extends Component {
       ) : null;
     return (
       <div>
+        <div className="biskue-logo">
+          <img src={biskue_top} alt="biskue logo" className="biskue-top" />
+        </div>
+
+
         <div className="Register">
-          <div className="biskue-logo">
-            <img src={biskue_top} alt="biskue logo" className="biskue-top" />
-          </div>
+
           <div className="poll-buttons">
+
             <div className="input-container">
               <input
                 onChange={this.handleChange}
@@ -92,6 +96,7 @@ class Register extends Component {
               />
              
             </div>
+
             <div className="input-container-two">
                 <input
                 onChange={this.handleChange}
@@ -120,6 +125,7 @@ class Register extends Component {
             </div>
             {passwordMatch}
           </div>
+
         </div>
       </div>
     );

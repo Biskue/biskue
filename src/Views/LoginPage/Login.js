@@ -54,19 +54,20 @@ class Login extends Component {
                 <div className='biskue-logo'>
                     <img src={biskue_top} alt="biskue logo" className='biskue-top'/>
                 </div>
+
                 <div className="poll-buttons">
                     <div className="input-container">
-                        <label>Username:</label>
-                        <input onChange={this.handleChange} name="username" value={this.state.username} type="text" />
-                        <label>Password:</label>
-                        <input onChange={this.handleChange} name="password" value={this.state.password} type="password" />
+                        <label>Username</label>
+                        <br /><input onChange={this.handleChange} name="username" value={this.state.username} type="text" />
+                        <br /><label>Password</label>
+                        <br /><input onChange={this.handleChange} name="password" value={this.state.password} type="password" />
+                    
+
+                        <button className="create-poll" onClick={this.confirmUserInfo} id='login-buttons'>Login</button>
+                        <Link to='/register'>
+                        <button className="create-poll" id='login-buttons'>Register</button>
+                        </Link>
                     </div>
-
-                    <button className="create-poll" onClick={this.confirmUserInfo}>Login</button>
-                    <Link to='/register'>
-                    <button className="create-poll" >Register</button>
-                    </Link>
-
                 </div>
             </div>
         );

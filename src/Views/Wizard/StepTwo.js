@@ -117,7 +117,7 @@ class StepTwo extends Component {
 			<h2>SELECT CATEGORIES (STEP 2 of 5)</h2>
 				<div className="next">
 					<Link to="/wizard/step-1">
-						<button id="next-button">Previous</button>
+						<button>&larr;</button>
 					</Link>
 					{nextButton}
 					

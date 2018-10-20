@@ -109,19 +109,24 @@ class StepOne extends Component {
 		const nextButton =
 			this.state.latitude != null && this.state.longitude != null ? (
 				<Link to="/wizard/step-2">
-					<button onClick={() => this.saveWhereToState()} id="next-button">Next</button>
+					<button onClick={() => this.saveWhereToState()} id="next-button">&rarr;</button>
 				</Link>
 			) : null;
 		return (
 			<div className='step-one slide-in-fwd-right'>
 				<h2> WHEN AND WHERE (Step 1 of 5)</h2>
 				<div className='next'>
-				<div></div>
-			
 					{nextButton}
 				</div>
-
+					
+				
 				<div className='when-and-where'>
+
+				{/* <div className='step-header'>
+					<h2> WHEN AND WHERE </h2>
+					<br /><h4>(Step 1 of 5)</h4>
+				</div> */}
+				
 				<div className='location'>
 				<div className='location-button-container' style={{display: 'flex'}}>
 					<button className='location-button' onClick={()=> this.showSearch()}>Search a location</button>
@@ -129,23 +134,24 @@ class StepOne extends Component {
 					</div>
 					
 					{this.state.showSearch || this.state.address !== ''?(
-						<div className='location-search-container'>
-						<input
-							id='search-bar'
-							type="text"
-							placeholder="Enter City and State or Zip"
-							onChange={(e) => this.handleChange(e, 'address')}
-							value={this.state.address}
-							/>
-						<button className='search-button' onClick={() => this.saveLatLong(this.state.address)}>Search</button>
+						  <div className='location-search-container'>
+						  <input
+						  	id='search-bar'
+						  	type="text"
+						  	placeholder="Enter City and State or Zip"
+						  	onChange={(e) => this.handleChange(e, 'address')}
+						  	value={this.state.address}
+						  	/>
+						  <button 
+						  	className='search-button' 
+						  	onClick={() => this.saveLatLong(this.state.address)}>Search
+						  </button>
 						</div>
-					)
-						: null
-		}
+					) : null }
 				</div>
 				<hr/>
 
-				<h2 className='distance-header'>Distance:</h2>
+				<h2 className='distance-header'>Distance</h2>
 				<div className='distance'>
 					<input
 						className='slider'
@@ -160,7 +166,7 @@ class StepOne extends Component {
 				</div>
 				<hr/>
 
-				<h2 className='distance-header'>Price Range:</h2>
+				<h2 className='distance-header'>Price Range</h2>
 				<div className='price-range'>
 					<div className='inputGroup'> 
 						<input
@@ -217,7 +223,7 @@ class StepOne extends Component {
 				</div>
 					<hr/>
 
-				<h2 className='distance-header'>Show Restaurants:</h2>
+				<h2 className='distance-header'>Show Restaurants</h2>
 				<div className="show-restaurants">
 					<div className='inputGroup checkbox-radio'>
 						<input

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import './StepSix.css';
 
  class StepSix extends Component {
   render() {

@@ -21,9 +21,10 @@ export default class Chat extends Component {
         });
       })
       .catch(err => console.warn(err))
+    }
     
-    const { socket } = this.props
-    socket.on('newMessage', (username, message) => {
+  componentDidMount() {
+    this.props.socket.on('newMessage', (username, message) => {
       let chat = this.state.chatContent;
       chat.push({username, message});
       this.setState({

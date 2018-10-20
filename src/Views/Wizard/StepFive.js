@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import uniqid from 'uniqid'
-import {connect} from 'react-redux'
 import * as Actions from '../../Redux/Actions/actions';
+
+import './StepFive.css';
 
 class StepFive extends Component {
   constructor(props){
@@ -55,40 +57,41 @@ class StepFive extends Component {
       <div className='step-four slide-in-fwd-right'>
         <h2>POLL SETTINGS (STEP 5 of 5)</h2>
         <div className='next'>
-        <Link to='/wizard/step-4'>
-          <button id="next-button" >back</button>
+          <Link to='/wizard/step-4'>
+          <button>&larr;</button>
           </Link>
-          <div></div>
-          </div>
-          <div className='step-five'>
-            <div className='user-votes'>
-            <label>Votes Per User</label>
-        <div className='select'>
-          <select onChange={(e)=> this.handleVotesChange(e.target.value)}>
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-            <option value={3}>3</option>
-            <option value={4}>4</option>
-            <option value={5}>5</option>
-          </select>
-          <div className="select__arrow"></div>
-          </div>
-          
-          </div>
-          
-          <div className='inputGroup'>
-          <input id='allow-down-votes' type="checkbox" checked={this.state.allowDownVotes} onChange={()=>this.handleChange('allowDownVotes')}/>
-          <label htmlFor='allow-down-votes'> Allow Down Votes</label>
+          <button onClick={()=> this.createPoll()} id='done-button'>Done</button>
         </div>
-        <div className='inputGroup' >               
-          <input id='allow-chat' type="checkbox" checked={this.state.allowChat} onChange={()=>this.handleChange('allowChat')}/>
-          <label htmlFor='allow-chat' >Allow Chat</label>
-          </div>   
+
+        {/* <div classname='step-header'>
+          <h2>Select Poll Settings</h2>
+          <h4>(Step 5 of 5)</h4>
+        </div> */}
+        
+        <div className='options-box'>
+          <div>
+            <select onChange={(e)=> this.handleVotesChange(e.target.value)}>
+              <option value={1}>1</option>
+              <option value={2}>2</option>
+              <option value={3}>3</option>
+              <option value={4}>4</option>
+              <option value={5}>5</option>
+            </select>
+            <label>Number of votes per user</label>
+          </div>
+
+          <div>
+          <input type="checkbox" checked={this.state.allowDownVotes} onChange={()=>this.handleChange('allowDownVotes')}/>
+          <label > Allow Down Votes</label>
+          </div>
+
+          <div>
+          <input type="checkbox" checked={this.state.allowChat} onChange={()=>this.handleChange('allowChat')}/>
+          <label>Allow Chat</label>
+          </div>
+
         </div>
-        <div>
-         
-          <button id="next-button" onClick={()=> this.createPoll()}>Done</button>
-        </div>
+
       </div>
     )
   }

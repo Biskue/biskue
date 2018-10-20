@@ -91,25 +91,32 @@ class StepFour extends Component {
 				<h2>REVIEW SELECTIONS (STEP 4 of 5)</h2>
 				<div className="next">
 					<Link to="/wizard/step-3">
-						<button id="next-button">Previous</button>
+						<button>&larr;</button>
 					</Link>
-					<button id="next-button" className='next-step' onClick={()=>this.ConfirmSettings()}>Next</button>
+					<button className='next-step' onClick={()=>this.ConfirmSettings()}>&rarr;</button>
 				</div>
+				
 				<div className='inputGroup check-favorites'>
 					<input id='favorites-box' type="checkbox" value={true} onChange={() => this.saveList()} />
 				<label htmlFor='favorites-box'>Save this list for future polls?</label>
 				</div>
+				
 				<div>
 				{listName}
 				</div>
 				
 				
 				<div>
-				
-          <div>
-            <button onClick={()=> this.showHideSearch()}>Add Restaurant</button>
+					{/* <div className='step-header'>
+						<h2>Review Selections</h2>
+						<br /><h4>(Step 4 of 5)</h4>
+					</div> */}
+          
+					<div>
+            <button onClick={()=> this.showHideSearch()} className='search-button'>Add Restaurant</button>
             <div>{restaurantSearch}</div>
           </div>
+
 					<div className='restaurants-list'>
 					{restaurantList}
 					</div>

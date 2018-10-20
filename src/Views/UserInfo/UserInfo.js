@@ -104,6 +104,13 @@ export default class UserInfo extends Component {
 		const saveChanges = this.state.editInfo ? (
 			<button onClick={() => this.saveChanges(this.state.id)}>Save Changes</button>
 		) : null;
+		const favoritesList = this.state.favorites.map((fav, index) => {
+			return (
+				<div key={index}>
+					<EditFavorites history ={this.props.history}/><button className='delete-button' onClick={() => this.deleteList(index, fav.id)}>Delete</button>
+				</div>
+			);
+		});
 		
 		const loading = this.state.loading ? (
 			'Loading...'
@@ -113,7 +120,7 @@ export default class UserInfo extends Component {
 
 				<div className="personal-info">
 					<img className="profile-picture" src={this.state.avatar} alt="avatar" />
-					<div>
+					<div className='info-fields'>
 						<div>
 							<b id="bold">Username: </b>
 							{username}
@@ -145,22 +152,22 @@ export default class UserInfo extends Component {
 				<input
 					placeholder="Current Password"
 					value={this.state.oldPassword}
-          type="password"
-          className='user-info'
+          			type="password"
+          			className='user-info'
 					onChange={(e) => this.handleChange(e, 'oldPassword')}
 				/>{' '}
 				<input
 					placeholder="New Password"
 					value={this.state.password}
-          type="password"
-          className='user-info'
+          			type="password"
+          			className='user-info'
 					onChange={(e) => this.handleChange(e, 'password')}
 				/>{' '}
 				<input
 					placeholder="Confirm New Password"
 					value={this.state.passwordConfirm}
-          type="password"
-          className='user-info'
+        			type="password"
+        			className='user-info'
 					onChange={(e) => this.handleChange(e, 'passwordConfirm')}
 				/>{' '}
 				<div>{savePassword}</div><button onClick={() => this.showHidePassword()}>cancel</button> 
@@ -170,14 +177,16 @@ export default class UserInfo extends Component {
 		);
 		return (
 			<div className="user-info-container">
-				{loading}
+					{loading}
+
 				<div className="favs-container">
 					<h2 className="personal-info-header">Favorites Lists</h2>
 					<EditFavorites deleteList={true} history ={this.props.history}/>
 				</div>
-        <div>
-          {changePassword}
-        </div>
+				
+        		<div className='password-button'>
+        		  {changePassword}
+        		</div>
 			</div>
 		);
 	}
