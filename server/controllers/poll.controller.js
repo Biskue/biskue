@@ -60,7 +60,7 @@ module.exports = {
 			const { latitude, longitude, term } = req.query;
 			axios.get(`${yelpBaseUrl}/search`, {
 				headers: { Authorization: `Bearer ${process.env.YELP_API_KEY}`},
-				params: { latitude, longitude, term, categories: 'restaurants', limit: 50, sort_by: 'distance' }
+				params: { latitude, longitude, term, categories: 'restaurants', limit: 5, sort_by: 'distance' }
 			})
 			.then(response => {
 				res.status(200).send(response.data);

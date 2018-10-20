@@ -97,7 +97,7 @@ class StepFour extends Component {
 				</div>
 				<div className='inputGroup check-favorites'>
 					<input id='favorites-box' type="checkbox" value={true} onChange={() => this.saveList()} />
-				<label htmlFor='favorites-box'>Save this List to Favorites?</label>
+				<label htmlFor='favorites-box'>Save this list for future polls?</label>
 				</div>
 				<div>
 				{listName}
