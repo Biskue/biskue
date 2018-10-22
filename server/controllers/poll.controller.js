@@ -30,11 +30,14 @@ module.exports = {
 	},
   getPoll: (req, res) => {
 		const { pollID } = req.params;
-		if (req.session.user.username) {
-			req.db.join_poll(pollID, req.session.user.username)
-		}
+	
 		req.db.get_poll(pollID)
-			.then(result => res.status(200).send(result))
+			.then(result => {
+				if (req.session.user) {
+					req.db.join_poll(result[0].pollId, req.session.user.username)
+					res.status(200).send(result)
+				}
+				else{ res.status(200).send(result)}})
 			.catch(err => {
 				console.error(err);
 				res.status(500).send({ error: err.message });
