@@ -27,8 +27,10 @@ class StepTwo extends Component {
 	}
 	selectCategory(category) {
 		const selectCategories = this.state.selected;
-		selectCategories.push(category);
-		this.setState({ selected: selectCategories });
+		if(!(selectCategories.find(cat => cat === category))) {
+			selectCategories.push(category);
+			this.setState({ selected: selectCategories });
+		}
 	}
 	removeCategory(index) {
 		const selected = this.state.selected;
