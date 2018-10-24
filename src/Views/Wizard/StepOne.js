@@ -129,8 +129,8 @@ class StepOne extends Component {
 				
 				<div className='location'>
 				<div className='location-button-container' style={{display: 'flex'}}>
-					<button className='location-button' onClick={()=> this.showSearch()}>Search a location</button>
-					<button className='location-button' onClick={this.getLocation}>Use Current Location</button>
+					<button className='location-button' id='location' onClick={()=> this.showSearch()}>Search a location</button>
+					<button className='location-button' id='location' onClick={this.getLocation}>Use Current Location</button>
 					</div>
 					
 					{this.state.showSearch || this.state.address !== ''?(

@@ -415,3 +415,8 @@ input[type=datetime-local] {
   .step-one > .poll-buttons {
     padding: 0px;
   }
+  @media (max-width: 450px){
+  #location{
+      height: 40px;
+  }
+}

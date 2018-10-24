@@ -39,7 +39,9 @@ class RestaurantFinder extends Component {
 			<div>
 				<input type="text" value={this.state.search} onChange={(e) => this.handleChange(e.target.value)} />
 				<button onClick={() => this.searchForRestaurant()}>Search</button>
-                {searchResults}
+				<div className='restaurants-list'>
+				{searchResults}
+				</div>
 			</div>
 		);
 	}
