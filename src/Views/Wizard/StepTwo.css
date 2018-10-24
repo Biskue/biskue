@@ -42,6 +42,10 @@ button {
     padding: 20px;
 }
 
+.optional {
+    font-style: oblique;
+}
+
 #remove-button {
     display: flex;
     flex-direction: row;
