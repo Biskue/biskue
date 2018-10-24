@@ -74,7 +74,12 @@ class StepTwo extends Component {
 		const titles = this.state.selected.map(category=> category.title)
 		const categories = this.state.selected.map((category) => category.alias);
 		const joinedCategories = categories.join(',');
-		this.props.saveStepTwo(joinedCategories, titles, this.state.selected);
+		if (this.state.selected.length > 0) {
+			this.props.saveStepTwo(joinedCategories, titles, this.state.selected);
+		} else {
+			const noCat = 'restaurants';
+			this.props.saveStepTwo(noCat, titles, this.state.selected);
+		}
 	}
 	toggleCategoriesDisplay() {
 		this.state.displayAll ?
@@ -111,9 +116,9 @@ class StepTwo extends Component {
 				</div>
 			);
 		});
-		const nextButton= this.state.selected.length > 0 ? <Link to="/wizard/step-3">
+		const nextButton= <Link to="/wizard/step-3">
 		<button id="next-button" onClick={() => this.saveCategoriesToState()}>Next</button>
-	</Link> : <div></div>
+	</Link>
 		return (
 			<div className="step-two slide-in-fwd-right">
 			<h2>SELECT CATEGORIES (STEP 2 of 5)</h2>
@@ -124,7 +129,7 @@ class StepTwo extends Component {
 					{nextButton}
 					
 				</div>
-				<p>Choose some categories that interest you</p>
+				<p>Select any categories that interest you <span className="optional">(optional)</span></p><br/>
 				<h2>Selected Categories:</h2>
 				<div className='selected'>
 					{selected}
