@@ -7,7 +7,7 @@ import  NavBar from './Views/NavBar/NavBar';
 
 import Routes from './Routes'
 
-class App extends Component {
+export class App extends Component {
   render() {
     return (
 
