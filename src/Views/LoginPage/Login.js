@@ -7,7 +7,7 @@ import * as Actions from '../../Redux/Actions/actions';
 import biskue_top from '../../../src/biskue_top.png';
 
 
-class Login extends Component {
+export class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -63,7 +63,7 @@ class Login extends Component {
                         <br /><input placeholder='Password' onChange={this.handleChange} name="password" value={this.state.password} type="password" />
                     
 
-                        <button className="create-poll" onClick={this.confirmUserInfo} id='login-buttons'>Login</button>
+                        <button className="create-poll"  onClick={this.confirmUserInfo} id='login-buttons'>Login</button>
                         <Link to='/register'>
                             Need an account? Register!
                         </Link>
