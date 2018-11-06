@@ -49,6 +49,10 @@ export default class Landing extends Component {
         <div className='biskue-logo'>
           <img src={biskue_top} alt="biskue logo" className='biskue-top'/>
         </div>
+        <div>
+          <p className='welcome'>Welcome to Biskue! The app designed to help groups decide where to eat.</p>
+        
+        </div>
         
         <div className='poll-buttons'>
           <div>
