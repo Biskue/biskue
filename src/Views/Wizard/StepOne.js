@@ -15,7 +15,7 @@ class StepOne extends Component {
 		this.state = {
 			address: '',
 			distance: 10,
-			priceRange: [],
+			priceRange: ['1'],
 			latitude: null,
 			longitude: null,
 			date: date.format(new Date(),`YYYY-MM-DD${'T'}HH:mm`),
